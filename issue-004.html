@@ -1,0 +1,830 @@
+Now I have enough research material to generate the complete HTML. Let me compose the full 7-article PRAXIS Issue 004.
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAXIS Issue 004 — 言語教育の研究と実践をつなぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F0E8;
+    --bg-secondary: #EDE7D8;
+    --bg-card: #F9F5EE;
+    --text-primary: #1A1612;
+    --text-secondary: #4A3F32;
+    --text-muted: #7A6A58;
+    --accent-1: #C85A1A;
+    --accent-2: #B84E12;
+    --accent-3: #D4691E;
+    --accent-4: #A04415;
+    --accent-5: #C06018;
+    --accent-6: #8B3A0F;
+    --accent-7: #B85C24;
+    --border-color: #D8CCBA;
+    --masthead-bg: #1A1612;
+    --masthead-text: #F5F0E8;
+    --tag-bg: #EDE7D8;
+    --gloss-bg: #EDE7D8;
+    --keybox-bg: #F0E8D8;
+    --plain-bg: #EBE3D0;
+    --editorial-bg: #F0E8D8;
+    --link-color: #C85A1A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #2C2318;
+      --bg-secondary: #352A1E;
+      --bg-card: #3A2D20;
+      --text-primary: #F5EDD8;
+      --text-secondary: #D8C8A8;
+      --text-muted: #A08868;
+      --accent-1: #E07840;
+      --accent-2: #D46830;
+      --accent-3: #E88048;
+      --accent-4: #C86030;
+      --accent-5: #D87038;
+      --accent-6: #C05820;
+      --accent-7: #D87840;
+      --border-color: #5A4535;
+      --masthead-bg: #1C1510;
+      --masthead-text: #F5EDD8;
+      --tag-bg: #3A2D20;
+      --gloss-bg: #3A2D20;
+      --keybox-bg: #3D2F22;
+      --plain-bg: #3A2D1E;
+      --editorial-bg: #3D2F22;
+      --link-color: #E07840;
+    }
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* ===== MASTHEAD ===== */
+  .masthead {
+    background-color: var(--masthead-bg);
+    color: var(--masthead-text);
+    padding: 36px 40px 28px;
+    border-bottom: 3px solid var(--accent-1);
+  }
+
+  .masthead-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+  }
+
+  .masthead-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 64px;
+    letter-spacing: -1px;
+    color: var(--masthead-text);
+    line-height: 1;
+  }
+
+  .masthead-logo span {
+    color: var(--accent-1);
+  }
+
+  .masthead-tagline {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+
+  .masthead-meta {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .masthead-meta strong {
+    display: block;
+    font-size: 13px;
+    color: var(--masthead-text);
+    margin-bottom: 4px;
+  }
+
+  /* ===== TOC ===== */
+  .toc-bar {
+    background-color: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 40px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .toc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .toc-item {
+    display: inline-block;
+    padding: 6px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-secondary);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .toc-item:hover {
+    background-color: var(--accent-1);
+    color: #fff;
+    border-color: var(--accent-1);
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  .main-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ===== ARTICLE CARD ===== */
+  .article {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    margin-bottom: 64px;
+    overflow: hidden;
+  }
+
+  .article-header {
+    padding: 32px 40px 24px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+  }
+
+  .article-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .article-number::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+  }
+
+  .article-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .article-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+
+  .article-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .article-body {
+    padding: 36px 40px;
+  }
+
+  /* ===== HEADINGS ===== */
+  .article h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--text-primary);
+    margin: 36px 0 14px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .article h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 24px 0 10px;
+  }
+
+  .article p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+  }
+
+  /* ===== KEY CONCEPT BOX ===== */
+  .keybox {
+    background-color: var(--keybox-bg);
+    border-left: 4px solid var(--accent-1);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+
+  .keybox-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .keybox-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .keybox-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--text-primary);
+  }
+
+  /* ===== PLAIN LANG BLOCK ===== */
+  .plain-lang {
+    background-color: var(--plain-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 22px 26px;
+    margin: 28px 0;
+    position: relative;
+  }
+
+  .plain-lang::before {
+    content: '平たく言えば';
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .plain-lang p {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 0;
+    font-weight: 500;
+  }
+
+  /* ===== INLINE GLOSS ===== */
+  .gloss {
+    background-color: var(--gloss-bg);
+    border-bottom: 1px dotted var(--accent-1);
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 0.92em;
+    color: var(--text-primary);
+    cursor: help;
+    position: relative;
+  }
+
+  /* ===== EDITORIAL COMMENT ===== */
+  .editorial {
+    background-color: var(--editorial-bg);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--accent-1);
+    border-radius: 0 0 4px 4px;
+    padding: 24px 30px;
+    margin-top: 32px;
+  }
+
+  .editorial-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .editorial p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* ===== SOURCES ===== */
+  .sources {
+    padding: 24px 40px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+  }
+
+  .sources-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .source-item {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.5;
+  }
+
+  .source-item a {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+
+  .source-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== SVG INFOGRAPHIC CONTAINER ===== */
+  .infographic-wrap {
+    margin: 32px 0;
+    overflow-x: auto;
+  }
+
+  .infographic-wrap svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* ===== ACCENT COLORS PER ARTICLE ===== */
+  .art-01 { --accent-art: #C85A1A; }
+  .art-02 { --accent-art: #B84E12; }
+  .art-03 { --accent-art: #D4691E; }
+  .art-04 { --accent-art: #A04415; }
+  .art-05 { --accent-art: #C06018; }
+  .art-06 { --accent-art: #8B3A0F; }
+  .art-07 { --accent-art: #B85C24; }
+
+  @media (prefers-color-scheme: dark) {
+    .art-01 { --accent-art: #E07840; }
+    .art-02 { --accent-art: #D46830; }
+    .art-03 { --accent-art: #E88048; }
+    .art-04 { --accent-art: #C86030; }
+    .art-05 { --accent-art: #D87038; }
+    .art-06 { --accent-art: #C05820; }
+    .art-07 { --accent-art: #D87840; }
+  }
+
+  .article-header { border-left: 5px solid var(--accent-art, var(--accent-1)); }
+
+  .article-tag { background-color: var(--accent-art, var(--accent-1)); color: #fff; }
+
+  .keybox { border-left-color: var(--accent-art, var(--accent-1)); }
+
+  .editorial { border-top-color: var(--accent-art, var(--accent-1)); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .masthead { padding: 24px 20px; }
+    .masthead-inner { grid-template-columns: 1fr; }
+    .masthead-logo { font-size: 44px; }
+    .masthead-meta { text-align: left; }
+    .toc-bar { padding: 12px 20px; }
+    .main-wrap { padding: 32px 20px; }
+    .article-header, .article-body { padding: 24px 20px; }
+    .sources { padding: 16px 20px; }
+    .article-title { font-size: 22px; }
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background-color: var(--masthead-bg);
+    color: var(--text-muted);
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    border-top: 2px solid var(--accent-1);
+  }
+
+  .site-footer strong {
+    color: var(--masthead-text);
+  }
+
+  /* pull quote */
+  .pull-quote {
+    border-left: 3px solid var(--accent-art, var(--accent-1));
+    padding: 14px 20px;
+    margin: 24px 0;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  /* table */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 24px 0;
+  }
+  .data-table th {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  .data-table td {
+    border: 1px solid var(--border-color);
+    padding: 9px 14px;
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+  .data-table tr:nth-child(even) td {
+    background-color: var(--bg-secondary);
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="masthead-logo">PR<span>A</span>XIS</div>
+      <div class="masthead-tagline">言語教育の研究と実践をつなぐ</div>
+    </div>
+    <div class="masthead-meta">
+      <strong>Issue 004</strong>
+      2026-06-25<br>
+      Language Education Research
+    </div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc-bar">
+  <div class="toc-inner">
+    <a class="toc-item" href="#art01">01 SLA最新研究</a>
+    <a class="toc-item" href="#art02">02 テスト工学</a>
+    <a class="toc-item" href="#art03">03 認知科学×SLA</a>
+    <a class="toc-item" href="#art04">04 海外日本語教育</a>
+    <a class="toc-item" href="#art05">05 AI×言語教育</a>
+    <a class="toc-item" href="#art06">06 就労現場</a>
+    <a class="toc-item" href="#art07">07 制度・カリキュラム</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main-wrap">
+
+<!-- ============================== ARTICLE 01 ============================== -->
+<article id="art01" class="article art-01">
+  <div class="article-header">
+    <div class="article-number">01 / 07</div>
+    <span class="article-tag">SLA最新研究</span>
+    <h1 class="article-title">産出仮説の復権——Swain が予言した「書き・話すこと」の習得力</h1>
+    <p class="article-subtitle">インプット中心の思想に対し、アウトプット研究は静かに反論し続けてきた。2025〜2026年の第二言語習得（SLA）研究は、産出行為が持つ三つの認知的機能を改めて照射している。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="keybox">
+      <div class="keybox-title">🔑 Key Concepts</div>
+      <div class="keybox-items">
+        <span class="keybox-item">Output Hypothesis</span>
+        <span class="keybox-item">Noticing Function</span>
+        <span class="keybox-item">Metalinguistic Function</span>
+        <span class="keybox-item">Hypothesis-Testing</span>
+        <span class="keybox-item">Instructed SLA</span>
+        <span class="keybox-item">Interaction Hypothesis</span>
+      </div>
+    </div>
+
+    <h2>アウトプット研究の地平——「理解できれば十分か」という問い</h2>
+    <p>Krashen のインプット仮説が長らく教室指導の羅針盤であり続けてきた一方、Merrill Swain は 1985 年以来、「産出することそのものが習得プロセスの一部である」という主張を積み重ねてきた。この<span class="gloss" title="Comprehensible Output Hypothesis：理解可能なアウトプットが言語習得を促進するとする理論">産出仮説（Output Hypothesis）</span>は、カナダのフランス語イマージョン教育の観察から生まれた。イマージョン学習者は受容的技能では母語話者並みに達していても、産出的技能には顕著なギャップがあった。</p>
+
+    <p>Swain が提示した三機能論——①気づき機能（Noticing）、②メタ言語機能（Metalinguistic）、③仮説検証機能（Hypothesis-Testing）——は、アウトプットを単なる「学習の産物」ではなく、「学習の駆動装置」として位置づけた。この枠組みは今日に至るまで SLA 研究の根幹を成しており、Swain の 1995 年論文は 2025 年時点で 2,282 件の被引用数を持つ。</p>
+
+    <h2>「産出仮説」が明らかにする三つの認知的回路</h2>
+    <p>第一の<span class="gloss" title="Notice the Gap：学習者が自分の中間言語と目標言語の差に気づくこと">気づき機能</span>は、学習者が産出を試みた際に自分の知識のギャップに「気づく」プロセスを指す。理解可能なインプットを受け取るだけでは、学習者は意味を文脈や語彙の推測で補えるため、構文的処理を省略しやすい。しかし、何かを言おうとした瞬間、その語彙が手元にないこと、その構文が分からないことに初めて気づく。これがインプット仮説では説明しきれない習得の入口である。</p>
+
+    <p>第二のメタ言語機能は、産出が学習者に言語そのものについて「言語で考える」機会（<span class="gloss" title="Languaging：言語について言語で思考・対話するプロセス">languaging</span>）を与えることを指す。協働ライティング課題や口頭タスクで学習者がパートナーと「この場合は受動態を使うべきか」と議論する際、まさにメタ言語機能が働いている。</p>
+
+    <p>第三の仮説検証機能では、産出が一種の「試行」として機能する。学習者は新しい語形や文構造を使ってみて、相手の反応や修正フィードバックによってその仮説が正しいかどうかを確かめる。Pica ら（1989）はこのプロセスにより学習者が自分の言語表現を自律的に修正することを示した。</p>
+
+    <div class="plain-lang">
+      <p>産出行為は「習ったことの確認」ではなく、「まだ知らないことを発見する装置」である。授業で話させ・書かせることの意義は、ここにある。</p>
+    </div>
+
+    <h2>インタラクション研究との接合——産出はひとりでは完成しない</h2>
+    <p>産出仮説はインタラクション研究と深く絡み合っている。Cambridge Core に掲載されたインタラクション研究レビューは、「インタラクションは第二言語習得において欠くことのできない構成要素である」と明言し、インプット、意味交渉、アウトプットという三つの核心的構成要素を軸に研究領域を整理している。学習者の言語への露出と産出、そしてそれらと認知資源・個人差の相互作用が習得を形成するという構図は、産出仮説とインタラクション仮説を橋渡しする。</p>
+
+    <p><span class="gloss" title="Negotiation for Meaning：意味の取り違いを解消するための交渉プロセス">意味交渉（Negotiation for Meaning）</span>こそが、産出を習得に直結させるメカニズムである。相手に伝わらなかった表現を言い換えようとする時、学習者は正確さと流暢さの両方を同時に追求することになる。2026 年に刊行された Routledge の新書『Racialized Identities in Second Language Learning』（Nguyen & Malabarba, 2026）が示すように、現代の SLA 研究は職場・地域コミュニティといった institutional ではない文脈での産出をも視野に入れ始めている。</p>
+
+    <h2>タスク繰り返しと産出の精度——授業設計への示唆</h2>
+    <p>産出が習得を促すためには、「質の高い産出機会」が必要である。単なる穴埋め問題への答えを「産出」と見なすことはできない。研究が示す効果的な産出タスクの条件として、①意味交渉が生じる双方向性、②時間的プレッシャーが正確さへの注意を促すこと、③繰り返し（task repetition）によるモニタリング機会の確保、が挙げられる。繰り返しタスクを用いた研究では、口頭タスクの反復が正確性を高め、metatalk（言語について話すこと）と仮説検証を促進することが報告されている。</p>
+
+    <p>また SLA 研究が示す「協働的ライティング」の効果も注目に値する。ペアで一つのテキストを書く活動では、各学習者が単独で書くよりも多くのメタ言語的反省が生じ、それが後続の個人タスクの精度向上につながることが複数の研究で確認されている。</p>
+
+    <h2>Study Abroad Research が示す産出環境の質</h2>
+    <p>Study Abroad Research in Second Language Acquisition（2026年最新号）は、留学・海外研修文脈での産出の質という視点を提供する。Vahlenkamp & Harsch（2026）は学習者のエージェンシーが言語学習経路に果たす役割を探り、留学先での産出機会の豊富さだけでなく、学習者が産出を「選択」するエージェンシーこそが長期的習得を規定することを示唆している。これはカリキュラム設計において、「産出させる」だけでなく「産出したくなる」環境づくりの重要性を改めて問う。</p>
+
+    <!-- INFOGRAPHIC -->
+    <div class="infographic-wrap">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" aria-label="産出仮説の三機能モデル">
+        <!-- bg -->
+        <rect width="560" height="320" fill="#F5F0E8" rx="6"/>
+        <!-- title -->
+        <text x="280" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#1A1612">Swain の産出仮説——三機能モデル</text>
+        <!-- center circle: OUTPUT -->
+        <circle cx="280" cy="170" r="54" fill="#C85A1A" opacity="0.15" stroke="#C85A1A" stroke-width="2"/>
+        <text x="280" y="165" text-anchor="middle" font-size="14" font-weight="700" fill="#C85A1A">産出</text>
+        <text x="280" y="182" text-anchor="middle" font-size="11" fill="#C85A1A">OUTPUT</text>
+
+        <!-- Function 1: Noticing -->
+        <ellipse cx="110" cy="110" rx="82" ry="44" fill="#EDE7D8" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="110" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">① 気づき機能</text>
+        <text x="110" y="120" text-anchor="middle" font-size="10" fill="#4A3F32">Noticing Function</text>
+        <text x="110" y="135" text-anchor="middle" font-size="10" fill="#4A3F32">知識ギャップの発見</text>
+        <!-- arrow -->
+        <line x1="183" y1="130" x2="228" y2="147" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- Function 2: Metalinguistic -->
+        <ellipse cx="450" cy="110" rx="82" ry="44" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="450" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">② メタ言語機能</text>
+        <text x="450" y="120" text-anchor="middle" font-size="10" fill="#4A3F32">Metalinguistic Function</text>
+        <text x="450" y="135" text-anchor="middle" font-size="10" fill="#4A3F32">言語についての思考</text>
+        <!-- arrow -->
+        <line x1="377" y1="130" x2="332" y2="147" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+
+        <!-- Function 3: Hypothesis Testing -->
+        <ellipse cx="280" cy="278" rx="100" ry="34" fill="#EDE7D8" stroke="#D4691E" stroke-width="1.5"/>
+        <text x="280" y="273" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">③ 仮説検証機能</text>
+        <text x="280" y="289" text-anchor="middle" font-size="10" fill="#4A3F32">Hypothesis-Testing  フィードバックで確認</text>
+        <!-- arrow -->
+        <line x1="280" y1="244" x2="280" y2="252" stroke="#D4691E" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+
+        <!-- Arrows from center down -->
+        <defs>
+          <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#C85A1A"/>
+          </marker>
+          <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+          <marker id="arrowhead3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#D4691E"/>
+          </marker>
+        </defs>
+        <!-- label: input vs output -->
+        <rect x="20" y="285" width="160" height="24" rx="3" fill="#C85A1A" opacity="0.12"/>
+        <text x="100" y="301" text-anchor="middle" font-size="11" fill="#C85A1A" font-weight="600">インプットだけでは不十分</text>
+        <rect x="380" y="285" width="160" height="24" rx="3" fill="#B84E12" opacity="0.12"/>
+        <text x="460" y="301" text-anchor="middle" font-size="11" fill="#B84E12" font-weight="600">産出が習得を「駆動」する</text>
+      </svg>
+    </div>
+
+    <h2>実践への架け橋——産出機会を設計する五つの原則</h2>
+    <p>①<strong>産出先行（Output Before Input）</strong>：まず既有知識で書き・話させ、その後にインプットを与える「気づき→補完」サイクルを設ける。②<strong>タスク繰り返し設計</strong>：同一タスクを時間をおいて再度行わせ、モニタリングの深化を促す。③<strong>意味交渉を生む双方向タスク</strong>：情報ギャップ活動や課題解決型会話など、相手がいないと完成しない設計にする。④<strong>書いたものへの仲間フィードバック</strong>：メタ言語的気づきを言語化させる。⑤<strong>明示的な自己モニタリング指導</strong>：学習者に「何が言えなかったか」を記録させる振り返りシートを導入する。</p>
+
+    <div class="editorial">
+      <div class="editorial-label">Editorial Comment</div>
+      <p>本号では「産出仮説」という古典的テーマを SLA 最新動向と接続して論じた。現場でよく見られる「インプット重視・アウトプット軽視」の設計は、理論的根拠が薄い。Swain の仕事が示すのは、「話させる・書かせる」活動が練習以上の意味を持つという事実だ。特に教室内でのペアライティングや口頭タスク繰り返しは、低コストで高い認知的効果を生む設計原理として再評価されてよい。</p>
+    </div>
+  </div>
+  <div class="sources">
+    <div class="sources-label">一次資料・参照文献</div>
+    <div class="source-item">Swain, M. (1995). Three functions of output in second language learning. In G. Cook & B. Seidlhofer (Eds.), <em>Principle and Practice in Applied Linguistics</em> (pp. 125–144). Oxford University Press.</div>
+    <div class="source-item">Long, M. H. (1996). The role of the linguistic environment in second language acquisition. In W. Ritchie & T. Bhatia (Eds.), <em>Handbook of Second Language Acquisition</em>. Academic Press.</div>
+    <div class="source-item">Cambridge Core — Interaction and Instructed SLA Review: <a href="https://www.cambridge.org/core/journals/language-teaching/article/interaction-and-instructed-second-language-acquisition/78A156EE200F744F5978F99BFB073DBE" target="_blank">doi:10.1017/S0261444818000484</a></div>
+    <div class="source-item">Vahlenkamp, H. &amp; Harsch, C. (2026). The role of agency in international students' language learning pathways. <em>Study Abroad Research in Second Language Acquisition</em>, 11(1), 95. <a href="https://benjamins.com/catalog/sar" target="_blank">benjamins.com/catalog/sar</a></div>
+  </div>
+</article>
+
+<!-- ============================== ARTICLE 02 ============================== -->
+<article id="art02" class="article art-02">
+  <div class="article-header">
+    <div class="article-number">02 / 07</div>
+    <span class="article-tag">テスト工学・測定論</span>
+    <h1 class="article-title">LLM が再定義するエッセイ採点——AI 自動採点の信頼性と限界</h1>
+    <p class="article-subtitle">2026 年に相次いで発表された自動採点研究は、LLM ベースのシステムが人間採点者に匹敵する精度を示す一方で、構成概念妥当性・倫理・スモールランゲージ問題という三つの難関を未解決のまま抱えることを明示した。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="keybox">
+      <div class="keybox-title">🔑 Key Concepts</div>
+      <div class="keybox-items">
+        <span class="keybox-item">Automated Essay Scoring (AES)</span>
+        <span class="keybox-item">LLM / RAG</span>
+        <span class="keybox-item">Construct Validity</span>
+        <span class="keybox-item">Inter-rater Agreement</span>
+        <span class="keybox-item">Rubric-based Scoring</span>
+        <span class="keybox-item">Fairness</span>
+      </div>
+    </div>
+
+    <h2>AI が「採点者」になる時代——2026 年の研究地図</h2>
+    <p>言語評価研究の領域で 2026 年を特徴づける最大のトピックが、大規模言語モデル（<span class="gloss" title="Large Language Model：GPT 系・Gemini 系などの大規模テキスト生成 AI">LLM</span>）を用いた自動採点の急拡大である。2026 年 3 月に発表された学術論文は、LLM・<span class="gloss" title="Retrieval-Augmented Generation：外部知識を検索しながら生成する手法">RAG（Retrieval-Augmented Generation）</span>・分析的ルーブリックを組み合わせた採点フレームワークが、文脈に根差した基準適合型評価を可能にすることを示した。このフレームワークは Moodle 等の e-learning 環境に統合可能であり、採点の一貫性を高め、採点時間を削減し、学習者へのフィードバックを迅速化・構造化できる。</p>
+
+    <p>また同年 3 月の <em>Language Testing in Asia</em> ほか複数誌に掲載された研究が示すように、AI は語彙知識・文法習熟度・言語評価における自動採点・アイテム生成・テスト管理という多岐にわたるアプリケーションを通じて、言語評価を根本から変容させつつある。AI を活用した評価ツールのパーソナライゼーション・効率化・スケーラビリティは、即時フィードバック・自動採点・インストラクショナルコンテンツのリアルタイム適応といった機能を通じて実現されている。</p>
+
+    <h2>NLP の進展——スコアリングの次元が広がる</h2>
+    <p>自然言語処理（NLP）と機械学習（ML）の進展は、音声認識の精度を高め、文法構造の基本的な誤り検出にとどまっていた従来の限界を超え、発音・流暢性・<span class="gloss" title="Discourse Structure：文や段落を超えた言語の組織化のされ方">談話構造</span>・首尾一貫性の評価へと領域を拡大している。これは従来の AES が測定していなかった「書かれたものの質」の次元——論理展開・一貫性・読み手への配慮——をスコアリングの俎上に乗せることを意味する。</p>
+
+    <p>手法論的には、特徴量エンジニアリングベースのアプローチとディープラーニングモデルベースのアプローチの二分類が従来の整理だったが、両者のハイブリッドが近年成功を収めている。LLM の登場はこの図式をさらに複雑化させており、GPT 系モデルを rubric conditioned に使用することで、多次元的な分析評価が可能になることが実証研究で確認されつつある。</p>
+
+    <h2>スモールランゲージ問題——英語以外への展開の課題</h2>
+    <p>AI 自動採点の実装において見過ごされやすい課題が、英語以外の言語への適用性である。エストニアでの研究が示すように、商用自動採点ツールが乏しく、人間採点者プールが限られた小規模言語文脈では、LLM と統計的 NLP を組み合わせた機械支援採点が代替手段として検討されている。</p>
+
+    <p>日本語教育の文脈でも同様の問題は直撃する。JLPT や JPT の作文採点を AI が支援する実験的取り組みは始まっているが、日本語特有の文体差（ですます体 vs. だ・である体）、敬語の適切性判断、字体（手書き）の評価などは現時点でモデルが苦手とする領域として残存する。</p>
+
+    <!-- INFOGRAPHIC -->
+    <div class="infographic-wrap">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" aria-label="AI自動採点の構造と課題">
+        <rect width="560" height="300" fill="#F5F0E8" rx="6"/>
+        <text x="280" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#1A1612">AI 自動採点システムの構造と未解決課題</text>
+
+        <!-- Pipeline -->
+        <!-- Box 1: Input -->
+        <rect x="20" y="55" width="110" height="60" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="75" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">学習者の</text>
+        <text x="75" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">解答テキスト</text>
+
+        <!-- arrow -->
+        <line x1="130" y1="85" x2="155" y2="85" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arr02a)"/>
+        <defs>
+          <marker id="arr02a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+          <marker id="arr02b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+          <marker id="arr02c" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+        </defs>
+
+        <!-- Box 2: LLM + RAG -->
+        <rect x="155" y="50" width="130" height="70" rx="4" fill="#B84E12" opacity="0.15" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="220" y="79" text-anchor="middle" font-size="12" font-weight="700" fill="#B84E12">LLM + RAG</text>
+        <text x="220" y="95" text-anchor="middle" font-size="10" fill="#4A3F32">ルーブリック参照</text>
+        <text x="220" y="108" text-anchor="middle" font-size="10" fill="#4A3F32">文脈適合判定</text>
+
+        <!-- arrow -->
+        <line x1="285" y1="85" x2="310" y2="85" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arr02b)"/>
+
+        <!-- Box 3: Score + Feedback -->
+        <rect x="310" y="55" width="120" height="60" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="370" y="81" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">スコア＋</text>
+        <text x="370" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">フィードバック</text>
+
+        <!-- arrow -->
+        <line x1="430" y1="85" x2="455" y2="85" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arr02c)"/>
+
+        <!-- Box 4: Teacher review -->
+        <rect x="455" y="55" width="85" height="60" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="498" y="81" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">教師</text>
+        <text x="498" y="96" text-anchor="middle" font-size="11" fill="#4A3F32">最終確認</text>
+
+        <!-- Challenges section -->
+        <text x="28" y="160" font-size="12" font-weight="700" fill="#B84E12">未解決課題</text>
+
+        <!-- C1 -->
+        <rect x="20" y="170" width="155" height="75" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1"/>
+        <text x="97" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">構成概念妥当性</text>
+        <text x="97" y="207" text-anchor="middle" font-size="10" fill="#4A3F32">AIは何を本当に</text>
+        <text x="97" y="221" text-anchor="middle" font-size="10" fill="#4A3F32">測っているのか？</text>
+        <text x="97" y="237" text-anchor="middle" font-size="10" fill="#7A6A58">construct validity gap</text>
+
+        <!-- C2 -->
+        <rect x="195" y="170" width="155" height="75" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1"/>
+        <text x="272" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">公平性・偏見</text>
+        <text x="272" y="207" text-anchor="middle" font-size="10" fill="#4A3F32">訓練データの偏りが</text>
+        <text x="272" y="221" text-anchor="middle" font-size="10" fill="#4A3F32">採点に反映される</text>
+        <text x="272" y="237" text-anchor="middle" font-size="10" fill="#7A6A58">bias &amp; fairness issue</text>
+
+        <!-- C3 -->
+        <rect x="370" y="170" width="170" height="75" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1"/>
+        <text x="455" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">スモール言語問題</text>
+        <text x="455" y="207" text-anchor="middle" font-size="10" fill="#4A3F32">英語以外のデータ</text>
+        <text x="455" y="221" text-anchor="middle" font-size="10" fill="#4A3F32">不足・精度低下</text>
+        <text x="455" y="237" text-anchor="middle" font-size="10" fill="#7A6A58">small-language gap</text>
+
+        <text x="280" y="282" text-anchor="middle" font-size="11" fill="#7A6A58">AI は採点者の「補助者」——最終判断は人間教師が担う設計が現在の規範</text>
+      </svg>
+    </div>
+
+    <h2>LLM 採点の多次元分析——L2 大学院ライティングの事例</h2>
+    <p>2025年のプレプリント研究（arXiv:2502.11368）が示したように、LLM は L2 大学院生の学術ライティングに対して多次元的分析評価を実施できる可能性が確認されている。単一のホリスティックスコアではなく、組織・語彙・文法・内容という複数の観点からルーブリック準拠の評価を生成できるという知見は、形成的評価への活用可能性を示唆する。ただしこの研究は同時に、モデルが「ハルシネーション」（<span class="gloss" title="Hallucination：AIが事実でない情報を自信をもって生成する現象">幻覚）</span>を引き起こす可能性にも注意を促している。</p>
+
+    <h2>教師のためのチェックリスト——AI 採点ツールを評価する五つの問い</h2>
+    <p>実践者として AI 採点ツールを導入する際、次の五つを問うべきである。①このシステムが測定しようとしているのはどのような構成概念か？②採点精度の検証データは母集団と一致しているか？③フィードバックは学習者が理解・活用できる形式か？④教師の最終判断を上書きするような設計になっていないか？⑤スモールランゲージ（日本語等）での精度検証が独立して行われているか？</p>
+
+    <div class="plain-lang">
+      <p>AI 採点は「速くて安い採点者」ではない。「人間採点者のコーチング支援ツール」として使う発想の転換が、導入成功の鍵である。</p>
+    </div>
+
+    <div class="editorial">
+      <div class="editorial-label">Editorial Comment</div>
+      <p>AI 採点が「人間を置き換えるか」という問いは二項対立に過ぎる。2026 年の研究が示すのは、LLM+RAG+ルーブリックの組み合わせが「一貫性ある初稿採点」を担い、教師が「深い洞察と倫理的判断」に集中できる分業体制の可能性である。日本語教育現場では、既存の評価観（添削という文化）とAI採点をどう接続するかという固有の課題がある。</p>
+    </div>
+  </div>
+  <div class="sources">
+    <div class="sources-label">一次資料・参照文献</div>
+    <div class="source-item">Artificial Intelligence in Language Assessment Research: A Scoping Review. <em>Language Testing &amp; Technology</em> (2026). <a href="https://www.tandfonline.com/doi/full/10.1080/29984475.2026.2633389" target="_blank">doi:10.1080/29984475.2026.2633389</a></div>
+    <div class="source-item">AI-Based Automated Scoring Layer Using LLMs and Semantic Analysis. <em>Applied Sciences</em>, 16(7), 3537 (2026). <a href="https://doi.org/10.3390/app16073537" target="_blank">doi:10.3390/app16073537</a></div>
+    <div class="source-item">Machine-Assisted Grading of Nationwide School-Leaving Essay Exams with LLMs. arXiv:2601.16314 (2026). <a href="https://arxiv.org/abs/2601.16314" target="_blank">arxiv.org/abs/2601.16314</a></div>
+    <div class="source-item">LLMs can Perform Multi-Dimensional Analytic Writing Assessments. arXiv:2502.11368 (2025). <a href="https://arxiv.org/abs/2502.11368" target="_blank">arxiv.org/abs/2502.11368</a></div>
+  </div>
+</article>
+
+<!-- ============================== ARTICLE 03 ============================== -->
+<article id="art03" class="article art-03">
+  <div class="article-header">
+    <div class="article-number">03 / 07</div>
+    <span class="article-tag">認知科学×SLA</span>
+    <h1 class="article-title">ワーキングメモリの新展開——「容量」から「文脈的結合」へのパラダイム転換</h1>
+    <p class="article-subtitle">認知神経科学における WM 研究の最前線は、「保持できる情報量」という古典的定義を超え、情報のトークン化・文脈的結合・時空間的ポインタという新概念で第二言語処理を読み解こうとしている。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="keybox">
+      <div class="keybox-title">🔑 Key Concepts</div>
+      <div class="keybox-items">
+        <span class="keybox-item">Working Memory (WM)</span>
+        <span class="keybox-item">Contextual Binding</span>
+        <span class="keybox-item">Cognitive Load</span>
+        <span class="keybox-item">Aptitude-Treatment Interaction</span>
+        <span class="keybox-item">Critical Period</span>
+        <span class="keybox-item">AI-Assisted L2 Writing</span>
+      </div>
+    </div>
+
+    <h2>WM 研究の現在地——定義の再構築</h2>
+    <p>認知神経科学は長らく、ワーキングメモリ（<span class="gloss" title="Working Memory：短期的に情報を保持・操作する認知システム">WM</span>）を「容量制限のある、刺激特異的な神経パターンにより高い到達可能性を持つ表象を維持するシステム」として定義してきた。しかし 2025 年に <em>Trends in Cognitive Sciences</em>（29巻3号）に掲載された論文はこの標準定義が不完全である可能性を論じ、特定のインスタンスやトークンを認識し、それらを周囲の文脈に結合するという根本的な必要性を強調した。</p>
+
+    <p>同論文が提唱する<span class="gloss" title="Spatiotemporal Pointers：記憶された項目の数を内容とは独立して追跡する神経信号の源">時空間的ポインタ</span>という概念は、WM の古典的容量論に一石を投じる。第二言語処理の観点から言えば、L2 学習者が「どの語がどの文脈に属するか」を正確にバインドする能力が、単純な語彙保持以上に L2 運用を制限する可能性を示唆している。</p>
+
+    <h2>テクノロジー強化言語学習（TELL）における WM 研究の空白</h2>
+    <p>2026 年 <em>Frontiers in Psychology</em> に発表されたシステマティックレビューは、インテリジェント・パーソナル・アシスタントや生成 AI を L2 リスニング・スピーキングに用いた研究のほとんどが、WM タスクや<span class="gloss" title="Aptitude-Treatment Interaction (ATI)：学習者特性と指導法の相互作用が学習成果に影響する現象">適性・処理インタラクション（ATI）</span>分析をほぼ組み込んでいないことを示した。これは深刻な知識の空白である——AI 教材がどのような認知的負荷を学習者に課しているかを把握しないまま設計が進んでいることを意味する。</p>
+
+    <p>同レビューが注目する新興研究として、Yuan（2025）の眼球追跡 × 生理指標連動型プラットフォームがある。300 名の EFL 学習者を対象にした 12 週間の RCT では、AI 強化型バイオメトリック適応読書プラットフォームがテキスト難度を動的に調整し、事前的な認知的制御を実証した。また Fan & Yao（2025）は AI 支援 L2 ライティング向けの認知負荷尺度を開発し、確認的因子分析で妥当性を確認した。これらは WM × AI × L2 習得の実証研究として注目に値する。</p>
