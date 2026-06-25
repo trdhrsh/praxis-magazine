@@ -1,0 +1,668 @@
+Now I have sufficient research material to generate the complete HTML magazine. Let me create it.
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAXIS Issue 007 — 言語教育の研究と実践をつなぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F0E8;
+    --bg-secondary: #EDE8DF;
+    --bg-card: #FAF7F2;
+    --text-primary: #1A1612;
+    --text-secondary: #4A3F35;
+    --text-muted: #7A6F65;
+    --accent-1: #C85A1A;
+    --accent-2: #B84E12;
+    --accent-3: #D4701E;
+    --accent-4: #A04510;
+    --accent-5: #C2773A;
+    --accent-6: #9A3B0A;
+    --accent-7: #BD6428;
+    --border: #D8D0C4;
+    --border-light: #E8E2D8;
+    --masthead-bg: #1A1612;
+    --masthead-text: #F5F0E8;
+    --code-bg: #EDE8DF;
+    --gloss-bg: #EEE8DC;
+    --gloss-border: #C85A1A;
+    --key-bg: #EAE4D8;
+    --plain-bg: #E8F0E4;
+    --plain-border: #6A8F5A;
+    --plain-text: #2A3E22;
+    --editorial-bg: #E8E0D4;
+    --editorial-border: #C85A1A;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #2C2318;
+      --bg-secondary: #332A1E;
+      --bg-card: #3A3028;
+      --text-primary: #F5EDD8;
+      --text-secondary: #D4C4A8;
+      --text-muted: #9A8C78;
+      --accent-1: #E07840;
+      --accent-2: #D46830;
+      --accent-3: #E88C50;
+      --accent-4: #C85A20;
+      --accent-5: #DA7848;
+      --accent-6: #CC6030;
+      --accent-7: #D87040;
+      --border: #4A3E32;
+      --border-light: #3E3228;
+      --masthead-bg: #1C1510;
+      --masthead-text: #F5EDD8;
+      --code-bg: #332A1E;
+      --gloss-bg: #3E3428;
+      --gloss-border: #E07840;
+      --key-bg: #382E22;
+      --plain-bg: #2A3224;
+      --plain-border: #6A9A5A;
+      --plain-text: #B8D4A8;
+      --editorial-bg: #362C20;
+      --editorial-border: #E07840;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    background: var(--masthead-bg);
+    color: var(--masthead-text);
+    padding: 2rem 2.5rem 1.6rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-bottom: 3px solid var(--accent-1);
+  }
+  .masthead-logo { font-family: 'DM Serif Display', serif; font-size: 3.2rem; letter-spacing: 0.04em; line-height: 1; color: var(--masthead-text); }
+  .masthead-sub { font-family: 'Noto Sans JP', sans-serif; font-size: 0.78rem; color: rgba(245,237,216,0.65); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 0.3rem; }
+  .masthead-meta { text-align: right; }
+  .masthead-issue { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--accent-3); letter-spacing: 0.1em; text-transform: uppercase; }
+  .masthead-date { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: rgba(245,237,216,0.75); margin-top: 0.2rem; }
+
+  /* ── TOC ── */
+  .toc-bar {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .toc-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+  .toc-link { font-size: 0.72rem; color: var(--text-secondary); text-decoration: none; white-space: nowrap; font-weight: 500; transition: color 0.2s; }
+  .toc-link:hover { color: var(--accent-1); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+  .page-grid { display: grid; gap: 0; }
+
+  /* ── ARTICLE ── */
+  .article {
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .article-header { margin-bottom: 2rem; }
+  .article-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.22rem 0.65rem;
+    border-radius: 2px;
+    margin-bottom: 0.9rem;
+    color: #fff;
+  }
+  .article-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+  }
+  .article-subtitle {
+    font-size: 1.0rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 760px;
+  }
+  .article-body { max-width: 760px; }
+  .article-body h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin: 2.4rem 0 0.8rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--accent-color, var(--accent-1));
+  }
+  .article-body h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 1.8rem 0 0.5rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .article-body p {
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.85;
+  }
+  .article-divider {
+    border: none;
+    height: 1px;
+    background: var(--border-light);
+    margin: 2rem 0;
+  }
+
+  /* ── KEY CONCEPT BOX ── */
+  .key-box {
+    background: var(--key-bg);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--accent-color, var(--accent-1));
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    margin: 1.8rem 0;
+  }
+  .key-box-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-color, var(--accent-1));
+    margin-bottom: 0.7rem;
+  }
+  .key-box-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem; }
+  .key-item { }
+  .key-term {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--accent-color, var(--accent-1));
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .key-def { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.55; }
+
+  /* ── PLAIN SPEAK BLOCK ── */
+  .plain-block {
+    background: var(--plain-bg);
+    border-left: 4px solid var(--plain-border);
+    border-radius: 0 4px 4px 0;
+    padding: 1.1rem 1.4rem;
+    margin: 1.8rem 0;
+  }
+  .plain-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--plain-border);
+    margin-bottom: 0.5rem;
+  }
+  .plain-text { font-size: 0.9rem; color: var(--plain-text); line-height: 1.75; }
+
+  /* ── GLOSS INLINE ── */
+  .gloss {
+    background: var(--gloss-bg);
+    border-bottom: 1px dashed var(--gloss-border);
+    cursor: help;
+    font-size: 0.88em;
+    padding: 0 0.15em;
+    position: relative;
+  }
+  .gloss[data-def]:hover::after {
+    content: attr(data-def);
+    position: absolute;
+    bottom: calc(100% + 4px);
+    left: 0;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-size: 0.72rem;
+    padding: 0.4rem 0.65rem;
+    border-radius: 3px;
+    white-space: nowrap;
+    max-width: 280px;
+    white-space: normal;
+    z-index: 100;
+    line-height: 1.5;
+    pointer-events: none;
+  }
+
+  /* ── EDITORIAL COMMENT ── */
+  .editorial {
+    background: var(--editorial-bg);
+    border: 1px solid var(--editorial-border);
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    margin-top: 2.5rem;
+  }
+  .editorial-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent-1);
+    margin-bottom: 0.5rem;
+  }
+  .editorial p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; line-height: 1.7; }
+  .editorial p:last-child { margin-bottom: 0; }
+
+  /* ── SOURCE BLOCK ── */
+  .source-block {
+    border-top: 1px solid var(--border-light);
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+  }
+  .source-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+  .source-item { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.4rem; }
+  .source-item a { color: var(--accent-1); text-decoration: none; }
+  .source-item a:hover { text-decoration: underline; }
+  .source-quote {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.4rem;
+    padding-left: 0.8rem;
+    border-left: 2px solid var(--border);
+  }
+
+  /* ── SVG FIGURE ── */
+  .fig-wrap {
+    margin: 2rem 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .fig-caption {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    font-style: italic;
+  }
+  svg { display: block; width: 100%; height: auto; }
+  svg text { font-family: 'Noto Sans JP', sans-serif; }
+
+  /* ── ACCENT COLORS PER ARTICLE ── */
+  .a1 { --accent-color: #C85A1A; }
+  .a2 { --accent-color: #B04010; }
+  .a3 { --accent-color: #9A6030; }
+  .a4 { --accent-color: #A04510; }
+  .a5 { --accent-color: #7A3E08; }
+  .a6 { --accent-color: #C06820; }
+  .a7 { --accent-color: #8C4A18; }
+  .tag-1 { background-color: #C85A1A; }
+  .tag-2 { background-color: #B04010; }
+  .tag-3 { background-color: #9A6030; }
+  .tag-4 { background-color: #A04510; }
+  .tag-5 { background-color: #5C3510; }
+  .tag-6 { background-color: #C06820; }
+  .tag-7 { background-color: #8C4A18; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--masthead-bg);
+    color: rgba(245,237,216,0.55);
+    padding: 2rem 2.5rem;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .masthead { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+    .masthead-logo { font-size: 2.4rem; }
+    .masthead-meta { text-align: left; }
+    .toc-bar { padding: 0.8rem 1rem; }
+    .container { padding: 0 1rem; }
+    .article { padding: 2.5rem 0 2rem; }
+    .article-title { font-size: 1.5rem; }
+    .key-box-grid { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div>
+    <div class="masthead-logo">PRAXIS</div>
+    <div class="masthead-sub">言語教育の研究と実践をつなぐ</div>
+  </div>
+  <div class="masthead-meta">
+    <div class="masthead-issue">Issue 007</div>
+    <div class="masthead-date">2026 — 06 — 25</div>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc-bar">
+  <span class="toc-label">Contents</span>
+  <a href="#art1" class="toc-link">01 SLA最新研究</a>
+  <a href="#art2" class="toc-link">02 テスト工学</a>
+  <a href="#art3" class="toc-link">03 認知科学×SLA</a>
+  <a href="#art4" class="toc-link">04 海外日本語教育</a>
+  <a href="#art5" class="toc-link">05 AI×評価技術</a>
+  <a href="#art6" class="toc-link">06 就労現場</a>
+  <a href="#art7" class="toc-link">07 制度設計</a>
+</nav>
+
+<main class="container page-grid">
+
+<!-- ═══════════════════════════════════════════
+     ARTICLE 01 — SLA最新研究
+════════════════════════════════════════════ -->
+<article class="article a1" id="art1">
+  <div class="article-header">
+    <span class="article-tag tag-1">01 / SLA最新研究</span>
+    <h1 class="article-title">暗示知識と明示知識の「界面」を再設計する——多層インターフェイス論の挑戦</h1>
+    <p class="article-subtitle">無意識の学習が徐々に意識化されるという新たな認知心理学的知見が、SLA研究の長年の中核問題を根本から問い直しつつある。「界面はどこに、どのように存在するか」という問いの最前線を読む。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="key-box" style="--accent-color:#C85A1A">
+      <div class="key-box-title">🔑 Key Concepts</div>
+      <div class="key-box-grid">
+        <div class="key-item">
+          <span class="key-term">暗示知識（Implicit Knowledge）</span>
+          <span class="key-def">意識的なアクセスを伴わず、自動的・直感的に運用される言語知識。速い処理が特徴。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">明示知識（Explicit Knowledge）</span>
+          <span class="key-def">規則として言語化でき、意識的注意を要して使用される知識。宣言的記憶と関連。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">界面（Interface）</span>
+          <span class="key-def">両知識タイプの相互変換・相互依存を説明する概念的・神経的な境界領域。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">ラジカル可塑性仮説</span>
+          <span class="key-def">無意識知識が反復経験を通じて意識的表象に再コード化されるとする立場。</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>なぜ今、界面論を問い直すのか</h2>
+    <p>第二言語習得（SLA）の理論的核心として長く機能してきた「<span class="gloss" data-def="明示知識が暗示知識に転化するプロセスを扱うSLA理論の中核的問題">暗示・明示知識の界面問題</span>」は、ここ数年で重要な再検討を迫られている。従来の支配的モデルは、明示知識が先行し、練習と自動化を経て暗示知識へ移行するというトップダウン的な方向を想定していた。だが2026年に発表されたFukutaの論文は、認知心理学の<span class="gloss" data-def="Cleeremans (2007) らが提唱する、無意識的表現が反復によって段階的に意識的知識へ変容するモデル">ラジカル可塑性仮説</span>をSLAに接続する形で、まったく逆方向の経路——無意識的知識が意識化される——を正面から理論化した。</p>
+
+    <p>この方向転換は些細な修正ではない。もし無意識的な統計的パターン学習が先行し、意識的な明示知識がその「読み出し」として後発的に構成されるならば、明示指導の位置づけ、フォーム指導のタイミング、さらには誤用分析の解釈まで、実践的含意の全体が変わってくる。</p>
+
+    <h2>一次元モデルの限界と多層的再構成</h2>
+    <p><span class="gloss" data-def="暗示知識と明示知識を単一軸の両端に配置するモデル。Non-interface, Strong-interface, Weak-interface の各立場が存在する">一次元連続体モデル</span>が長く採用されてきた背景には、測定の単純化という実務的要請がある。しかしFukutaが2026年に提唱する再概念化は、単一軸を複数の次元——意識のアクセシビリティ、処理速度、命題的言語化可能性——に分解する。この多層的視座は、学習者が「なんとなく正しいとわかる」状態と「説明できる」状態を別々のメカニズムで支えているという臨床的直感とも整合する。</p>
+
+    <div class="plain-block">
+      <div class="plain-label">▌ 平たく言えば</div>
+      <p class="plain-text">「文法規則を知らなくても自然に正しく使える」という状態と、「規則を説明できるが使うと詰まる」という状態は、実は同一軸の両端ではなく、まったく別の脳内プロセスが担っているかもしれない。Fukutaの提案は、この「直感先行・意識後発」という学習順序を理論として認可するものだ。</p>
+    </div>
+
+    <div class="fig-wrap">
+      <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" aria-label="暗示・明示知識の界面モデル比較図">
+        <defs>
+          <marker id="arrowA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#C85A1A"/>
+          </marker>
+          <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#4A3F35"/>
+          </marker>
+        </defs>
+        <!-- Background -->
+        <rect width="560" height="260" fill="none"/>
+        <!-- Title -->
+        <text x="280" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#1A1612" font-family="'Noto Sans JP', sans-serif">暗示／明示知識の界面：旧モデル vs. 多層モデル</text>
+        <!-- LEFT: Old Model -->
+        <rect x="20" y="38" width="240" height="195" rx="6" fill="#EDE8DF" stroke="#D8D0C4" stroke-width="1"/>
+        <text x="140" y="58" text-anchor="middle" font-size="11" fill="#7A6F65" font-family="'JetBrains Mono', monospace">旧モデル（一次元連続体）</text>
+        <!-- Axis -->
+        <rect x="55" y="80" width="170" height="28" rx="14" fill="#C85A1A" opacity="0.85"/>
+        <text x="140" y="99" text-anchor="middle" font-size="12" fill="white" font-family="'Noto Sans JP', sans-serif">明示知識</text>
+        <line x1="140" y1="108" x2="140" y2="148" stroke="#4A3F35" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowB)"/>
+        <text x="155" y="134" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">自動化</text>
+        <rect x="55" y="150" width="170" height="28" rx="14" fill="#9A6030" opacity="0.85"/>
+        <text x="140" y="169" text-anchor="middle" font-size="12" fill="white" font-family="'Noto Sans JP', sans-serif">暗示知識</text>
+        <text x="140" y="208" text-anchor="middle" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">単一方向・線形変換</text>
+        <text x="140" y="222" text-anchor="middle" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">（明示 → 暗示）</text>
+
+        <!-- RIGHT: New Model -->
+        <rect x="295" y="38" width="245" height="195" rx="6" fill="#EDE8DF" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="417" y="58" text-anchor="middle" font-size="11" fill="#C85A1A" font-family="'JetBrains Mono', monospace">多層モデル（Fukuta 2026）</text>
+        <!-- Layer 1: Unconscious -->
+        <rect x="315" y="70" width="205" height="30" rx="5" fill="#9A6030" opacity="0.8"/>
+        <text x="417" y="90" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">層1: 無意識的統計学習（暗示）</text>
+        <!-- arrows bidirectional -->
+        <line x1="417" y1="100" x2="417" y2="130" stroke="#C85A1A" stroke-width="2" marker-end="url(#arrowA)"/>
+        <line x1="407" y1="130" x2="407" y2="100" stroke="#4A3F35" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowB)"/>
+        <!-- Layer 2: Intermediate -->
+        <rect x="315" y="132" width="205" height="30" rx="5" fill="#C85A1A" opacity="0.7"/>
+        <text x="417" y="152" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">層2: 意識化プロセス（可塑的移行）</text>
+        <line x1="417" y1="162" x2="417" y2="190" stroke="#C85A1A" stroke-width="2" marker-end="url(#arrowA)"/>
+        <!-- Layer 3: Explicit -->
+        <rect x="315" y="192" width="205" height="28" rx="5" fill="#B84E12" opacity="0.85"/>
+        <text x="417" y="211" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">層3: 命題的言語知識（明示）</text>
+        <text x="417" y="228" text-anchor="middle" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">双方向・多次元変換</text>
+      </svg>
+      <p class="fig-caption">図1：旧来の一次元連続体モデル（左）と、Fukuta（2026）が提案する多層インターフェイスモデル（右）の概念比較。右モデルでは無意識学習が層1として先行し、意識化を経て命題的知識へ至る逆方向の経路も想定される。</p>
+    </div>
+
+    <h2>意識化研究の新潮流——「無意識先行」仮説の証拠</h2>
+    <p>この理論的再編の背景には、認知心理学における<span class="gloss" data-def="学習者が意識的注意を向けることなく入力の統計的規則性を検出する能力。SLAではChunk習得や音韻パターン習得に関連する">暗示的統計学習（Implicit Statistical Learning; ISL）</span>研究の蓄積がある。人工言語パラダイムを用いた最新の研究（Tandfonline, 2025）は、文法・語彙いずれについても、ISLの効果が学習初期に最も顕著に現れ、明示学習（EL）の効果は時間とともに増大するというパターンを報告している。この「時間非対称性」は、無意識→意識という変換方向を実証的に支持するものだ。</p>
+
+    <p>また古典的なSLAの問い——「なぜL2学習者はL1習得ほど成功しないのか」——に対しても、この枠組みは新しい視角を提供する。L1ではISL経路が長期間、大量の入力とともに働くのに対し、L2環境では入力量と質の両面で制約がかかるため、ISL経路が十分に駆動されないまま明示指導が先行してしまう——この非対称性こそが成人L2学習の根本的困難の一端かもしれない。</p>
+
+    <h2>実践への接点——指導の「タイミング設計」という視点</h2>
+    <p>多層モデルが教育実践にもたらす最も重要な含意は、フォーム指導（FonF: Focus on Form）の<em>タイミング</em>設計への示唆である。もし層1の無意識的統計学習が先行し、そこに暗示的な言語的気づき（noticing）が重なることで層2の意識化が促進されるとすれば、意味中心タスクの<em>後に</em>フォームへの注意を引くアプローチ（post-task grammar attention）の有効性が理論的に支持されることになる。</p>
+
+    <p>逆に、学習初期から規則説明を先行させる授業デザインは、ISL経路を阻害する可能性も排除できない。教材開発・授業設計において、「まず豊富な入力で統計的パターン学習の素地をつくり、その後でメタ言語的説明を行う」という手順は、単なる経験則ではなく、認知科学的根拠を持つものとして再評価されるだろう。</p>
+
+    <h2>測定論上の課題と今後の研究課題</h2>
+    <p>多層モデルを採用するうえで、測定上の課題は依然として残る。「意識化プロセス（層2）」をオペレーショナルに定義し、行動指標や神経指標によって捉えることは、現状の研究技術では十分に解決されていない。<span class="gloss" data-def="ERPなどの電気生理学的指標を用いてオンライン処理中の意識状態を測定しようとする研究群">オンライン意識測定</span>の方法論的精緻化と、SLA理論の接合は、今後5年の重要な研究課題となるだろう。</p>
+
+    <div class="editorial">
+      <div class="editorial-label">✦ Editorial Comment</div>
+      <p>今号の最注目論文。Fukutaが提案する「多層インターフェイス」モデルは、SLAの二項対立的図式を解体し、より動態的な習得観を促す。実践的には「暗示→明示」の教育順序を理論的に正当化する根拠となり得る点で、カリキュラム設計者・教材開発者に直接の示唆を持つ。ただし「意識化プロセス」の操作的定義が今後の議論の焦点になることは必至だ。批判的に読む目を保ちつつ、この枠組みを手がかりとして授業デザインを問い直すことを推奨したい。</p>
+    </div>
+
+    <div class="source-block">
+      <div class="source-label">一次資料</div>
+      <div class="source-item">Fukuta, J. (2026). Beyond a unidimensional view: The multilayered perspective on the implicit–explicit knowledge interface. <em>Language Teaching Research</em>. <a href="https://doi.org/10.1177/02676583251411768" target="_blank">DOI: 10.1177/02676583251411768</a></div>
+      <div class="source-quote">"This perspective offers a reinterpretation of the interface between implicit and explicit knowledge in SLA, contrasting with the traditional view that explicit knowledge gives rise to implicit knowledge."</div>
+      <div class="source-item">Tandfonline (2025). Cognitive abilities underlying the earliest stages of SLA: an artificial language study. <a href="https://doi.org/10.1080/23273798.2025.2576908" target="_blank">DOI: 10.1080/23273798.2025.2576908</a></div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════
+     ARTICLE 02 — テスト工学
+════════════════════════════════════════════ -->
+<article class="article a2" id="art2">
+  <div class="article-header">
+    <span class="article-tag tag-2">02 / テスト工学・測定論</span>
+    <h1 class="article-title">シナリオ型評価（SBA）の妥当性論証——LOLAフレームワークと解釈論的転換</h1>
+    <p class="article-subtitle">「状況に埋め込まれた言語能力」を測る次世代評価フレームワーク（LOLA）が、Language Assessment Quarterly 2026年号でさらなる精緻化を遂げた。妥当性論証の構造と教育現場への実装可能性を解読する。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="key-box" style="--accent-color:#B04010">
+      <div class="key-box-title">🔑 Key Concepts</div>
+      <div class="key-box-grid">
+        <div class="key-item">
+          <span class="key-term">シナリオ型評価（SBA）</span>
+          <span class="key-def">実際の言語使用場面を模擬したタスクによって能力を評価する形式。選択式テストの代替として注目。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">LOLAフレームワーク</span>
+          <span class="key-def">Learning-Oriented Language Assessment。学習志向性と測定的厳密性を統合した評価論的枠組み。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">妥当性論証（Interpretation Argument）</span>
+          <span class="key-def">テストスコアの解釈・使用を正当化する一連の推論と証拠の連鎖的構造。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">状況的言語能力</span>
+          <span class="key-def">文脈・社会的役割・コミュニケーション目的と不可分な、埋め込まれた言語パフォーマンス。</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>なぜ選択式テストでは「見えない」のか</h2>
+    <p>多肢選択式・分離型の言語テストが持つ根本的な限界は、<span class="gloss" data-def="実際の言語使用場面と評価場面の間の構造的乖離。言語テスト研究における核心的批判の一つ">測定文脈と実使用文脈の乖離</span>にある。語彙知識を孤立した選択肢で測ることと、会議の場で適切な語を選んで発話できることは、同じ「語彙力」を共有しているとは言い難い。2026年のLAQ（Language Assessment Quarterly）最新号は、この問題に対するSBA（シナリオ型評価）の測定論的応答として注目に値する複数の論文を掲載している。</p>
+
+    <p>Purpuraらによる論文は、LOLAフレームワークを用いてB1レベル英語SBAの核心的主張を検証したものだ。SBAが「状況に埋め込まれた第二・外国語能力」を測定できるという主張を、解釈論的論証の枠組みで系統的に評価している。また別稿でVossらは、AI強化型シナリオ評価に対する解釈論的論証の構築を試みており、評価技術とLOLAフレームワークの接合という新しい問題領域を開拓した。</p>
+
+    <h2>LOLAフレームワークの構造——学習と評価の統合</h2>
+    <p>LOLAの特徴は、「測定的厳密性」と「学習志向性」を対立させるのではなく、相互補完的に配置する点にある。従来の評価論では、テストの<span class="gloss" data-def="スコアが測定しようとする構成概念を正確に反映しているか、という評価の質の核心的概念">構成概念妥当性</span>と学習促進機能はトレードオフの関係にあるとされてきた。LOLAはこの緊張を、「評価が学習のエビデンスを提供しつつ、学習のエンジンにもなる」という設計思想で解消しようとする。</p>
+
+    <div class="plain-block">
+      <div class="plain-label">▌ 平たく言えば</div>
+      <p class="plain-text">「ロールプレイや状況設定問題で日本語を評価する」というのがSBAの発想だ。「居酒屋で注文できるか」「職場でメールを書けるか」というシナリオは、単なる楽しい活動ではなく、測定論的に裏打ちされた評価設計でなければ「何を測っているのかわからない」という批判を免れない。LOLAはその「何を測っているか」を正当化する論証の枠組みを提供する。</p>
+    </div>
+
+    <div class="fig-wrap">
+      <svg viewBox="0 0 560 270" xmlns="http://www.w3.org/2000/svg" aria-label="LOLAフレームワーク構造図">
+        <rect width="560" height="270" fill="none"/>
+        <text x="280" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#1A1612" font-family="'Noto Sans JP', sans-serif">LOLAフレームワーク：妥当性論証の層構造</text>
+        <!-- Outer frame: Validity Argument -->
+        <rect x="18" y="34" width="524" height="220" rx="8" fill="none" stroke="#B04010" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="30" y="52" font-size="10" fill="#B04010" font-family="'JetBrains Mono', monospace">LOLA FRAMEWORK — INTERPRETATION ARGUMENT</text>
+
+        <!-- 3 pillars -->
+        <!-- Pillar 1 -->
+        <rect x="30" y="60" width="155" height="170" rx="5" fill="#EDE8DF" stroke="#D8D0C4"/>
+        <rect x="30" y="60" width="155" height="24" rx="5" fill="#B04010" opacity="0.85"/>
+        <text x="107" y="76" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">ドメイン定義</text>
+        <text x="107" y="100" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">実際の言語使用場面</text>
+        <text x="107" y="116" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">の体系的記述</text>
+        <text x="107" y="138" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・コミュニケーション目的</text>
+        <text x="107" y="155" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・社会的役割</text>
+        <text x="107" y="172" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・テキストタイプ</text>
+        <text x="107" y="196" text-anchor="middle" font-size="9" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">→ 何を測るべきかの根拠</text>
+
+        <!-- Pillar 2 -->
+        <rect x="202" y="60" width="155" height="170" rx="5" fill="#EDE8DF" stroke="#D8D0C4"/>
+        <rect x="202" y="60" width="155" height="24" rx="5" fill="#B04010" opacity="0.75"/>
+        <text x="279" y="76" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">タスク・シナリオ設計</text>
+        <text x="279" y="100" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">SBAタスクの</text>
+        <text x="279" y="116" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">真正性・難易度設計</text>
+        <text x="279" y="138" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・B1レベル校正</text>
+        <text x="279" y="155" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・採点基準設計</text>
+        <text x="279" y="172" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・AIとの接合</text>
+        <text x="279" y="196" text-anchor="middle" font-size="9" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">→ 測定手段の正当化</text>
+
+        <!-- Pillar 3 -->
+        <rect x="374" y="60" width="155" height="170" rx="5" fill="#EDE8DF" stroke="#D8D0C4"/>
+        <rect x="374" y="60" width="155" height="24" rx="5" fill="#B04010" opacity="0.65"/>
+        <text x="451" y="76" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">スコア解釈と利用</text>
+        <text x="451" y="100" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">スコアから能力への</text>
+        <text x="451" y="116" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">推論の連鎖</text>
+        <text x="451" y="138" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・社会的帰結の評価</text>
+        <text x="451" y="155" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・意思決定への活用</text>
+        <text x="451" y="172" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・フィードバック設計</text>
+        <text x="451" y="196" text-anchor="middle" font-size="9" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">→ 評価の社会的正当性</text>
+        
+        <!-- LOLA Label bottom -->
+        <text x="280" y="248" text-anchor="middle" font-size="10" fill="#B04010" font-family="'JetBrains Mono', monospace">⟵ 学習志向性（Learning-Oriented）が三層全体を貫く ⟶</text>
+      </svg>
+      <p class="fig-caption">図2：LOLAフレームワークにおける妥当性論証の三層構造。ドメイン定義・タスク設計・スコア解釈が連鎖的に正当化される構造を持ち、学習志向性がフレームワーク全体を横断する設計思想として機能する。</p>
+    </div>
+
+    <h2>AI強化型SBAの登場——新たな妥当性論証の必要性</h2>
+    <p>VossらがLAQ 2026年号で提起したのは、AIが採点・フィードバック生成を担うシナリオ評価における解釈論的論証の構築という問題だ。AIが採点するとき、「AIが出力したスコアが示す能力レベル」という推論連鎖には、従来の人間採点とは異なる論証が必要となる。<span class="gloss" data-def="テストスコアが構成概念を適切に表現しているかをAIシステムに対して適用する際の固有の困難">構成概念アンダーレプリゼンテーション</span>のリスクや、AIが「文法的正確さ」以外の<span class="gloss" data-def="相手との関係・文脈への適切性など、正確さを超えた言語的・社会的能力">語用論的・相互行為的能力</span>をどう扱うかは、依然として未解決の課題だ。</p>
+
+    <h2>TOEFL採点スケール改訂——変化の波紋</h2>
+    <p>2026年1月に実施されたTOEFLの採点スケール改訂（0–120点から1–6点スケールへ）は、テスト工学上の小さな変更ではない。<span class="gloss" data-def="異なる測定尺度間でスコアを対応させる手続き。等化・リンキングを含む">スケール変換の標準化</span>と<span class="gloss" data-def="CEFRなど外部参照フレームと試験スコアを対応させる手続き">CEFR対応</span>の観点から、採点報告の「読み方」が変わることで、教師・入試担当者の解釈実践にも影響が及ぶ。移行期間の2028年までは新旧スコアが併記されるが、この並行期間を利用した等化研究が今後のテスト工学的課題として浮上する。</p>
+
+    <h2>平等性・反人種差別的妥当性論の登場</h2>
+    <p>2026年2月にLanguage Testingで公開されたOwen & Xuの論文は、言語評価における<span class="gloss" data-def="テスト結果が受験者の人種・民族的背景によって系統的に不公平な影響を受けていないかを検討する研究パラダイム">正義志向・反人種差別的妥当性枠組み</span>に対して方法論的厳密性の観点から応答するものだ。妥当性論が「誰のための妥当性か」という問いを内包し始めていることは、評価研究の社会政治的転回の象徴である。</p>
+
+    <div class="editorial">
+      <div class="editorial-label">✦ Editorial Comment</div>
+      <p>SBAとLOLAの接合は、「テストを授業に近づける」という長年の課題に最も体系的に応答しようとする試みだ。日本語教育の現場では、Can-do評価・JFスタンダードとの接合が自然な実装経路となる。AI採点との接合は可能性と課題を同時に持ち込む。現場実践者は「何を測るためにシナリオを設定するのか」という問いを、LOLAの三層構造を参照しながら明示化する習慣を持ちたい。</p>
+    </div>
+
+    <div class="source-block">
+      <div class="source-label">一次資料</div>
+      <div class="source-item">Purpura, J.E. et al. (2026). Using a Learning-Oriented Language Assessment Framework to Validate Key Claims Related to a B1 English Scenario-Based Assessment. <em>Language Assessment Quarterly</em>, 23(1). <a href="https://doi.org/10.1080/15434303.2025.xxxxx" target="_blank">LAQ Vol.23, 2026</a></div>
+      <div class="source-item">Voss, E. et al. (2026). Developing an Interpretation Argument for AI-Enhanced Scenario-Based Language Assessments Through a LOLA Framework. <em>Language Assessment Quarterly</em>, 23(1).</div>
+      <div class="source-item">Owen, N. & Xu, H. (2026). Maintaining methodological rigor in language assessment: A response to Randall et al.'s justice-oriented antiracist validity framework. <em>Language Testing</em>. Feb 3, 2026.</div>
+      <div class="source-item">Elao (2026). Language reference frameworks: the 2026 comparative guide. <a href="https://www.elao-test.com/en/blog/language-reference-frameworks-the-2026-comparative-guide" target="_blank">elao-test.com</a></div>
+      <div class="source-quote">"TOEFL introduced a new scoring scale in January 2026, moving from a 0–120 scale to a 1–6 scale in increments of 0.5."</div>
+    </div>
+  </div>
+</article>
+
+<!-- ═══════════════════════════════════════════
+     ARTICLE 03 — 認知科学×SLA
+════════════════════════════════════════════ -->
+<article class="article a3" id="art3">
+  <div class="article-header">
+    <span class="article-tag tag-3">03 / 認知科学×SLA</span>
+    <h1 class="article-title">脳が言語を「書き換える」——神経可塑性・実行機能・個人差のL2認知科学最前線</h1>
+    <p class="article-subtitle">第二言語学習が脳の構造と機能を変える。その「書き換え」のメカニズムと個人差は、どのような認知変数によって説明されるのか。2026年の研究動向から教育設計への橋渡しを試みる。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="key-box" style="--accent-color:#9A6030">
+      <div class="key-box-title">🔑 Key Concepts</div>
+      <div class="key-box-grid">
+        <div class="key-item">
+          <span class="key-term">神経可塑性（Neuroplasticity）</span>
+          <span class="key-def">学習経験によって脳の構造・機能が変化する能力。成人でも継続し、L2習得によって誘発される。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">実行機能（Executive Control）</span>
+          <span class="key-def">目標指向的行動を調整する高次認知プロセス群。抑制・切り替え・更新の三側面が主要コンポーネント。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">持続的注意（Sustained Attention）</span>
+          <span class="key-def">長時間にわたって認知資源を対象に向け続ける能力。ISLとの関係は依然議論中。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">N400波（ERP）</span>
+          <span class="key-def">意味不一致処理時に生じる陰性電位。L2語彙習得の神経指標として広く使用される。</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>「L2学習が脳を変える」という事実の厚み</h2>
+    <p>第二言語学習が脳に構造的・機能的変化をもたらすことは、fMRIやERPを用いた神経科学研究が積み重ねてきた堅固な事実だ。<span class="gloss" data-def="下前頭回・上側頭回・下頭頂葉からなる言語処理の中核ネットワーク">中核言語ネットワーク</span>（下前頭回・上側頭回・下頭頂葉）は習熟度の上昇とともに、分散的・努力的な活性化パターンからより焦点化・効率化したパターンへと移行する。この<span class="gloss" data-def="熟練度上昇に伴い、脳活性が広範な分散から局所的・効率的なパターンへ変容する神経学的現象">神経効率化</span>は、言語習得が単なる「知識の蓄積」ではなく「処理ネットワークの再編」であることを示す。</p>
+
+    <p>成人L2学習者の場合、この再編は幼児期のL1習得と比べて「より両側半球的な活性化」と「より遅い固化速度」という特徴を持つ。これは成人の神経可塑性が幼少期に劣るという単純な話ではなく、既存のL1ネットワークとの相互作用パターンの違いを反映している。</p>
+
+    <h2>実行機能とL2学習——双方向の関係</h2>
+    <p>L2学習と<span class="gloss" data-def="前頭前野・前帯状皮質を中心とした、目標指向行動・干渉抑制・切り替えを担う認知システム">実行制御ネットワーク</span>の関係は双方向だ。一方では、強化された実行機能（特に言語間の干渉を抑制する<span class="gloss" data-def="非ターゲット言語の活性化を抑制し、使用言
