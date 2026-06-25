@@ -1,0 +1,665 @@
+Now I have sufficient research to compile the full HTML magazine. Let me construct the complete Issue 009 of PRAXIS.
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAXIS Issue 009 — 言語教育の研究と実践をつなぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #EDE8DF;
+  --bg-card: #F9F6F0;
+  --text-primary: #1A1612;
+  --text-secondary: #4A3F35;
+  --text-muted: #7A6E64;
+  --accent-1: #C85A1A;
+  --accent-2: #B84E12;
+  --accent-3: #D4691E;
+  --accent-4: #A84510;
+  --accent-5: #C06020;
+  --accent-6: #B05510;
+  --accent-7: #D07030;
+  --border: #D8D0C4;
+  --border-strong: #C4B8A8;
+  --highlight: #F0E8D8;
+  --code-bg: #EDE4D8;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Noto Sans JP', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #2C2318;
+    --bg-secondary: #352B1F;
+    --bg-card: #3A3028;
+    --text-primary: #F5EDD8;
+    --text-secondary: #D8C8A8;
+    --text-muted: #A89880;
+    --accent-1: #E07840;
+    --accent-2: #D06830;
+    --accent-3: #E88848;
+    --accent-4: #D07838;
+    --accent-5: #E07030;
+    --accent-6: #C86828;
+    --accent-7: #F08850;
+    --border: #5A4838;
+    --border-strong: #6A5848;
+    --highlight: #403428;
+    --code-bg: #3E3228;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+/* MASTHEAD */
+.masthead {
+  border-bottom: 2px solid var(--border-strong);
+  padding: 2rem 0 1.25rem;
+  background: var(--bg-secondary);
+}
+.masthead-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.masthead-brand h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  letter-spacing: 0.05em;
+  color: var(--accent-1);
+  line-height: 1;
+}
+.masthead-brand .caption {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  margin-top: 0.25rem;
+}
+.masthead-meta {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+.masthead-meta strong {
+  color: var(--accent-1);
+  font-size: 0.9rem;
+}
+
+/* NAV */
+.toc-nav {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.toc-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.toc-nav a {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.toc-nav a:hover {
+  color: var(--accent-1);
+  border-color: var(--accent-1);
+  background: var(--highlight);
+}
+
+/* MAIN LAYOUT */
+.site-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/* ARTICLE CARD */
+.article {
+  margin-bottom: 5rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+}
+.article:last-child { border-bottom: none; }
+
+.article-header {
+  margin-bottom: 2.5rem;
+}
+.article-label {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+.article-number {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.article h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+.article-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.article-meta {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* COLOR VARIANTS */
+.label-01 { background: #C85A1A22; color: var(--accent-1); border: 1px solid var(--accent-1); }
+.label-02 { background: #B84E1222; color: var(--accent-2); border: 1px solid var(--accent-2); }
+.label-03 { background: #D4691E22; color: var(--accent-3); border: 1px solid var(--accent-3); }
+.label-04 { background: #A8451022; color: var(--accent-4); border: 1px solid var(--accent-4); }
+.label-05 { background: #C0602022; color: var(--accent-5); border: 1px solid var(--accent-5); }
+.label-06 { background: #B0551022; color: var(--accent-6); border: 1px solid var(--accent-6); }
+.label-07 { background: #D0703022; color: var(--accent-7); border: 1px solid var(--accent-7); }
+
+.accent-rule-01 { border-left: 4px solid var(--accent-1); }
+.accent-rule-02 { border-left: 4px solid var(--accent-2); }
+.accent-rule-03 { border-left: 4px solid var(--accent-3); }
+.accent-rule-04 { border-left: 4px solid var(--accent-4); }
+.accent-rule-05 { border-left: 4px solid var(--accent-5); }
+.accent-rule-06 { border-left: 4px solid var(--accent-6); }
+.accent-rule-07 { border-left: 4px solid var(--accent-7); }
+
+/* BODY TEXT */
+.article-body h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin: 2.2rem 0 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+.article-body p {
+  margin-bottom: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 0.97rem;
+}
+
+/* KEY CONCEPT BOX */
+.key-concept {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.4rem 1.6rem;
+  margin: 2rem 0;
+}
+.key-concept-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.key-concept-title::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--accent-1);
+}
+.key-concept dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1rem;
+}
+.key-concept dt {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding-top: 0.05rem;
+  white-space: nowrap;
+}
+.key-concept dd {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* PLAIN LANGUAGE BLOCK */
+.plain-language {
+  background: var(--highlight);
+  border-left: 4px solid var(--accent-1);
+  border-radius: 0 6px 6px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+}
+.plain-language-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+.plain-language p {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  font-style: italic;
+  margin: 0;
+}
+
+/* GLOSS */
+.gloss {
+  border-bottom: 1px dashed var(--accent-1);
+  cursor: help;
+  position: relative;
+  color: var(--text-primary);
+}
+.gloss[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 125%;
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  white-space: normal;
+  min-width: 200px;
+  max-width: 300px;
+  color: var(--text-primary);
+  z-index: 200;
+  pointer-events: none;
+}
+
+/* EDITORIAL COMMENT */
+.editorial-comment {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-radius: 6px;
+  padding: 1.4rem 1.6rem;
+  margin-top: 2.5rem;
+}
+.editorial-comment-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+.editorial-comment p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.7rem;
+}
+.editorial-comment p:last-child { margin-bottom: 0; }
+
+/* SOURCE LINKS */
+.source-links {
+  margin-top: 2rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
+}
+.source-links-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 0.7rem;
+}
+.source-links ul {
+  list-style: none;
+}
+.source-links li {
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+.source-links a {
+  color: var(--accent-1);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.79rem;
+}
+.source-links a:hover { text-decoration: underline; }
+.source-cite {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 0.3rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--code-bg);
+  border-radius: 4px;
+  font-family: var(--mono);
+  line-height: 1.55;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* SVG FIGURE */
+.infographic {
+  margin: 2.5rem 0;
+}
+.infographic figcaption {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.6rem;
+}
+.infographic svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* FOOTER */
+.site-footer {
+  border-top: 2px solid var(--border-strong);
+  background: var(--bg-secondary);
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+.site-footer strong {
+  color: var(--accent-1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .masthead-inner { flex-direction: column; align-items: flex-start; }
+  .masthead-meta { text-align: left; }
+  .site-main { padding: 2rem 1.2rem; }
+  .toc-nav-inner { gap: 0.35rem; }
+  .key-concept dl { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-brand">
+      <h1>PRAXIS</h1>
+      <p class="caption">言語教育の研究と実践をつなぐ</p>
+    </div>
+    <div class="masthead-meta">
+      <strong>Issue 009</strong><br>
+      2026 — 06 — 25<br>
+      Language Education Research &amp; Practice
+    </div>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="toc-nav" aria-label="目次">
+  <div class="toc-nav-inner">
+    <a href="#art01">01 SLA研究</a>
+    <a href="#art02">02 テスト工学</a>
+    <a href="#art03">03 認知科学×SLA</a>
+    <a href="#art04">04 海外日本語教育</a>
+    <a href="#art05">05 AI×評価技術</a>
+    <a href="#art06">06 就労現場</a>
+    <a href="#art07">07 制度設計</a>
+  </div>
+</nav>
+
+<main class="site-main">
+
+<!-- ===================================================
+     ARTICLE 01: SLA
+     =================================================== -->
+<article class="article" id="art01">
+  <header class="article-header">
+    <span class="article-number">01 / 07</span>
+    <span class="article-label label-01">SLA最新研究</span>
+    <h2>「注意の分散」から「注意の統合」へ<br>——CAFトレードオフ仮説の現在地</h2>
+    <p class="article-subtitle">Complexity, Accuracy, Fluency の三角形が示す、言語産出の認知アーキテクチャ</p>
+    <p class="article-meta">Ref: IRAL 2026 vol.64 / Language Learning 2025 vol.75 / Applied Linguistics (多数)</p>
+  </header>
+
+  <div class="article-body">
+
+    <div class="key-concept">
+      <p class="key-concept-title">Key Concepts</p>
+      <dl>
+        <dt>CAF</dt>
+        <dd>Complexity（構造的複雑性）・Accuracy（正確性）・Fluency（流暢性）の三指標。SLA産出研究の基本フレームワーク。</dd>
+        <dt>トレードオフ仮説</dt>
+        <dd>注意資源の総量は有限であり、一次元への集中は他次元を犠牲にするという Skehan（1998）の予測。</dd>
+        <dt>認知仮説</dt>
+        <dd>タスク複雑度が高いほど全次元が向上するという Robinson（2001）の対立仮説。</dd>
+        <dt>CAFFA</dt>
+        <dd>CAFに Functional Adequacy（機能的適切性）を加えた拡張指標群（Kuiken &amp; Vedder）。</dd>
+      </dl>
+    </div>
+
+    <h3>三角形の「テンション」はなぜ生まれるか</h3>
+    <p>
+      第二言語の産出研究は長らく、話し手がどれだけ複雑な構造を使い（Complexity）、どれだけ誤りなく使い（Accuracy）、どれだけ滑らかに話せるか（Fluency）の三軸で学習者の言語能力を測ってきた。しかし<span class="gloss" title="Complexity・Accuracy・Fluencyの頭文字。それぞれ独自の測定指標群を持つ。">CAF</span>の三軸が同時に向上しないことは経験的によく知られている。Ellis（1994）はすでに「流暢性の上昇は正確性と複雑性のコストを伴い得る」と指摘しており、その背景には注意資源の有限性という認知的制約がある。
+    </p>
+    <p>
+      <span class="gloss" title="人間の注意処理容量は有限で、一方への投資が他方を圧迫するというSkehanの理論的枠組み。">トレードオフ仮説</span>によれば、タスク遂行中の学習者は複雑性・正確性・流暢性の間でどこにリソースを配分するかを瞬時に「選択」している。この選択はタスク設計、事前計画時間の有無、熟達度レベルといった外部条件に大きく左右される。対して Robinson の認知仮説は、タスクの「資源配分需要（resource-directing）」が増すほど、学習者は注意をより多く投入し、結果的にすべての指標が向上すると主張する。両仮説の予測は相互に矛盾しており、近年の実証研究はこの対立をより精緻な条件分岐で整理しようとしている。
+    </p>
+
+    <h3>2025〜2026年研究が明かす「ジャンルと習熟度」の調整効果</h3>
+    <p>
+      Language Learning 誌 2025 年号（vol.75 no.2）に掲載された論考は、複雑性が単一指標ではなく「ジャンル × 習熟度レベル」によって異なる面を見せることを強調する。すなわち、議論文では語彙的複雑性と統語的複雑性が正の相関を示すが、物語文では分離する傾向がある。これはCAFを「一枚岩の能力」として扱う従来の見方に異議を唱えるものだ。教師にとっての含意は明確で、「高複雑性タスクを与えれば能力が上がる」という単純な図式は成立しない。
+    </p>
+    <p>
+      IRAL 2026年号（vol.64 no.1）の特集「第二言語流暢性のコンテクスト横断研究」は、流暢性の構成要素をさらに細分化する。音声流暢性（発話速度・ためらい頻度）、語彙流暢性（語彙多様性TTR）、認知流暢性（処理自動化の度合い）はそれぞれ独立した指標として扱う必要があることを複数の論文が示している。特に熟達度中級の学習者では、認知流暢性が上昇しても音声流暢性が追いつかないという非同期的発達が報告されており、これは教室の観察と一致する。
+    </p>
+
+    <figure class="infographic" aria-label="CAFトレードオフモデルのインフォグラフィック">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAFトレードオフと認知資源配分の図解">
+        <rect width="560" height="300" fill="#F9F6F0" rx="8"/>
+        <!-- Triangle -->
+        <polygon points="280,38 100,240 460,240" fill="none" stroke="#C85A1A" stroke-width="2.5"/>
+        <!-- Triangle inner highlight -->
+        <polygon points="280,70 140,225 420,225" fill="#C85A1A12" stroke="none"/>
+        <!-- Vertex labels -->
+        <text x="280" y="28" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" fill="#C85A1A">Complexity</text>
+        <text x="280" y="45" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#7A6E64">構造的複雑性</text>
+        <text x="72" y="255" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" fill="#C85A1A">Accuracy</text>
+        <text x="72" y="270" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#7A6E64">正確性</text>
+        <text x="488" y="255" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" fill="#C85A1A">Fluency</text>
+        <text x="488" y="270" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#7A6E64">流暢性</text>
+        <!-- Center point -->
+        <circle cx="280" cy="172" r="28" fill="#F5F0E8" stroke="#C85A1A" stroke-width="1.8"/>
+        <text x="280" y="168" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#1A1612">注意</text>
+        <text x="280" y="183" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#1A1612">資源</text>
+        <!-- Arrows from center -->
+        <line x1="258" y1="157" x2="218" y2="122" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="280" y1="144" x2="280" y2="75" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="302" y1="157" x2="342" y2="122" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr)"/>
+        <defs>
+          <marker id="arr" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="#C85A1A"/>
+          </marker>
+        </defs>
+        <!-- Annotation boxes -->
+        <rect x="12" y="120" width="130" height="56" rx="5" fill="#F9F6F0" stroke="#D8D0C4"/>
+        <text x="77" y="140" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#1A1612" font-weight="bold">トレードオフ仮説</text>
+        <text x="77" y="156" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">資源は有限—一方の</text>
+        <text x="77" y="170" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">増加は他方を圧迫</text>
+        <rect x="418" y="120" width="130" height="56" rx="5" fill="#F9F6F0" stroke="#D8D0C4"/>
+        <text x="483" y="140" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#1A1612" font-weight="bold">認知仮説</text>
+        <text x="483" y="156" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">複雑タスクが注意を</text>
+        <text x="483" y="170" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">喚起し全指標向上</text>
+        <!-- CAFFA label -->
+        <rect x="192" y="190" width="176" height="36" rx="5" fill="#C85A1A22" stroke="#C85A1A" stroke-width="1"/>
+        <text x="280" y="210" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#C85A1A">+ Functional Adequacy</text>
+        <text x="280" y="222" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#7A6E64">= CAFFA 拡張モデル</text>
+      </svg>
+      <figcaption>図1：CAFトレードオフモデルと認知仮説の対比。中央の「注意資源」から三頂点への矢印は配分の方向性を示す。</figcaption>
+    </figure>
+
+    <h3>タスク設計への実践的示唆</h3>
+    <p>
+      複数の研究が一貫して示すのは、「事前計画時間（pre-task planning）」の付与が主に複雑性と流暢性を伸ばし、正確性への効果は限定的であるという点だ。これはタスク中の認知負荷がまず複雑性・流暢性に向かい、正確性モニタリングは別の処理段階を要するためと解釈される。教育実践としては、①事前計画フェーズを設ける、②フィードバックサイクルで正確性に特化した注意づけを行う、③繰り返しタスクで徐々に複雑性を高める、という三段階設計が推奨される。
+    </p>
+    <p>
+      また Working Memory（WM）との交互作用も無視できない。SSLA 誌に掲載された研究（Cambridge Core）によれば、WMは全体的な作文能力とは無相関だが、複雑性・正確性・流暢性の特定側面については予測力を持つ。とりわけ中央実行系（central executive）と音韻的短期記憶の容量差が、同一タスクに対する学習者間の産出差を説明する。これは「なぜ同じ授業でも学習者によって伸びる側面が異なるのか」という教師の現場観察に、認知的な裏付けを与える知見だ。
+    </p>
+
+    <h3>「流暢性」の多面性と自動化理論</h3>
+    <p>
+      流暢性は単なる「速さ」ではない。最新の測定論的観点からは、（1）速度流暢性（発話速度・音節数/分）、（2）修復流暢性（言い直し・自己訂正の頻度）、（3）分解流暢性（ためらい・フィラーの頻度）の三成分に分解される。特に「修復流暢性」は高習熟度学習者においても低下しにくく、自動化が進んでも文法モニタリングの要求が消えるわけではないことを示している。
+    </p>
+    <p>
+      この知見は教室実践に直結する。タスクベース指導において、教師がフォーカス・オン・フォームを与えるタイミングを「産出後」に設定すると、修復流暢性の改善に効果的であることが複数の観察研究で示唆されている。逆に産出中への割り込みは流暢性全体を下げ、学習者の不安を高めることが多い。
+    </p>
+
+    <h3>今後の研究課題：非冗長指標と縦断設計</h3>
+    <p>
+      CAF研究の方法論的課題として、指標間の冗長性が繰り返し指摘されている。例えば、T-unit 長と従属節比率は統語的複雑性の二指標だが、高い相関を示し、独立した情報を提供しない場合が多い。今後は情報理論的な視点から非冗長な指標セットを選定し、より長期の縦断データで発達軌跡を追う研究が求められている。特に初級から中級への移行期（いわゆる「プラトー期」）における三指標の非同期的変化は、教育課程設計の観点から重要な研究空白だ。
+    </p>
+
+    <div class="plain-language">
+      <p class="plain-language-title">平たく言えば</p>
+      <p>「流暢に話す練習」「正確に書く練習」「複雑な構文を使う練習」を別々にやっても統合されない。タスクという「本番状況」の中でこの三つを同時に動員させ、その後のフィードバックで「どこに意識を向けるべきか」を教えることが、CAF研究が教師に提案する核心だ。</p>
+    </div>
+
+    <div class="source-links">
+      <p class="source-links-title">一次資料・参考文献</p>
+      <ul>
+        <li><a href="https://doi.org/10.1515/iral-2025-0001" target="_blank">IRAL 2026, vol.64 no.1 — Second language fluency across contexts (Special Issue)</a></li>
+        <li><a href="https://doi.org/10.1111/lang.12625" target="_blank">Language Learning 2025, vol.75 no.2 — Complexity, Genre, and L2 Proficiency</a></li>
+        <li><a href="https://doi.org/10.1515/lingvan-2021-0112" target="_blank">Linguistic Complexity in SLA (De Gruyter, 2023)</a></li>
+      </ul>
+      <code class="source-cite">Housen, A., &amp; Kuiken, F. (2009). Complexity, accuracy, and fluency in SLA. Applied Linguistics, 30(4). | Skehan, P. (1998). A cognitive approach to language learning. OUP.</code>
+    </div>
+
+    <div class="editorial-comment accent-rule-01">
+      <p class="editorial-comment-title">Editorial Comment</p>
+      <p>CAFフレームワークは「何が伸びているか」を可視化する優れたレンズだが、その測定指標の選定には依然として研究者間で合意が不足している。現場教師にとっての実践的ヒントは、「一時間の授業で三つすべてを評価しようとしない」こと——Fluency 観察日と Accuracy 評価日を分けるだけでも、フィードバックの焦点が劇的にクリアになる。</p>
+      <p>また CAFFA への拡張が示すように、「言語的に正確かつ複雑であっても、コミュニカティブに不適切な産出」は現実の言語使用では失敗を意味する。機能的適切性の観点を入れることで、評価が試験対策から実用能力測定へとシフトする。</p>
+    </div>
+  </div>
+</article>
+
+<!-- ===================================================
+     ARTICLE 02: TEST ENGINEERING
+     =================================================== -->
+<article class="article" id="art02">
+  <header class="article-header">
+    <span class="article-number">02 / 07</span>
+    <span class="article-label label-02">テスト工学・測定論</span>
+    <h2>「キーワード辞書の盲点」が示す<br>測定の罠——語彙リストに頼る修辞スタンス分析の限界</h2>
+    <p class="article-subtitle">Bo Chen (2026)「When Certainty Is an Artifact」が言語テスト評価者に投げかける問い</p>
+    <p class="article-meta">Ref: arXiv:2606.26062v1 (Bo Chen, 2026-06) / Applied Linguistics & Measurement</p>
+  </header>
+
+  <div class="article-body">
+
+    <div class="key-concept">
+      <p class="key-concept-title">Key Concepts</p>
+      <dl>
+        <dt>キーワード辞書（Lexicon）</dt>
+        <dd>特定の言語現象（確信度・感情・スタンス等）を測定するために事前構築された語彙リスト。計量社会科学で多用される。</dd>
+        <dt>測定アーティファクト</dt>
+        <dd>実際の構成概念を反映せず、測定手段そのものの性質から生じる見かけ上の効果。</dd>
+        <dt>修辞的スタンス（Rhetorical Stance）</dt>
+        <dd>発話者・筆者が主張に対してとる態度の言語的表現。確信・留保・疑念等が含まれる。</dd>
+        <dt>キーワード辞書盲点</dt>
+        <dd>辞書に含まれる語が特定のコーパスに偏在することで、実質的な構成概念変化なしに統計的有意差が生じる問題。</dd>
+      </dl>
+    </div>
+
+    <h3>「統計的に有意な大効果量」が測定ノイズである可能性</h3>
+    <p>
+      計量社会科学および計算言語学において、語彙辞書（lexicon）を用いたテキスト分析は広く普及している。感情分析、スタンス測定、論説調査——いずれも特定の意味カテゴリに属する語彙リストをテキストに照合し、出現頻度から構成概念を推定する。この手法はシンプルかつ再現可能だが、arXiv に投稿された Bo Chen（2026年6月）の論文「When Certainty Is an Artifact: Keyword Lexicon Blindness and the (Mis)Measurement of Rhetorical Stance」は根本的な問いを提起する——「統計的有意かつ大効果量の知見が、測定ツール自体のアーティファクトである場合があるか？」
+    </p>
+    <p>
+      その答えは「ある」だ。Chen の分析は、確信度（certainty）を測定するために構築された<span class="gloss" title="あらかじめ用意した語彙リストをテキストに照合し、該当語の出現頻度から構成概念を数値化する分析手法。">キーワード辞書</span>が特定のジャンル・ドメインに偏った語を含む場合、そのジャンルのテキストが多いコーパスでは辞書スコアが高くなるという構造的な問題を示す。本質的な修辞スタンスは変化していないにもかかわらず、だ。
+    </p>
+
+    <h3>言語テスト評価への直接的な含意</h3>
+    <p>
+      この問題は計算社会科学に留まらない。言語テストの採点システム、特に自動採点・自動フィードバックシステムで語彙辞書を用いる場合にも同様のアーティファクトリスクが存在する。例えば、ライティング評価で「確信度の高い表現を使うとスコアが上がる」とシステムが学習すると、受験者は実際の論証構造を改善するのではなく、辞書スコアを上げる語を散りばめる「ハッキング行動」を学習してしまう。
+    </p>
+    <p>
+      <span class="gloss" title="テストの指標が標的となった途端、その指標は良い測定値でなくなる——굿하트の法則の言語テスト版。">グッドハートの罠</span>と呼ぶべきこの現象は、測定の妥当性（construct validity）を空洞化する。Chen の研究は測定論的に重要な警告を発しており、テスト開発者・評価研究者にとって「辞書の偏りを事前に検証する手順」の必要性を浮き彫りにしている。
+    </p>
+
+    <figure class="infographic" aria-label="キーワード辞書盲点のインフォグラフィック">
+      <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="語彙辞書バイアスと測定アーティファクトの図解">
+        <rect width="560" height="280" fill="#F9F6F0" rx="8"/>
+        <!-- Flow -->
+        <!-- Box 1: Real construct -->
+        <rect x="24" y="100" width="130" height="64" rx="6" fill="#F9F6F0" stroke="#B84E12" stroke-width="2"/>
+        <text x="89" y="126" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#1A1612" font-weight="bold">修辞スタンス</text>
+        <text x="89" y="144" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="11" fill="#4A3F35">（実際の構成概念）</text>
+        <!-- Arrow -->
+        <line x1="154" y1="132" x2="188" y2="132" stroke="#B84E12" stroke-width="2" marker-end="url(#arr2)"/>
+        <defs>
+          <marker id="arr2" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="#B84E12"/>
+          </marker>
+          <marker id="arr2r" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="#B84E12"/>
+          </marker>
+        </defs>
+        <!-- Box 2: Lexicon -->
+        <rect x="188" y="86" width="144" height="92" rx="6" fill="#B84E1218" stroke="#B84E12" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="260" y="113" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="12" fill="#B84E12" font-weight="bold">キーワード辞書</text>
+        <text x="260" y="131" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#4A3F35">"certain" "clearly"</text>
+        <text x="260" y="147" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#4A3F35">"undoubtedly" ...</text>
+        <text x="260" y="164" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="10" fill="#7A6E64">← ジャンル偏在語含む</text>
+        <!-- Arrow to score -->
+        <line x1="332" y1="132" x2="366" y2="132" stroke="#B84E12" stroke-width="2" marker-end="url(#arr2)"/>
+        <!-- Box 3: Score (artifact) -->
+        <rect x="366" y="100" width
