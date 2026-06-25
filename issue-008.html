@@ -1,0 +1,783 @@
+Now I have enough research material to generate the full HTML magazine. Let me create the comprehensive 7-article PRAXIS Issue 008.
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAXIS — Issue 008 | 2026-06-25</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #F5F0E8;
+  --bg-secondary: #EDE6D6;
+  --bg-card: #FAF6EE;
+  --bg-accent-soft: #F0E8D6;
+  --text-primary: #1A1612;
+  --text-secondary: #4A3F35;
+  --text-muted: #7A6B5D;
+  --accent-01: #C85A1A;
+  --accent-02: #B84E28;
+  --accent-03: #A84020;
+  --accent-04: #D4701E;
+  --accent-05: #C06030;
+  --accent-06: #B85530;
+  --accent-07: #E08030;
+  --border-light: #D8CCBA;
+  --border-mid: #C4B49C;
+  --masthead-bg: #1A1612;
+  --masthead-text: #F5F0E8;
+  --tag-bg: #E8DEC8;
+  --code-bg: #EDE6D6;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'Noto Sans JP', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #2C2318;
+    --bg-secondary: #241D13;
+    --bg-card: #332A1E;
+    --bg-accent-soft: #3A2F22;
+    --text-primary: #F5EDD8;
+    --text-secondary: #D4C4A8;
+    --text-muted: #A09070;
+    --accent-01: #E07040;
+    --accent-02: #D06030;
+    --accent-03: #C85530;
+    --accent-04: #E88040;
+    --accent-05: #D87040;
+    --accent-06: #CC6035;
+    --accent-07: #F09040;
+    --border-light: #4A3D2C;
+    --border-mid: #5A4A35;
+    --masthead-bg: #1E1710;
+    --masthead-text: #F5EDD8;
+    --tag-bg: #3A3020;
+    --code-bg: #241D13;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background-color: var(--masthead-bg);
+  color: var(--masthead-text);
+  padding: 0;
+}
+.masthead-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.masthead-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--accent-07);
+  text-transform: uppercase;
+}
+.masthead-logo {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--masthead-text);
+}
+.masthead-tagline {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: #B0A090;
+  letter-spacing: 0.04em;
+}
+.masthead-meta {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #3A3028;
+}
+.masthead-meta-item {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: #8A7A68;
+}
+.masthead-meta-item span {
+  color: var(--masthead-text);
+}
+
+/* ── NAV ── */
+.toc-bar {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-bar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0;
+}
+.toc-link {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.9rem 1rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.toc-link:hover {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-01);
+}
+
+/* ── LAYOUT ── */
+.site-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* ── ARTICLE ── */
+.article {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.article-header {
+  margin-bottom: 2rem;
+}
+
+.article-tag {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3em 0.7em;
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.article-number {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.article-title {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 0.7rem;
+  letter-spacing: -0.01em;
+}
+
+.article-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.article-divider {
+  height: 1px;
+  background: var(--border-light);
+  margin: 2rem 0;
+}
+
+.article-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 820px) {
+  .article-body { grid-template-columns: 1fr; }
+}
+
+.article-main {}
+.article-side {}
+
+/* headings inside article */
+.article-main h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin: 2.2rem 0 0.8rem;
+  line-height: 1.3;
+}
+.article-main h4 {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 1.8rem 0 0.6rem;
+}
+.article-main p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--text-primary);
+  margin-bottom: 1.1rem;
+}
+
+/* ── KEY CONCEPTS BOX ── */
+.key-concepts {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1.8rem;
+}
+.key-concepts-title {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.key-concept-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.key-concept-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.key-concept-term {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+.key-concept-def {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── PLAIN LANGUAGE BLOCK ── */
+.plain-block {
+  background: var(--bg-accent-soft);
+  border-left: 3px solid currentColor;
+  border-radius: 0 4px 4px 0;
+  padding: 1.2rem 1.5rem;
+  margin: 2rem 0;
+}
+.plain-block-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.plain-block p {
+  font-size: 0.93rem;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* ── GLOSS INLINE ── */
+.gloss {
+  border-bottom: 1px dashed var(--border-mid);
+  cursor: help;
+  position: relative;
+}
+.gloss[data-def]:hover::after {
+  content: attr(data-def);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  min-width: 200px;
+  max-width: 280px;
+  background: var(--masthead-bg);
+  color: var(--masthead-text);
+  font-size: 0.75rem;
+  padding: 0.5em 0.75em;
+  border-radius: 4px;
+  line-height: 1.5;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ── SVG FIGURE ── */
+.figure-wrap {
+  margin: 2rem 0;
+}
+.figure-wrap figcaption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+}
+.figure-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid var(--border-light);
+}
+
+/* ── EDITORIAL COMMENT ── */
+.editorial-comment {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  margin-top: 2.5rem;
+}
+.editorial-comment-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+.editorial-comment p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* ── SOURCE BLOCK ── */
+.source-block {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+.source-block-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+.source-item {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.source-item a {
+  color: var(--accent-01);
+  text-decoration: none;
+}
+.source-item a:hover { text-decoration: underline; }
+
+/* ── QUOTE PULL ── */
+.pull-quote {
+  border-left: 3px solid currentColor;
+  padding: 0.8rem 1.2rem;
+  margin: 1.8rem 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* ── ARTICLE SEPARATOR ── */
+.issue-separator {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border-mid), transparent);
+  margin: 0;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  background-color: var(--masthead-bg);
+  color: #6A5A4A;
+  padding: 2rem;
+  text-align: center;
+}
+.site-footer p {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  line-height: 1.8;
+}
+.site-footer strong { color: #A09080; }
+
+/* colour assignments per article */
+.tag-01 { background: #C85A1A20; color: #C85A1A; }
+.tag-02 { background: #B84E2820; color: #B84E28; }
+.tag-03 { background: #A8402020; color: #A84020; }
+.tag-04 { background: #D4701E20; color: #D4701E; }
+.tag-05 { background: #C0603020; color: #C06030; }
+.tag-06 { background: #B8553020; color: #B85530; }
+.tag-07 { background: #E0803020; color: #E08030; }
+
+.accent-01 { color: var(--accent-01); border-color: var(--accent-01); }
+.accent-02 { color: var(--accent-02); border-color: var(--accent-02); }
+.accent-03 { color: var(--accent-03); border-color: var(--accent-03); }
+.accent-04 { color: var(--accent-04); border-color: var(--accent-04); }
+.accent-05 { color: var(--accent-05); border-color: var(--accent-05); }
+.accent-06 { color: var(--accent-06); border-color: var(--accent-06); }
+.accent-07 { color: var(--accent-07); border-color: var(--accent-07); }
+
+.plain-block.accent-01 { border-left-color: var(--accent-01); }
+.plain-block.accent-02 { border-left-color: var(--accent-02); }
+.plain-block.accent-03 { border-left-color: var(--accent-03); }
+.plain-block.accent-04 { border-left-color: var(--accent-04); }
+.plain-block.accent-05 { border-left-color: var(--accent-05); }
+.plain-block.accent-06 { border-left-color: var(--accent-06); }
+.plain-block.accent-07 { border-left-color: var(--accent-07); }
+
+.pull-quote.accent-01 { border-left-color: var(--accent-01); }
+.pull-quote.accent-02 { border-left-color: var(--accent-02); }
+.pull-quote.accent-03 { border-left-color: var(--accent-03); }
+.pull-quote.accent-04 { border-left-color: var(--accent-04); }
+.pull-quote.accent-05 { border-left-color: var(--accent-05); }
+.pull-quote.accent-06 { border-left-color: var(--accent-06); }
+.pull-quote.accent-07 { border-left-color: var(--accent-07); }
+
+@media (max-width: 600px) {
+  .masthead-inner { padding: 1.5rem 1rem 1.2rem; }
+  .site-body { padding: 2rem 1rem; gap: 3.5rem; }
+  .toc-bar-inner { padding: 0 0.5rem; }
+  .article-body { gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ MASTHEAD ══════════════════ -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <span class="masthead-eyebrow">言語教育の研究と実践をつなぐ</span>
+    <div class="masthead-logo">PRAXIS</div>
+    <div class="masthead-tagline">Language Education — Research Meets Practice</div>
+    <div class="masthead-meta">
+      <div class="masthead-meta-item">ISSUE <span>008</span></div>
+      <div class="masthead-meta-item">DATE <span>2026-06-25</span></div>
+      <div class="masthead-meta-item">ARTICLES <span>07</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════ TOC BAR ══════════════════ -->
+<nav class="toc-bar" aria-label="記事ナビゲーション">
+  <div class="toc-bar-inner">
+    <a class="toc-link" href="#art-01">01 SLA研究</a>
+    <a class="toc-link" href="#art-02">02 テスト工学</a>
+    <a class="toc-link" href="#art-03">03 認知科学×SLA</a>
+    <a class="toc-link" href="#art-04">04 海外日本語教育</a>
+    <a class="toc-link" href="#art-05">05 AI×言語評価</a>
+    <a class="toc-link" href="#art-06">06 就労実務</a>
+    <a class="toc-link" href="#art-07">07 制度・課程</a>
+  </div>
+</nav>
+
+<!-- ══════════════════ SITE BODY ══════════════════ -->
+<main class="site-body">
+
+<!-- ════════════════════════════════════════════════════
+     ARTICLE 01 — SLA最新研究
+════════════════════════════════════════════════════ -->
+<article class="article" id="art-01">
+  <header class="article-header">
+    <span class="article-number">No. 01</span>
+    <span class="article-tag tag-01">SLA最新研究</span>
+    <h2 class="article-title">流暢さの再設計——タスクベース教授法（TBLT）が照らす「複雑性・正確性・流暢性」の三角関係</h2>
+    <p class="article-subtitle">課題複雑度を変数として操作することで、学習者の産出を精密に制御できる——TBLTはどこまで「科学的な授業設計」に近づいたのか。2026年の知見から問い直す。</p>
+  </header>
+  <div class="article-divider"></div>
+
+  <div class="article-body">
+    <div class="article-main">
+
+      <h3>CAFフレームワークとはなにか</h3>
+      <p><span class="gloss" data-def="Complexity, Accuracy, Fluency の頭文字。L2産出の評価軸として広く用いられる">CAFフレームワーク</span>は、第二言語（L2）学習者の産出を「複雑性（Complexity）」「正確性（Accuracy）」「流暢性（Fluency）」の三次元で捉えるアプローチである。TBLTが本格的な実証的研究対象となった1990年代以降、CAFは最も広く使われる産出評価の枠組みとなってきた。特に課題複雑度（task complexity）の操作が産出変数にどう影響するかを検討する研究の蓄積が、近年急速に厚みを増している。</p>
+
+      <p>SLA研究者たちは長らく、「複雑さ・正確さ・流暢さの三者はトレードオフにある」という仮説を前提に研究を進めてきた。限られた認知資源を複雑な構文の産出に割くと、正確性や流暢性が下がるという議論は直感的に説得力を持つ。しかし2020年代の研究群は、この「資源競合モデル」を精緻化・相対化する証拠を次々に提出している。</p>
+
+      <h3>課題複雑度の多次元的操作</h3>
+      <p>2026年に報告された複数の実証研究は、タスクの<span class="gloss" data-def="認知的に困難な要素の数・種類。学習者の言語産出に先行して規定される課題内在的特性">認知的複雑度</span>を系統的に操作することで、CAF三変数の関係が想定以上に文脈依存的であることを示している。たとえば、方向指示タスクにおいて「複雑バージョン」を課した場合、スピーカーの産出には語彙的多様性の増大（＝複雑性の向上）が見られる一方、単純バージョンでは流暢性が相対的に高まるという非対称な結果が報告されている。</p>
+
+      <p>さらに同研究では、タスクの役割（情報提供者 vs. 情報受信者）が産出に有意な差をもたらすことも確認された。情報受信者の立場では「複雑バージョン」で確認要求（confirmation checks）が増加し、インタラクション量そのものが拡大する。これは、タスク複雑度の操作が「言語産出量の変化」をも引き起こしうるという重要な示唆である。</p>
+
+      <div class="plain-block accent-01">
+        <div class="plain-block-label accent-01">平たく言えば</div>
+        <p>「難しいタスクを与えると語彙は豊かになるが、流暢には話せなくなる」——それは半分正しい。でも「どんな難しさか」「どんな役割か」によって結果は大きく変わる。タスクの設計次第で、学習者から引き出せる言語の「型」が変わるのです。</p>
+      </div>
+
+      <h3>シーケンシング効果と授業設計への含意</h3>
+      <p>「課題を単純なものから複雑なものへと順序づけること（easy-to-complex sequencing）が産出に有利か」という問いに対して、研究知見は微妙な態度を示す。タスク順序が学習者の難易度知覚に影響しないという結果がある一方で、産出の正確性と流暢性には順序効果が確認されている。つまり「どう並べるか」は、心理的負担感には影響しないが、実際の言語産出には効いてくる——この解離は、授業設計の立場からきわめて実践的な意味をもつ。</p>
+
+      <p>教育実践者にとってのメッセージは明確だ。「難しいタスクは後回しにすれば正確性が担保される」という直感的な順序原則は、必ずしも支持されない。むしろ、どのCAF変数を授業目標として優先するかに応じてタスクの配列を設計する必要がある。流暢性を優先するならシンプルなタスクを先行させ、語彙複雑性を高めたいなら認知的負荷の高いタスクを早期に挿入する戦略が合理的である。</p>
+
+      <!-- SVG -->
+      <figure class="figure-wrap">
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAF三角形モデルとタスク複雑度の関係を示したインフォグラフィック">
+          <rect width="560" height="320" fill="var(--bg-card)" rx="4"/>
+          <!-- Title -->
+          <text x="280" y="30" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-muted)" letter-spacing="1">CAF × TASK COMPLEXITY</text>
+          <!-- Triangle base -->
+          <polygon points="280,65 110,255 450,255" fill="none" stroke="#C85A1A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- Vertices -->
+          <circle cx="280" cy="65" r="28" fill="#C85A1A" fill-opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="280" y="60" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)" font-weight="700">複雑性</text>
+          <text x="280" y="74" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-01)">Complexity</text>
+          <circle cx="110" cy="255" r="28" fill="#C85A1A" fill-opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="110" y="250" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)" font-weight="700">正確性</text>
+          <text x="110" y="264" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-01)">Accuracy</text>
+          <circle cx="450" cy="255" r="28" fill="#C85A1A" fill-opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="450" y="250" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)" font-weight="700">流暢性</text>
+          <text x="450" y="264" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-01)">Fluency</text>
+          <!-- Labels on edges -->
+          <text x="186" y="152" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)" transform="rotate(-57 186 152)">トレードオフ？</text>
+          <text x="374" y="152" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)" transform="rotate(57 374 152)">文脈依存</text>
+          <text x="280" y="248" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">タスク順序効果あり</text>
+          <!-- Center node -->
+          <circle cx="280" cy="185" r="22" fill="var(--bg-accent-soft)" stroke="var(--border-mid)" stroke-width="1"/>
+          <text x="280" y="181" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="var(--text-primary)">タスク</text>
+          <text x="280" y="194" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="var(--text-primary)">複雑度</text>
+          <!-- Arrow annotations -->
+          <line x1="280" y1="207" x2="280" y2="227" stroke="var(--accent-01)" stroke-width="1" marker-end="url(#arr1)"/>
+          <defs>
+            <marker id="arr1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#C85A1A"/>
+            </marker>
+          </defs>
+          <!-- Legend -->
+          <rect x="30" y="286" width="500" height="24" fill="var(--bg-accent-soft)" rx="2"/>
+          <text x="280" y="302" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-muted)">課題複雑度の操作によりCAF三変数の関係は文脈依存的に変動する（TBLT研究 2026年統合知見）</text>
+        </svg>
+        <figcaption>図1 — CAFフレームワークとタスク複雑度の関係。三変数の単純なトレードオフ仮説は精緻化が必要。</figcaption>
+      </figure>
+
+      <h3>Instructed SLA（ISLA）の視点から</h3>
+      <p>2026年の研究潮流において特筆すべきは、<span class="gloss" data-def="形式的設定のなかで意図的に教授・学習される第二言語習得のサブフィールド">Instructed SLA（ISLA）</span>がTBLTの「研究された教授法（researched pedagogy）」としての地位を改めて確立しつつある点である。TBLTはそのコア原理を、認知的インタラクショニスト的SLA理論から調達してきた。ニーズ分析に基づいてタスクを設計し、学習者が実際に使う言語機能をそのままシラバスの単位とするアプローチは、指導形式が学習結果に直結するISLAの中核的主張と完全に整合する。</p>
+
+      <p>さらに今日の研究では、TBLTがフォーカス・オン・フォームと組み合わさることで「意味中心の流暢性トレーニング」と「形式への注目（noticing）」の両立が可能になることが示されている。文法的正確性と流暢性の二律背反は、タスク設計と順序化によって相当程度緩和できる——これが現在の理論的到達点である。</p>
+
+      <h3>研究の課題と今後の展望</h3>
+      <p>課題も残る。多くのTBLT研究は小規模サンプルであり、治療期間（treatment duration）も短い。教室環境での実装において、最大の変数は「教師」である。教師がタスクをどのように解釈・実施するかによって、同じ設計のタスクでも効果は大きく異なりうる。今後の研究は、教師の役割という変数を明示的に制御することで、TBLTの効果の「再現可能性（replicability）」をより厳密に検証していく必要がある。</p>
+
+      <p>教育実践者へのメッセージはシンプルだ。「何のために、何の言語機能を伸ばしたいのか」という目標変数を先に決め、そこからCAFのどの次元を優先するかを選択し、タスクの複雑度と順序を逆算的に設計する——この思考の流れが、TBLTの科学的な運用を可能にする。</p>
+
+      <div class="editorial-comment">
+        <div class="editorial-comment-label">Editorial Comment</div>
+        <p>TBLT論文の実践的価値は「流暢性を高めたければシンプルなタスクを先行させる」という具体的な設計原則を提供する点にある。教育現場では依然「タスク=楽しいアクティビティ」という誤解が根強いが、ISLAの知見はタスクを「認知的変数の精密な操作手段」として捉え直すことを迫っている。カリキュラム会議でのタスク設計議論に、CAFという言語を持ち込む価値は高い。</p>
+      </div>
+
+      <div class="source-block">
+        <div class="source-block-label">一次資料・参考文献</div>
+        <div class="source-item">Robinson, P. (2001). Task complexity, task difficulty, and task production. <em>Applied Linguistics</em>, 22(1), 27–57. <a href="https://doi.org/10.1093/applin/22.1.27" target="_blank">https://doi.org/10.1093/applin/22.1.27</a></div>
+        <div class="source-item">IRAL: International Review of Applied Linguistics in Language Teaching, 2026, v. 64, n. 1. "Second language fluency across contexts: special issue." <a href="https://doi.org/10.1515/iral" target="_blank">https://doi.org/10.1515/iral</a></div>
+        <div class="source-item">Nicolicioiu, A.L., Pezeshki, M., Courville, A. (2026). On-Policy Self-Distillation with Sampled Demonstrations. arXiv:2606.26091 [一次資料: 多様性消失と自己強化学習の構造をTBLT研究に援用]</div>
+      </div>
+    </div>
+
+    <aside class="article-side">
+      <div class="key-concepts">
+        <div class="key-concepts-title">🔑 Key Concepts</div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">CAFフレームワーク</div>
+          <div class="key-concept-def">複雑性（Complexity）・正確性（Accuracy）・流暢性（Fluency）の三次元でL2産出を評価する枠組み。TBLTの成果測定に不可欠。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">タスク複雑度（Task Complexity）</div>
+          <div class="key-concept-def">タスク自体に内在する認知的難易度。学習者の産出変数（CAF）を先規定する設計上の変数として操作される。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">Instructed SLA（ISLA）</div>
+          <div class="key-concept-def">形式的教授環境での意図的L2習得を対象とするSLAのサブフィールド。TBLTの理論的バックボーン。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">シーケンシング効果</div>
+          <div class="key-concept-def">タスクの順序（単純→複雑 vs 複雑→単純）が産出の正確性・流暢性に与える影響。心理的難易度感とは解離することがある。</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<div class="issue-separator"></div>
+
+<!-- ════════════════════════════════════════════════════
+     ARTICLE 02 — テスト工学・測定論
+════════════════════════════════════════════════════ -->
+<article class="article" id="art-02">
+  <header class="article-header">
+    <span class="article-number">No. 02</span>
+    <span class="article-tag tag-02">テスト工学・測定論</span>
+    <h2 class="article-title">スポークン・ダイアローグと地域文脈——Language Testing 2026年号が示す評価の「地平の拡張」</h2>
+    <p class="article-subtitle">音声対話型AIによるスピーキング評価、そして「グローバル尺度 vs. ローカルコンテクスト」という根本的緊張が、国際言語テスト学界を揺さぶっている。測定論の最前線を読む。</p>
+  </header>
+  <div class="article-divider"></div>
+
+  <div class="article-body">
+    <div class="article-main">
+
+      <h3>Language Testing誌 2026年特集号の意義</h3>
+      <p>2026年のLanguage Testing誌は「スポークン・ダイアローグ・システム（Spoken Dialogue Systems）」を特集し、AI音声対話技術によるスピーキング能力の開発・評価を包括的に論じる特集号を組んだ。さらに並行して「グローバルサウス（Global South）」を対象としたバーチャル特集号（VSI）が創刊された。この二つの動きは、言語テスト研究が「測定精度の内部問題」から「誰のための・どこのための評価か」という社会的・政治的問いへと急速に関心を拡張していることを象徴している。</p>
+
+      <p>同誌の2026年度エディトリアルは、AIが言語評価に与える影響を繰り返し個別論文や特集号で触れてきた従来のアプローチとは異なり、「AI評価革新の具体的開発・使用文脈に根ざした深い分析」を求めると宣言している。評価研究者は、AIを便利なツールとして導入する前に、その評価の根本原理——妥当性・信頼性・公正性——がAI活用とどう折り合いをつけるかを問わなければならない。</p>
+
+      <h3>スポークン・ダイアローグ・システム（SDS）の評価的可能性</h3>
+      <p><span class="gloss" data-def="音声入力に対して自然言語で応答するシステム。近年はLLMベースの大規模システムが主流">スポークン・ダイアローグ・システム（SDS）</span>は、スピーキング評価の「スケーラビリティ問題」を解決しうる技術として急速に注目を集めている。人間の評価者による口頭試験は、時間・コスト・評価者間信頼性の三つの制約に常に悩まされてきた。SDSはこの三制約を原理的に緩和できる可能性をもつ。</p>
+
+      <p>ただし問題もある。近年の研究（Bartelds, Bianchi & Zou, 2026）は、現行の主要なリアルタイム音声AIが「言葉の意味（what）は処理するが、音声的な伝達様式（how）には十分反応できていない」という批判的知見を提出している。つまり、発話の「内容」は理解しても、抑揚・発話速度・ポーズのパターンなどの<span class="gloss" data-def="音声の言語的内容以外の音響的特徴。感情・態度・健康状態などの情報を伝える">パラリンギュスティック情報</span>を適切に処理・評価できていないというのだ。これはスピーキング評価における「評価対象の設定」問題に直結する。</p>
+
+      <div class="plain-block accent-02">
+        <div class="plain-block-label accent-02">平たく言えば</div>
+        <p>AIは「何を言ったか」は分かるが、「どう言ったか」——緊張しているか、確信があるか、丁寧に伝えようとしているか——はまだ十分に読み取れていない。スピーキング評価でAIを使う際には、その「聞こえていない部分」を人間がどう補うかを設計に組み込む必要があります。</p>
+      </div>
+
+      <!-- SVG -->
+      <figure class="figure-wrap">
+        <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" aria-label="言語テスト評価の二軸モデル：グローバル精度とローカルコンテクストの緊張関係">
+          <rect width="560" height="300" fill="var(--bg-card)" rx="4"/>
+          <text x="280" y="26" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-muted)" letter-spacing="1">LANGUAGE TESTING 2026 — DUAL TENSIONS</text>
+          <!-- Axes -->
+          <line x1="70" y1="240" x2="490" y2="240" stroke="var(--border-mid)" stroke-width="1.2"/>
+          <line x1="70" y1="240" x2="70" y2="50" stroke="var(--border-mid)" stroke-width="1.2"/>
+          <!-- Axis labels -->
+          <text x="280" y="270" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">← ローカル志向 ───────── グローバル志向 →</text>
+          <text x="22" y="145" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)" transform="rotate(-90 22 145)">← 低精度 ─ 高精度 →</text>
+          <!-- Quadrant fills -->
+          <rect x="70" y="50" width="210" height="95" fill="#B84E28" fill-opacity="0.06" rx="2"/>
+          <rect x="280" y="50" width="210" height="95" fill="#B84E28" fill-opacity="0.10" rx="2"/>
+          <rect x="70" y="145" width="210" height="95" fill="#B84E28" fill-opacity="0.03" rx="2"/>
+          <rect x="280" y="145" width="210" height="95" fill="#B84E28" fill-opacity="0.07" rx="2"/>
+          <!-- Quadrant labels -->
+          <text x="170" y="80" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">ローカル高精度型</text>
+          <text x="170" y="94" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--text-muted)">地域文脈最適化</text>
+          <text x="385" y="80" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">グローバル高精度型</text>
+          <text x="385" y="94" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-02)">大規模標準化テスト</text>
+          <text x="170" y="190" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">形成的評価</text>
+          <text x="385" y="190" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">AI音声対話評価</text>
+          <text x="385" y="204" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-02)">← 現在地</text>
+          <!-- Points -->
+          <circle cx="390" cy="175" r="7" fill="#B84E28" fill-opacity="0.8"/>
+          <circle cx="175" cy="72" r="6" fill="#B84E28" fill-opacity="0.5"/>
+          <circle cx="385" cy="68" r="6" fill="#B84E28" fill-opacity="0.5"/>
+          <!-- Midline -->
+          <line x1="70" y1="145" x2="490" y2="145" stroke="var(--border-light)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <line x1="280" y1="50" x2="280" y2="240" stroke="var(--border-light)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <!-- LTRC 2026 note -->
+          <rect x="110" y="250" width="340" height="36" fill="var(--bg-accent-soft)" rx="2"/>
+          <text x="280" y="263" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-muted)">LTRC 2026（モントリオール）テーマ:</text>
+          <text x="280" y="278" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)">「グローバル尺度 vs. ローカルコンテクスト」の緊張</text>
+        </svg>
+        <figcaption>図2 — 言語テスト評価の二軸マップ。AI音声対話評価は「グローバル・中精度」象限に位置する現在地から移動できるか。</figcaption>
+      </figure>
+
+      <h3>LTRC 2026：「グローバルとローカルの緊張」を主題に</h3>
+      <p>2026年7月にカナダ・モントリオールで開催される第47回言語テスト研究会議（LTRC 2026）は、「評価の文脈は、その構成概念の概念化と内容の特定にとって決定的に重要である」というテーゼを掲げ、「大規模テストの普遍的尺度 vs. ローカルな文脈に縛られた評価ニーズ」の緊張に正面から取り組む。この問いは今日の言語教育実践者にとって決して抽象的ではない。</p>
+
+      <p>たとえば日本語教育の現場では、「日常生活で使える日本語」を目指す生活日本語と、「JLPT合格のための日本語」は評価の構成概念自体が異なる。ローカルな学習目標を持ちながらグローバル標準のテストで評価するという矛盾は、多くの教育現場が抱える構造的問題だ。LTRC 2026が示す方向性は、「文脈に応じて妥当性論証の構造を柔軟に組み替える」という評価設計の思想を強化している。</p>
+
+      <h3>口頭語彙テストの可能性——VLTからの拡張</h3>
+      <p>Language Testing誌（2026年3月公開）には、聴覚語彙水準テスト（aural VLT）の項目形式が、L2リスニング理解力の予測妥当性にどう影響するかを検討した研究が収録された。この研究は、選択式・判断式・産出式という三種の項目形式が異なる側面の語彙知識を測定していることを示唆し、単一形式のテストでは語彙知識の全体像を捉えられないという重要な指摘を行っている。聴取語彙力の測定はリスニング評価の精度に直結するため、実務レベルでの示唆が大きい。</p>
+
+      <h3>評価倫理と障害正義フレームワーク</h3>
+      <p>SLA研究の文脈と接続する形で、2026年の研究潮流は評価の倫理次元にも光を当てている。Language Testing誌に掲載されたViewpoint論文は、評価研究が障害のある学習者に対してどのような倫理的義務を持つかを批判的に問い直している。従来の評価研究が認知的・感情的差異に焦点を当て、障害者についての欠損視点（deficit view）を再生産してきた可能性を指摘し、参加者の尊厳・代表性・互恵性を中核に置く解放的・権利ベースフレームワークを提案している。</p>
+
+      <div class="editorial-comment">
+        <div class="editorial-comment-label">Editorial Comment</div>
+        <p>「AIは聞いているが、聴いていない（Hears but Does Not Listen）」という批判的知見は、音声AI評価ツールを導入しようとしている教育機関にとって重要な警告だ。抑揚・ポーズ・声の質を通じて伝わるパラリンギュスティック情報の欠落は、スピーキング評価の構成概念妥当性を根本から問い直す。評価ツールの選定にあたっては「何が測定されていないか」を明示的に問う習慣が不可欠である。</p>
+      </div>
+
+      <div class="source-block">
+        <div class="source-block-label">一次資料・参考文献</div>
+        <div class="source-item">Bartelds, M., Bianchi, F., & Zou, J. (2026). Real-Time Voice AI Hears but Does Not Listen. arXiv:2606.26083. <a href="http://arxiv.org/abs/2606.26083v1" target="_blank">http://arxiv.org/abs/2606.26083v1</a></div>
+        <div class="source-item">Language Testing, 2026. Yan, X. & Isaacs, T. "Expanding horizons in Language Testing." <a href="https://doi.org/10.1177/02655322251387364" target="_blank">https://doi.org/10.1177/02655322251387364</a></div>
+        <div class="source-item">Language Testing: Special Issue 2026. "Spoken dialogue systems for developing and assessing speaking proficiency."</div>
+        <div class="source-item">Language Testing in Asia (2025). Bibliometric overview of English language assessment 1992–2024. <a href="https://doi.org/10.1186/s40468-024-00317-w" target="_blank">https://doi.org/10.1186/s40468-024-00317-w</a></div>
+      </div>
+    </div>
+
+    <aside class="article-side">
+      <div class="key-concepts">
+        <div class="key-concepts-title">🔑 Key Concepts</div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">スポークン・ダイアローグ・システム（SDS）</div>
+          <div class="key-concept-def">音声対話型AIを用いたスピーキング評価プラットフォーム。評価のスケーラビリティを高める一方、パラリンギュスティック情報の処理に課題。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">パラリンギュスティック情報</div>
+          <div class="key-concept-def">言語的内容以外の音響的特徴（抑揚・発話速度・ポーズ・声質）。話者の感情・態度・確信度を伝えるが、現行AI評価ツールでは処理が不十分。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">グローバル vs. ローカルの緊張</div>
+          <div class="key-concept-def">普遍的測定尺度と地域文脈に根ざした評価ニーズの間の根本的矛盾。LTRC 2026の中心テーマ。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">聴覚語彙水準テスト（Aural VLT）</div>
+          <div class="key-concept-def">書字ではなく音声で提示される語彙知識テスト。L2リスニング能力との関係が2026年に改めて実証的に検討された。</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<div class="issue-separator"></div>
+
+<!-- ════════════════════════════════════════════════════
+     ARTICLE 03 — 認知科学×SLA
+════════════════════════════════════════════════════ -->
+<article class="article" id="art-03">
+  <header class="article-header">
+    <span class="article-number">No. 03</span>
+    <span class="article-tag tag-03">認知科学×SLA</span>
+    <h2 class="article-title">ワーキングメモリ・認知負荷・個人差——テクノロジー拡張型学習環境でのL2習得を再測定する</h2>
+    <p class="article-subtitle">AI支援学習ツールの急増が、作業記憶（WM）と言語習得の関係を再設計しつつある。2026年の系統的レビューが描く「認知負荷の再分配」とはなにか。</p>
+  </header>
+  <div class="article-divider"></div>
+
+  <div class="article-body">
+    <div class="article-main">
+
+      <h3>作業記憶（WM）はL2習得の「ボトルネック」か</h3>
+      <p><span class="gloss" data-def="情報を一時的に保持・操作する認知システム。Baddeley（1974）のモデルが出発点">作業記憶（Working Memory, WM）</span>は、第二言語習得研究において最も広く研究されてきた認知的個人差変数の一つである。2026年に発表された系統的レビュー（Frontiers in Psychology, vol.17, 2026）は、31件の実証研究を統合し、インタラクティブ技術時代（2010–2024）とAI媒介時代（2024以降）の二世代にわたるCALL（コンピューター支援言語学習）研究を比較分析した。</p>
+
+      <p>この系統的レビューの核心的知見は次の二点に集約される。第一に、WMはテクノロジー拡張型の言語学習環境においても依然として中心的な認知的制約変数である。第二に、AIを媒介とした学習環境は、この認知的負荷を「管理」「再分配」「補償」する新たな可能性を持ちうる——ただしどの方向に作用するかは、ツールの設計と学習者プロファイルに大きく依存する。</p>
+
+      <h3>AI学習ツールは認知負荷を「緩和」するのか「増大」させるのか</h3>
+      <p>2026年の研究が示す皮肉な事実は、生成AIや音声AIの組み込みが、一部の学習者にとって認知負荷を増大させる可能性があるという点だ。ツールの操作そのもの（どう入力するか、どの機能を使うか）が外在的認知負荷（<span class="gloss" data-def="学習の本質的内容とは無関係の、インターフェース操作などから生じる認知負荷">extraneous cognitive load</span>）を増大させ、言語習
