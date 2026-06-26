@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAXIS — Issue 012 | 言語教育の研究と実践をつなぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #F5F0E8;
+    --bg-secondary: #EDE7D9;
+    --bg-card: #FAF7F2;
+    --text-primary: #1A1612;
+    --text-secondary: #3D3530;
+    --text-muted: #6B5E55;
+    --accent-1: #C85A1A;
+    --accent-2: #B8441A;
+    --accent-3: #D4721A;
+    --accent-4: #A83C18;
+    --accent-5: #C06020;
+    --accent-6: #9E3A28;
+    --accent-7: #D4601A;
+    --border: #D4C8BC;
+    --border-light: #E8E0D4;
+    --masthead-bg: #1A1612;
+    --masthead-text: #F5F0E8;
+    --code-bg: #EDE7D9;
+    --gloss-bg: #E8E0D4;
+    --gloss-border: #C85A1A;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-primary: #2C2318;
+      --bg-secondary: #352A1E;
+      --bg-card: #3A2E22;
+      --text-primary: #F5EDD8;
+      --text-secondary: #E0D0B8;
+      --text-muted: #B0A090;
+      --accent-1: #E07840;
+      --accent-2: #D06830;
+      --accent-3: #E88840;
+      --accent-4: #C85A30;
+      --accent-5: #D87030;
+      --accent-6: #C06040;
+      --accent-7: #E07830;
+      --border: #4A3C30;
+      --border-light: #564535;
+      --masthead-bg: #1A1208;
+      --masthead-text: #F5EDD8;
+      --code-bg: #352A1E;
+      --gloss-bg: #3A2E22;
+      --gloss-border: #E07840;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    background-color: var(--masthead-bg);
+    color: var(--masthead-text);
+    padding: 2rem 2rem 1.6rem;
+  }
+  .masthead-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .magazine-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.2rem;
+    letter-spacing: 0.08em;
+    color: var(--masthead-text);
+    line-height: 1;
+  }
+  .magazine-name span {
+    color: #E07840;
+  }
+  .issue-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: #B09080;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .masthead-caption {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.85rem;
+    color: #A09080;
+    letter-spacing: 0.12em;
+    margin-top: 0.2rem;
+  }
+  .masthead-divider {
+    border: none;
+    border-top: 1px solid #3A3028;
+    margin-top: 1rem;
+  }
+  .toc-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+    color: #907870;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .toc-strip a {
+    color: #B09080;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc-strip a:hover { color: #E07840; }
+
+  /* LAYOUT */
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+
+  /* ARTICLE */
+  article {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .article-header {
+    padding: 2rem 2.4rem 1.4rem;
+    border-bottom: 3px solid var(--accent-color, #C85A1A);
+  }
+  .article-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-color, #C85A1A);
+    margin-bottom: 0.6rem;
+  }
+  .article-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem;
+    line-height: 1.3;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+  .article-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .article-body {
+    padding: 2rem 2.4rem 2.4rem;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    margin: 2.2rem 0 0.9rem;
+    color: var(--text-primary);
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border-light);
+  }
+  h3 {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 1.6rem 0 0.5rem;
+    color: var(--text-secondary);
+  }
+  p {
+    margin-bottom: 1.1rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  /* KEY CONCEPT BOX */
+  .key-concept {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent-color, #C85A1A);
+    border-radius: 0 2px 2px 0;
+    padding: 1.2rem 1.4rem;
+    margin: 1.8rem 0;
+  }
+  .key-concept-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent-color, #C85A1A);
+    margin-bottom: 0.6rem;
+  }
+  .key-concept dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4rem 1rem;
+    font-size: 0.88rem;
+  }
+  .key-concept dt {
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+  }
+  .key-concept dd {
+    color: var(--text-secondary);
+  }
+
+  /* PLAIN LANGUAGE BOX */
+  .plain-lang {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1.2rem 1.4rem;
+    margin: 1.8rem 0;
+    position: relative;
+  }
+  .plain-lang::before {
+    content: '平たく言えば';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-color, #C85A1A);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .plain-lang p {
+    font-size: 0.93rem;
+    margin-bottom: 0;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* GLOSS INLINE */
+  .gloss {
+    display: inline;
+    border-bottom: 1px dashed var(--gloss-border);
+    cursor: help;
+    color: var(--text-primary);
+    position: relative;
+  }
+  .gloss[data-def]::after {
+    content: attr(data-def);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-size: 0.72rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 10;
+    max-width: 260px;
+    white-space: normal;
+  }
+  .gloss[data-def]:hover::after { opacity: 1; }
+
+  /* SVG INFOGRAPHIC */
+  .infographic-wrap {
+    margin: 2rem 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  .infographic-wrap svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* CITATION BOX */
+  .citation-box {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .citation-box-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+  }
+  .citation-list {
+    list-style: none;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .citation-list li {
+    font-family: 'JetBrains Mono', monospace;
+    line-height: 1.5;
+  }
+  .citation-list a {
+    color: var(--accent-color, #C85A1A);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .citation-list a:hover { text-decoration: underline; }
+
+  /* EDITORIAL COMMENT */
+  .editorial {
+    margin-top: 2rem;
+    background: var(--masthead-bg);
+    color: var(--masthead-text);
+    padding: 1.4rem 1.8rem;
+    border-radius: 2px;
+  }
+  .editorial-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #E07840;
+    margin-bottom: 0.5rem;
+  }
+  .editorial p {
+    font-size: 0.88rem;
+    color: #C8B8A8;
+    margin-bottom: 0;
+    line-height: 1.75;
+  }
+
+  /* TAG */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.8rem 0 0;
+  }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--accent-color, #C85A1A);
+    color: var(--accent-color, #C85A1A);
+    border-radius: 1px;
+    letter-spacing: 0.1em;
+  }
+
+  /* FOOTER */
+  footer {
+    background-color: var(--masthead-bg);
+    color: #706060;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.8;
+  }
+  footer a { color: #907070; text-decoration: none; }
+  footer a:hover { color: #E07840; }
+
+  @media (max-width: 640px) {
+    .magazine-name { font-size: 2.2rem; }
+    .article-title { font-size: 1.5rem; }
+    .article-body, .article-header { padding: 1.2rem 1.2rem; }
+    .key-concept dl { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-top">
+      <div>
+        <div class="magazine-name">PRA<span>X</span>IS</div>
+        <div class="masthead-caption">言語教育の研究と実践をつなぐ</div>
+      </div>
+      <div class="issue-meta">
+        Issue 012<br>
+        2026-06-26<br>
+        Vol. 3 / Language & Learning
+      </div>
+    </div>
+    <hr class="masthead-divider">
+    <nav class="toc-strip">
+      <span>▸</span>
+      <a href="#art01">01 発音習得とISLA</a>
+      <a href="#art02">02 LLM自動採点の現在地</a>
+      <a href="#art03">03 AI生成フィードバック</a>
+      <a href="#art04">04 言語知識の測定誤差</a>
+      <a href="#art05">05 CAPT最前線</a>
+      <a href="#art06">06 就労場面の通じやすさ</a>
+      <a href="#art07">07 評価プロンプト設計論</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+  <!-- ===== ARTICLE 01 ===== -->
+  <article id="art01" style="--accent-color: #C85A1A;">
+    <div class="article-header">
+      <div class="article-kicker">01 · SLA研究 — 発音習得と指導型SLA</div>
+      <h1 class="article-title">「正確さ」から「通じやすさ」へ——<br>発音指導パラダイムの転換と教室実践</h1>
+      <p class="article-subtitle">Instructed SLA（ISLA）研究が示す、発音教育の目標再設定とフォーム焦点化指導の最新エビデンス</p>
+      <div class="tag-row">
+        <span class="tag">ISLA</span>
+        <span class="tag">Intelligibility</span>
+        <span class="tag">Form-Focused Instruction</span>
+        <span class="tag">L2 Pronunciation</span>
+      </div>
+    </div>
+    <div class="article-body">
+
+      <p>「母語話者のように話す」というかつての発音教育の理想は、今や静かに棚上げされつつある。<span class="gloss" data-def="Instructed Second Language Acquisition：教室内の指導操作が習得に与える影響を研究する応用言語学の下位領域">ISLA</span>研究の蓄積が明確に示すのは、目標を<span class="gloss" data-def="聞き手が発話内容を正確に理解できる度合い">intelligibility（通じやすさ）</span>に置いた指導のほうが、現実場面での言語使用に資するという知見だ。L2発音教授法の分野は、ネイティブらしさの強調から、より現実的で有用な目標としての音声的明瞭さ・理解しやすさの重視へ、重要なパラダイムシフトを経験してきた。</p>
+
+      <p>しかしパラダイムの転換を宣言するだけでは不十分だ。実際の教室でそれを実現する教授法的手立てはいまだ数が少なく、音声的理解しやすさの発達に焦点を当てた教授法的実践をコミュニカティブ言語教授（CLT）に統合する試みは、実証研究が不足した状態にある。この「理念と実践のギャップ」こそ、現場教師にとって最もリアルな課題といえる。</p>
+
+      <div class="key-concept">
+        <div class="key-concept-title">🔑 キー概念</div>
+        <dl>
+          <dt>Intelligibility</dt>
+          <dd>聴衆が発話を言語的に正確に復元できる度合い。アクセントの強さとは独立して論じられる。</dd>
+          <dt>Comprehensibility</dt>
+          <dd>聞き手が発話を理解する難易度の主観評定。スピーカー・リスナー双方の要因が絡む。</dd>
+          <dt>Focus on Form（FonF）</dt>
+          <dd>意味中心の活動の中で言語形式へ注意を向けさせる指導技術。リキャストや促しが典型例。</dd>
+          <dt>Nativeness Principle</dt>
+          <dd>「母語話者に近い発音」を目標とする旧来の規範。現代研究では批判的に再評価されている。</dd>
+        </dl>
+      </div>
+
+      <h2>ISLAフレームワークが発音研究に与えた影響</h2>
+      <p>ISLA研究は、学習条件の体系的操作が第二言語習得をいかに促進するかを探求する。発音習得研究においてこの枠組みが特に有効なのは、「どのタイプのフィードバックが、どのような音声特徴に対して、どの学習者層に効くのか」という問いを精緻化できる点にある。ISLAの今後の研究課題として、指導アプローチとL2発音発達の相互作用への理解を深めることが挙げられており、研究と実践の対話を強化するための研究ベースの教授法的示唆も求められている。</p>
+
+      <p><span class="gloss" data-def="フォーカス・オン・フォーム：意味理解の流れを止めず、形式への注意を引き起こす指導スタイル">Form-Focused Instruction（FFI）</span>の効果について、複数の研究が積み重なっている。否定的フィードバックなどの反応的なFFIや、タスク設計の操作（様式・反復・複雑さなど）が、コミュニカティブなタスク遂行中のL2発音の正確さを高めることが示されている。ただし効果量はタスク種別や対象音素によって大きく異なり、単純な「FFI有効／無効」の二項対立には慎重であるべきだ。</p>
+
+      <h2>知覚と産出——どちらを先に訓練するか</h2>
+      <p>音声習得の順序論において近年注目されるのが、知覚訓練の優先性だ。知覚能力の発達に焦点を当てた知覚ベースの発音指導（PI）は、L2発音のセグメント的側面および音節的側面の発達において、より効果的であることが示された。これは産出練習を軽視してよいということではなく、音声知覚と調音の相互的な強化関係を意識した指導設計が求められるということだ。</p>
+
+      <p>語彙ストレスの処理についても同様の示唆がある。語彙ストレスの誤りは通じやすさの低下をもたらすことが確認されている。日本語母語話者の英語学習者にとって、日英のストレス配置の違いはとりわけ高いコストを伴う干渉源であり、この点に焦点を当てた指導が効果を発揮しやすい。</p>
+
+      <div class="infographic-wrap">
+        <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="発音指導パラダイム変遷と指導技法の関係図">
+          <!-- Background -->
+          <rect width="560" height="300" fill="none"/>
+          <!-- Timeline axis -->
+          <line x1="40" y1="150" x2="520" y2="150" stroke="#C85A1A" stroke-width="2"/>
+          <polygon points="520,145 530,150 520,155" fill="#C85A1A"/>
+          <!-- Era labels -->
+          <text x="70" y="30" font-family="DM Serif Display, serif" font-size="13" fill="#C85A1A" text-anchor="middle">旧パラダイム</text>
+          <text x="70" y="46" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">ネイティブ規範</text>
+          <rect x="25" y="55" width="90" height="80" rx="2" fill="#EDE7D9" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="70" y="75" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">正確さ優先</text>
+          <text x="70" y="92" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">母語話者到達</text>
+          <text x="70" y="109" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">音素訓練中心</text>
+          <text x="70" y="126" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">発音=矯正</text>
+          <!-- Arrow down -->
+          <line x1="190" y1="95" x2="360" y2="95" stroke="#D4C8BC" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <text x="275" y="88" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">2000年代〜 ISLA知見の蓄積</text>
+          <polygon points="360,91 370,95 360,99" fill="#D4C8BC"/>
+          <!-- New paradigm box -->
+          <text x="455" y="30" font-family="DM Serif Display, serif" font-size="13" fill="#C85A1A" text-anchor="middle">新パラダイム</text>
+          <text x="455" y="46" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">Intelligibility規範</text>
+          <rect x="410" y="55" width="110" height="80" rx="2" fill="#F5F0E8" stroke="#C85A1A" stroke-width="2"/>
+          <text x="465" y="75" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">通じやすさ優先</text>
+          <text x="465" y="92" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">世界英語の多様性</text>
+          <text x="465" y="109" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">超分節素訓練</text>
+          <text x="465" y="126" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">発音＝コミュニケ</text>
+          <!-- Bottom: Techniques -->
+          <text x="280" y="185" font-family="DM Serif Display, serif" font-size="12" fill="#C85A1A" text-anchor="middle">教室内指導技法（FFI × Comprehensibility）</text>
+          <!-- Technique boxes -->
+          <rect x="30" y="198" width="110" height="42" rx="2" fill="#EDE7D9" stroke="#D4C8BC"/>
+          <text x="85" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">リキャスト</text>
+          <text x="85" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">暗示的フィードバック</text>
+          <rect x="155" y="198" width="110" height="42" rx="2" fill="#EDE7D9" stroke="#D4C8BC"/>
+          <text x="210" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">メタ言語説明</text>
+          <text x="210" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">明示的フィードバック</text>
+          <rect x="280" y="198" width="110" height="42" rx="2" fill="#EDE7D9" stroke="#D4C8BC"/>
+          <text x="335" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">知覚訓練</text>
+          <text x="335" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">ミニマルペア</text>
+          <rect x="405" y="198" width="130" height="42" rx="2" fill="#F5F0E8" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="470" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">タスク難度操作</text>
+          <text x="470" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">complexity × fluency</text>
+          <!-- vertical connectors -->
+          <line x1="85" y1="193" x2="85" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="85" y1="175" x2="470" y2="175" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="210" y1="193" x2="210" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="335" y1="193" x2="335" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="470" y1="193" x2="470" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="85" y1="175" x2="85" y2="193" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="280" y1="175" x2="280" y2="185" stroke="#D4C8BC" stroke-width="1"/>
+          <!-- Source label -->
+          <text x="280" y="285" font-family="JetBrains Mono, monospace" font-size="10" fill="#B0A090" text-anchor="middle">Based on: Kang &amp; Staples (2025); Crowther (2025); Language Learning / Cambridge</text>
+        </svg>
+      </div>
+
+      <h2>「国際語としての英語（ELF）」文脈と教師の役割</h2>
+      <p>L2発音教育・学習の分野を前進させるにあたり、コーパス言語学・語用論・指導型SLA・心理言語学・テクノロジー・評価といった隣接領域が重要な変化をもたらしてきた。これらの知見を統合すれば、教師は「どの発音特徴を教えるか」だけでなく「なぜその特徴が通じやすさに関わるのか」を学習者に説明できるようになる。</p>
+
+      <p>さらに現在のAI・自動音声認識（ASR）の普及は、L2発音の応用・実践において広大な機会を提供しており、この学際的な動向をとりわけ促進している。AIツールが普及するほど、人間教師の役割は「矯正」から「動機付けと自律支援」へとシフトする必要が生じる。</p>
+
+      <h2>ネイティブ規範幻想の根強さ——教師が向き合うべき現実</h2>
+      <p>通じやすさを原則とするL2発音指導は、「習得目標として母語話者に近い発音を求める」というネイティブ規範の原則を棄却し、代わりに音声的明瞭さを到達目標として採用することを提唱しているが、概してネイティブ規範の思想は今なお根強い。この現実は、教師が理念を変えるだけでは不十分であることを示す。学習者・保護者・試験設計者を含む複数のステークホルダーへの働きかけが求められる。</p>
+
+      <div class="plain-lang">
+        <p>「ネイティブ並みの発音」を目標にしても、現実の国際コミュニケーションではほとんど役に立たない場面がある。「通じるかどうか」を基準に置き直し、超分節素（イントネーション・語ストレス）を優先的に教えることで、学習者は実際の場で使える発音力を身につけられる。</p>
+      </div>
+
+      <h2>現場への示唆——今日からできる3ステップ</h2>
+      <p>研究知見を実践に落とし込むとき、以下の枠組みが参考になる。第一に、<strong>目標設定の明示化</strong>——なぜその発音練習をするのかを学習者に伝える。第二に、<strong>超分節素優先</strong>——語ストレスとイントネーションから始め、個別音素はその後に。第三に、<strong>タスクの複雑度調整</strong>——簡単なタスクで新しい発音パターンを定着させてから、より複雑なコミュニケーション活動に組み込む。</p>
+
+      <p>また近年の研究が強調するのは、教師自身の発音指導への自己効力感（self-efficacy）と専門的知識の問題だ。理論と実践の架け橋を築くために、教師が研究文献にアクセスしやすい環境を整えることが、制度レベルの課題として浮上している。</p>
+
+      <div class="citation-box">
+        <div class="citation-box-title">📎 一次資料</div>
+        <ul class="citation-list">
+          <li>Kang, O. &amp; Staples, S. (2025). Transdisciplinary Intersections in Second Language Pronunciation Learning and Teaching. <em>Language Learning</em>, 75, 5–29. <a href="https://doi.org/10.1111/lang.70001" target="_blank">DOI: 10.1111/lang.70001</a></li>
+          <li>Crowther, D. (2025). Instructed Second Language Acquisition and Second Language Pronunciation. <em>Language Learning</em>. <a href="https://doi.org/10.1111/lang.12716" target="_blank">DOI: 10.1111/lang.12716</a></li>
+          <li>Mora, J.C. et al. Is L2 pronunciation affected by increased task complexity? <em>Studies in Second Language Acquisition</em>. <a href="https://doi.org/10.1017/S0272263124000020" target="_blank">Cambridge Core</a></li>
+        </ul>
+      </div>
+
+      <div class="editorial">
+        <div class="editorial-label">✦ Editorial Comment — PRAXIS Issue 012</div>
+        <p>発音研究はSLAの中でも「実践との距離が近い」分野でありながら、現場への翻訳が遅れてきた領域でもある。今号が紹介したパラダイム転換の議論は2020年代に急速に深まり、ISLAとの接点が明確になってきた。日本語教育の文脈でも、日本語音声の「通じやすさ」を目標化するカリキュラム設計の必要性は高く、英語教育の知見を批判的に援用する価値がある。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== ARTICLE 02 ===== -->
+  <article id="art02" style="--accent-color: #B8441A;">
+    <div class="article-header">
+      <div class="article-kicker">02 · AI×評価 — LLM自動採点研究</div>
+      <h1 class="article-title">ChatGPTは人間採点者を超えられるか——<br>LLM自動エッセイ採点の精度と限界</h1>
+      <p class="article-subtitle">Kim, Mozer, Al-Adeimi（EdWorkingPaper 25-1335, 2025）を中心に読む：機械学習との比較から見えてくる評価技術の現在地</p>
+      <div class="tag-row">
+        <span class="tag">AES</span>
+        <span class="tag">LLM</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Writing Assessment</span>
+        <span class="tag">Fairness</span>
+      </div>
+    </div>
+    <div class="article-body">
+
+      <p>生成AIが教室に浸透するにつれ、「採点もAIに任せられるか」という問いが現実味を帯びてきた。自動エッセイ採点（AES）は教育評価の効率化と客観性向上を目的とした重要なツールである。しかし精度・公平性・妥当性の三点を同時に満たすことが、現状のLLMには難しいことを、最新研究は繰り返し示している。</p>
+
+      <p>Kim, Mozer, Al-Adeimi（2025）は、ChatGPTのパフォーマンスを、広範な統計的テキスト特徴量で訓練された4種の木ベース機械学習アルゴリズムと比較した。その結果、LLMはエッセイ分類タスクでは良好な成績を示す一方、文章品質の予測においては機械学習手法が一貫してLLMを上回ることが示された。</p>
+
+      <div class="key-concept">
+        <div class="key-concept-title">🔑 キー概念</div>
+        <dl>
+          <dt>AES</dt>
+          <dd>Automated Essay Scoring：学習者の作文に自動でスコアを付けるシステム全般。</dd>
+          <dt>QWK</dt>
+          <dd>Quadratic Weighted Kappa：評価者間一致度の指標。0.7以上が実用的水準とされる。</dd>
+          <dt>Zero-shot / Few-shot</dt>
+          <dd>ルーブリックのみ（zero-shot）または少数例を与えて（few-shot）採点させるプロンプト手法。</dd>
+          <dt>Fine-tuning</dt>
+          <dd>特定タスクのデータでモデルを追加学習させること。プロンプトだけより精度が上がりやすい。</dd>
+        </dl>
+      </div>
+
+      <h2>LLMの「得意」と「苦手」を分ける軸</h2>
+      <p>従来のAESシステムが抽出された言語的特徴量に依存するのに対し、LLMは大規模な事前学習テキストを活用して言語をより全体的に処理する深層学習アーキテクチャを用いる。この設計上の差異が、LLMが得意とするもの（文脈理解・指示への適応）と苦手とするもの（精度の安定性・特定ルーブリックへの整合）の違いを生む。</p>
+
+      <p>しかし、これらの強みにもかかわらず、LLMは従来のAESモデルや人間採点者を一貫して上回ってはいない。特に<span class="gloss" data-def="English Language Learners：英語を母語としない学習者">ELL（英語学習者）</span>のエッセイ採点においてその傾向が顕著で、うまく設計されたプロンプトにより、LLMは従来のAESに近い性能に近づくが、ELL学習者では両者ともに人間スコアと乖離がある——従来モデルのほうがより大きなギャップを示し、LLMはより微妙な差異を示す傾向がある。</p>
+
+      <div class="infographic-wrap">
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AES手法比較：精度・公平性・解釈可能性の三軸レーダーチャート">
+          <!-- Title -->
+          <text x="280" y="22" font-family="DM Serif Display, serif" font-size="13" fill="#B8441A" text-anchor="middle">AES手法別パフォーマンス比較（概念図）</text>
+          <!-- Radar center -->
+          <g transform="translate(280,170)">
+            <!-- Grid hexagons -->
+            <polygon points="0,-90 77.9,-45 77.9,45 0,90 -77.9,45 -77.9,-45" fill="none" stroke="#D4C8BC" stroke-width="1"/>
+            <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30" fill="none" stroke="#D4C8BC" stroke-width="1"/>
+            <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#D4C8BC" stroke-width="1"/>
+            <!-- Axes -->
+            <line x1="0" y1="0" x2="0" y2="-90" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="77.9" y2="-45" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="77.9" y2="45" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="90" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="-77.9" y2="45" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="-77.9" y2="-45" stroke="#D4C8BC" stroke-width="1"/>
+            <!-- Labels -->
+            <text x="0" y="-97" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">採点精度</text>
+            <text x="87" y="-48" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="start">スケーラビリティ</text>
+            <text x="87" y="52" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="start">適応性</text>
+            <text x="0" y="103" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">公平性（ELL）</text>
+            <text x="-89" y="52" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="end">解釈可能性</text>
+            <text x="-89" y="-48" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="end">コスト効率</text>
+            <!-- Traditional ML polygon: precision90 scalability45 adaptability30 fairness60 interpretability75 cost80 -->
+            <polygon points="0,-80 35,-17 23,23 0,55 -58,33 -62,-31" fill="#B8441A" fill-opacity="0.18" stroke="#B8441A" stroke-width="2"/>
+            <!-- LLM polygon: precision55 scalability80 adaptability80 fairness45 interpretability25 cost50 -->
+            <polygon points="0,-50 65,-32 62,37 0,40 -19,13 -39,-25" fill="#D4721A" fill-opacity="0.18" stroke="#D4721A" stroke-width="2" stroke-dasharray="5,3"/>
+          </g>
+          <!-- Legend -->
+          <rect x="50" y="270" width="16" height="10" fill="#B8441A" fill-opacity="0.4" stroke="#B8441A"/>
+          <text x="72" y="280" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#3D3530">機械学習（従来型AES）</text>
+          <rect x="200" y="270" width="16" height="10" fill="#D4721A" fill-opacity="0.4" stroke="#D4721A"/>
+          <text x="222" y="280" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#3D3530">LLM（GPT-4o等）</text>
+          <text x="280" y="310" font-family="JetBrains Mono, monospace" font-size="10" fill="#B0A090" text-anchor="middle">※概念的比較図。値は文献知見の総合的解釈に基づく</text>
+        </svg>
+      </div>
+
+      <h2>プロンプト設計が採点精度を左右する</h2>
+      <p>LLMベース採点において、プロンプティングとファインチューニングの技術の重要性、ならびに両アプローチの強みと限界が指摘されている。また、LLMがAESを強化する可能性が示される一方、複雑な書記スキルの評価には引き続き人間の監督の重要性が強調されている。</p>
+
+      <p><span class="gloss" data-def="Zero-shot：例示なしでルーブリックのみ提示する方式">Zero-shot設定</span>での採点と少数例を与えた<span class="gloss" data-def="Few-shot：2〜5本程度の評価済み例を提示する方式">Few-shot設定</span>では、スコアの安定性が大きく変わる。LLMはゼロショット設定（採点ルーブリックとタスク説明のみ提供）とフューショット設定（少数のラベル付き例をプロンプトに組み込む）の両方で利用されており、プロンプトベースのAESはタスク固有のファインチューニングなしに、スケーラブルで低コストな評価の新しい可能性を開く。</p>
+
+      <h2>信頼性・妥当性・公平性——三重の課題</h2>
+      <p>LLMを活用した自動評価に関する研究のレビューでは、エッセイ採点・フィードバック生成・問題作成・対話型評価という四つの主要応用領域が分析され、スケーラブルで効率的かつ人間に近い評価プロセスを実現するLLMの能力の成長が示される。しかし同時に、妥当性・公平性・解釈可能性・教育的整合性における重要な限界も明らかになっている。</p>
+
+      <p>特に注目すべきは、LLMが言語学習者（ELL）に対して示す傾向だ。モデルの人間評定との一致は、受験者の母語によって異なることが示されており、公平性と倫理的含意への慎重な配慮の必要性が強調されている。母語が採点の公平性に影響するという問題は、多言語を対象とする日本語教育評価においても無視できない課題だ。</p>
+
+      <div class="plain-lang">
+        <p>ChatGPTなどのLLMは「文章をざっくり分類する」のは得意だが、「細かいルーブリックに基づいて安定してスコアを付ける」のは従来の機械学習に劣る。現時点では「人間採点の補助ツール」として使うのが現実的だ。</p>
+      </div>
+
+      <h2>実践的活用の指針：ハイブリッド採点モデルの可能性</h2>
+      <p>GPTベースのAESは、タスク固有のファインチューニングなしでも人間スコアと中程度から相当程度の一致を達成できることが示されている。さらに重要なのは、GPT生成スコアと従来の言語的特徴量（語彙・統語的指標）との統合により、採点精度と信頼性が有意に向上したという知見だ。これは「LLMか、機械学習か」という二者択一を超えた、ハイブリッドアプローチの実用性を示唆している。</p>
+
+      <p>AESは学習者のエッセイにスコアを付与し、教員の採点負荷を軽減する。多様なプロンプトを扱える採点システムの構築は、ライティングタスクの柔軟性と多様性ゆえに困難を伴う。特に日本語教育のように少資源言語の文脈では、ドメイン特化型の訓練データの構築と組み合わせた設計が求められる。</p>
+
+      <div class="citation-box">
+        <div class="citation-box-title">📎 一次資料</div>
+        <ul class="citation-list">
+          <li>Kim, Y., Mozer, R., Al-Adeimi, S., &amp; Miratrix, L. (2025). ChatGPT vs. Machine Learning: Assessing the Efficacy and Accuracy of Large Language Models for Automated Essay Scoring. <em>EdWorkingPaper No. 25-1335</em>. <a href="https://edworkingpapers.com/sites/default/files/ai25-1335.pdf" target="_blank">EdWorkingPapers.com</a></li>
+          <li>Huang, Y. &amp; Wilson, J. (2025). Evaluating LLM-Based Automated Essay Scoring: Accuracy, Fairness, and Validity. <em>AIME-Con</em>. <a href="https://aclanthology.org/2025.aimecon-wip.9/" target="_blank">ACL Anthology</a></li>
+          <li>Hou, Z., Ciuba, A., &amp; Li, X. (2025). Improving LLM-based Automated Essay Scoring with Linguistic Features. <em>PMLR 273</em>. <a href="https://proceedings.mlr.press/v273/hou25a" target="_blank">PMLR</a></li>
+        </ul>
+      </div>
+
+      <div class="editorial">
+        <div class="editorial-label">✦ Editorial Comment — PRAXIS Issue 012</div>
+        <p>AES研究の最大の問題は「精度至上主義」に陥ることだ。評価は教育的行為であり、スコアの正確さだけでなく、「どのようなフィードバックが学習を促すか」という問いとセットで議論されるべきである。LLMが生成するフィードバックテキストの質——具体性・教育的整合性・学習者の動機付けへの効果——を問う研究が今後の焦点となるだろう。</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ===== ARTICLE 03 ===== -->
+  <article id="art03" style="--accent-color: #D4721A;">
+    <div class="article-header">
+      <div class="article-kicker">03 · AI×評価 — フィードバック生成研究</div>
+      <h1 class="article-title">AIが書くコメントは学習を促すか——<br>LLM生成フィードバックの教育的妥当性</h1>
+      <p class="article-subtitle">スコアを超えた問い：自動生成フィードバックの質を「教育的基準」で評価するとはどういうことか</p>
+      <div class="tag-row">
+        <span class="tag">AI Feedback</span>
+        <span class="tag">Writing Instruction</span>
+        <span class="tag">Formative Assessment</span>
+        <span class="tag">EFL</span>
+      </div>
+    </div>
+    <div class="article-body">
+
+      <p>採点スコアの精度議論が先行する中、見落とされがちな問いがある。「AIのコメントは、学習者の書き直しや思考を本当に動かすか」という問いだ。エッセイ評価の最終目的はスコアの付与ではなく、ライティング能力の向上である。その観点から、LLM生成フィードバックの「教育的妥当性」を問い直す研究群が2024〜2025年にかけて急増している。</p>
+
+      <p>LLMによるフィードバックは詳細なコメントを生成しやすい一方、その内容は多くの場合、一般的・反復的になりがちで、人間的なトーンや学習者の言語的キャパシティへの注意が欠けているという問題が指摘されている。これは「量は多いが役に立たない」というフィードバックの古典的問題が、AI文脈でも再現されることを示している。</p>
+
+      <div class="key-concept">
+        <div class="key-concept-title">🔑 キー概念</div>
+        <dl>
+          <dt>Formative Assessment</dt>
+          <dd>学習プロセス中に行われ、次の学習行動を方向付ける評価。スコアより過程重視。</dd>
+          <dt>Pedagogical Alignment</dt>
+          <dd>フィードバックの内容・形式が教育目標・学習段階と整合しているかの度合い。</dd>
+          <dt>Affective Feedback</dt>
+          <dd>感情的・関係的側面を含むフィードバック。学習者の動機付けに影響する。</dd>
+          <dt>Rubric Fidelity</dt>
+          <dd>フィードバックが評価ルーブリックの各観点を忠実に反映しているかどうか。</dd>
+        </dl>
+      </div>
+
+      <h2>「長いフィードバック」と「使えるフィードバック」の違い</h2>
+      <p>LLMが生成するフィードバックテキストは往々にして長い。しかし研究が示すのは、長さと有用性の間に正の相関が必ずしも成立しないことだ。LLMはその評価生成能力により人間採点者の負担を軽減できるが、テキストの変換・書き起こし、人間らしいスコアの生成との整合確立、使用頻度制限とコストといった実務上の問題も発生する。現場レベルでは、APIコスト・利用制限・テキスト変換の手間が「AI採点を試験的に使う」際の現実的障壁となっている。</p>
+
+      <p>フィードバックの「情動的側面」に着目した研究も注目に値する。被面接者（教師）は、情動的フィードバックが学習者の言語知識に与える肯定的効果に言及している。言語教育においてフィードバックは単なる情報伝達ではなく、師弟関係の一部として機能する。AIにはこの次元を模倣することができても、代替することは難しい。</p>
+
+      <div class="infographic-wrap">
+        <svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="フィードバック品質の多次元評価フレームワーク">
+          <text x="280" y="22" font-family="DM Serif Display, serif" font-size="13" fill="#D4721A" text-anchor="middle">フィードバック品質の多次元評価フレームワーク</text>
+          <!-- Dimensions as vertical bars -->
+          <!-- Dimension 1: Accuracy -->
+          <rect x="40" y="200" width="60" height="-120" fill="#D4721A" fill-opacity="0.7" rx="2"/>
+          <text x="70" y="215" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A
