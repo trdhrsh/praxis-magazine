@@ -53,6 +53,13 @@ h1{font-family:var(--serif);font-size:2rem;line-height:1.2;color:var(--ink);marg
 .site-footer{padding:3rem clamp(1.25rem,5vw,3rem) 4rem;border-top:2px solid var(--ink);background:var(--surface);}
 .site-footer-inner{max-width:var(--max-w);margin:0 auto;}
 .site-footer p{font-size:0.82rem;color:var(--ink-dim);margin-bottom:0.3rem;}
+
+.key-concept dl{margin:0.5rem 0;}
+.key-concept dt{font-weight:700;color:var(--ink);margin-top:0.75rem;font-size:0.9rem;}
+.key-concept dd{margin-left:0;color:var(--ink-muted);font-size:0.875rem;margin-bottom:0.25rem;}
+.article-label{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:0.5rem;}
+/* 英語キーワード羅列（pタグ内の連続英単語）は小さく薄く */
+.article-body>p:first-of-type:not(:has(。)):not(:has(、)){font-family:var(--mono);font-size:0.75rem;color:var(--ink-dim);letter-spacing:0.05em;}
 </style>
 </head>
 <body>
