@@ -2,16 +2,1954 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PRAXIS — 言語教育の研究と実践をつなぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body{font-family:'Noto Sans JP',sans-serif;max-width:640px;margin:3rem auto;padding:0 1.5rem;background:#F5F0E8;color:#1A1612;}
-h1{font-family:Georgia,serif;font-size:2.5rem;margin-bottom:0.5rem;}
-p{color:#6B6158;}
+:root{--bg:#F5F0E8;--bg-warm:#EDE7DA;--surface:#FDFAF5;--surface2:#EDE7DA;--border:#D6CCBA;--border-soft:#E5DDD0;--ink:#1A1612;--ink-mid:#3D3530;--ink-muted:#6B6158;--ink-dim:#9C9188;--orange:#C85A1A;--orange-mid:#D97038;--orange-pale:#F5DDD0;--serif:'DM Serif Display',Georgia,serif;--sans:'Noto Sans JP',sans-serif;--mono:'JetBrains Mono',monospace;--max-w:820px;}
+@media(prefers-color-scheme:dark){:root{--bg:#2C2318;--bg-warm:#352A1C;--surface:#3D3024;--surface2:#46382C;--border:#5A4A38;--border-soft:#4E3E2E;--ink:#F5EDD8;--ink-mid:#E0D4BC;--ink-muted:#C0A888;--ink-dim:#8A7258;--orange:#E07840;--orange-mid:#D06830;--orange-pale:#4A2E18;}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:clamp(15px,2.2vw,17px);line-height:1.8;-webkit-font-smoothing:antialiased;}
+a{color:var(--orange);}
+.masthead{background:var(--surface);border-bottom:2px solid var(--ink);padding:0 clamp(1.25rem,5vw,3rem);}
+.masthead-inner{max-width:var(--max-w);margin:0 auto;padding:2.5rem 0 2rem;}
+.masthead-meta{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:0.75rem;}
+.masthead-title{font-family:var(--serif);font-size:clamp(3rem,9vw,5.5rem);letter-spacing:-0.02em;line-height:0.95;color:var(--ink);margin-bottom:0.6rem;}
+.masthead-tagline{font-size:clamp(0.85rem,2vw,1rem);color:var(--ink-muted);font-weight:300;}
+.articles-wrap{padding:0 clamp(1.25rem,5vw,3rem);}
+article{max-width:var(--max-w);margin:0 auto;padding:3.5rem 0;border-bottom:1px solid var(--border);}
+.article-date{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.15em;color:var(--ink-dim);margin-bottom:0.75rem;}
+.article-eyebrow{font-family:var(--mono);font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:0.7rem;}
+h1,h2{font-family:var(--serif);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.2;color:var(--ink);margin-bottom:0.75rem;}
+.article-subtitle{font-size:clamp(0.875rem,2vw,0.95rem);color:var(--ink-muted);line-height:1.6;font-weight:300;max-width:62ch;margin-bottom:1.5rem;}
+.article-body{font-size:clamp(0.9rem,2vw,0.975rem);line-height:1.85;color:var(--ink-mid);}
+.article-body p{margin-bottom:1.2rem;}
+.article-body strong{color:var(--ink);font-weight:700;}
+.article-body h3{font-family:var(--serif);font-size:clamp(1.05rem,2.5vw,1.2rem);color:var(--ink);margin:2rem 0 0.75rem;padding-left:0.75rem;border-left:3px solid var(--orange);}
+.gloss{border-bottom:1px dashed var(--orange);cursor:help;position:relative;color:inherit;}
+.gloss:hover::after{content:attr(data-def);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);color:var(--ink-mid);font-size:0.78rem;line-height:1.5;padding:0.5rem 0.75rem;border-radius:5px;white-space:normal;max-width:240px;width:max-content;z-index:20;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,0.12);}
+.key-concept{background:var(--orange-pale);border-left:3px solid var(--orange);border-radius:0 10px 10px 0;padding:1.2rem 1.5rem;margin:1.75rem 0;}
+.key-concept-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--orange);margin-bottom:0.4rem;}
+.key-concept-title{font-family:var(--serif);font-size:1.1rem;color:var(--ink);margin-bottom:0.5rem;}
+.key-concept p{font-size:0.9rem;color:var(--ink-muted);margin-bottom:0;line-height:1.7;}
+.plain-lang{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.4rem;margin:1.75rem 0;display:flex;gap:0.9rem;}
+.plain-lang-icon{font-size:1.1rem;min-width:1.5rem;}
+.plain-lang-body{font-size:0.9rem;color:var(--ink-muted);line-height:1.7;}
+.plain-lang-body strong{display:block;margin-bottom:0.25rem;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-dim);}
+.infographic{margin:2rem 0;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--surface);}
+.infographic svg{display:block;width:100%;height:auto;}
+.infographic figcaption{font-family:var(--mono);font-size:0.68rem;color:var(--ink-dim);padding:0.6rem 1rem;border-top:1px solid var(--border);}
+.article-footer{margin-top:2.75rem;padding-top:1.75rem;border-top:1px solid var(--border-soft);display:flex;flex-direction:column;gap:1rem;}
+.source-block,.ai-comment{background:var(--surface);border:1px solid var(--border);border-radius:5px;padding:1.1rem 1.3rem;}
+.block-label{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:0.6rem;}
+.source-block ul{padding-left:1rem;}
+.source-block p,.source-block li{font-size:0.85rem;color:var(--ink-muted);line-height:1.6;margin-bottom:0.3rem;}
+.source-block a{color:var(--orange);}
+.citation-quote{font-style:italic;font-size:0.85rem;color:var(--ink-muted);padding:0.6rem 0 0.6rem 1rem;border-left:2px solid var(--orange);margin:0.75rem 0 0;line-height:1.65;}
+.ai-comment p{font-size:0.875rem;color:var(--ink-muted);line-height:1.7;margin-bottom:0;}
+.site-footer{padding:3rem clamp(1.25rem,5vw,3rem) 4rem;border-top:2px solid var(--ink);background:var(--surface);}
+.site-footer-inner{max-width:var(--max-w);margin:0 auto;}
+.site-footer p{font-size:0.82rem;color:var(--ink-dim);margin-bottom:0.3rem;}
 </style>
 </head>
 <body>
-<h1>PRAXIS</h1>
-<p>言語教育の研究と実践をつなぐ</p>
-<p>準備中です。しばらくお待ちください。</p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-meta">Language Education Research &amp; Practice</div>
+    <h1 class="masthead-title">PRAXIS</h1>
+    <p class="masthead-tagline">言語教育の研究と実践をつなぐ</p>
+  </div>
+</header>
+<main class="articles-wrap">
+<article>
+<div class="article-date">2026-06-26</div>
+    <div class="article-header">
+      <div class="article-kicker">02 · AI×評価 — LLM自動採点研究</div>
+      <h1 class="article-title">ChatGPTは人間採点者を超えられるか——<br>LLM自動エッセイ採点の精度と限界</h1>
+      <p class="article-subtitle">Kim, Mozer, Al-Adeimi（EdWorkingPaper 25-1335, 2025）を中心に読む：機械学習との比較から見えてくる評価技術の現在地</p>
+      <div class="tag-row">
+        <span class="tag">AES</span>
+        <span class="tag">LLM</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Writing Assessment</span>
+        <span class="tag">Fairness</span>
+      </div>
+    </div>
+    <div class="article-body">
+
+      <p>生成AIが教室に浸透するにつれ、「採点もAIに任せられるか」という問いが現実味を帯びてきた。自動エッセイ採点（AES）は教育評価の効率化と客観性向上を目的とした重要なツールである。しかし精度・公平性・妥当性の三点を同時に満たすことが、現状のLLMには難しいことを、最新研究は繰り返し示している。</p>
+
+      <p>Kim, Mozer, Al-Adeimi（2025）は、ChatGPTのパフォーマンスを、広範な統計的テキスト特徴量で訓練された4種の木ベース機械学習アルゴリズムと比較した。その結果、LLMはエッセイ分類タスクでは良好な成績を示す一方、文章品質の予測においては機械学習手法が一貫してLLMを上回ることが示された。</p>
+
+      <div class="key-concept">
+        <div class="key-concept-title">🔑 キー概念</div>
+        <dl>
+          <dt>AES</dt>
+          <dd>Automated Essay Scoring：学習者の作文に自動でスコアを付けるシステム全般。</dd>
+          <dt>QWK</dt>
+          <dd>Quadratic Weighted Kappa：評価者間一致度の指標。0.7以上が実用的水準とされる。</dd>
+          <dt>Zero-shot / Few-shot</dt>
+          <dd>ルーブリックのみ（zero-shot）または少数例を与えて（few-shot）採点させるプロンプト手法。</dd>
+          <dt>Fine-tuning</dt>
+          <dd>特定タスクのデータでモデルを追加学習させること。プロンプトだけより精度が上がりやすい。</dd>
+        </dl>
+      </div>
+
+      <h2>LLMの「得意」と「苦手」を分ける軸</h2>
+      <p>従来のAESシステムが抽出された言語的特徴量に依存するのに対し、LLMは大規模な事前学習テキストを活用して言語をより全体的に処理する深層学習アーキテクチャを用いる。この設計上の差異が、LLMが得意とするもの（文脈理解・指示への適応）と苦手とするもの（精度の安定性・特定ルーブリックへの整合）の違いを生む。</p>
+
+      <p>しかし、これらの強みにもかかわらず、LLMは従来のAESモデルや人間採点者を一貫して上回ってはいない。特に<span class="gloss" data-def="English Language Learners：英語を母語としない学習者">ELL（英語学習者）</span>のエッセイ採点においてその傾向が顕著で、うまく設計されたプロンプトにより、LLMは従来のAESに近い性能に近づくが、ELL学習者では両者ともに人間スコアと乖離がある——従来モデルのほうがより大きなギャップを示し、LLMはより微妙な差異を示す傾向がある。</p>
+
+      <div class="infographic-wrap">
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AES手法比較：精度・公平性・解釈可能性の三軸レーダーチャート">
+          <!-- Title -->
+          <text x="280" y="22" font-family="DM Serif Display, serif" font-size="13" fill="#B8441A" text-anchor="middle">AES手法別パフォーマンス比較（概念図）</text>
+          <!-- Radar center -->
+          <g transform="translate(280,170)">
+            <!-- Grid hexagons -->
+            <polygon points="0,-90 77.9,-45 77.9,45 0,90 -77.9,45 -77.9,-45" fill="none" stroke="#D4C8BC" stroke-width="1"/>
+            <polygon points="0,-60 52,-30 52,30 0,60 -52,30 -52,-30" fill="none" stroke="#D4C8BC" stroke-width="1"/>
+            <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#D4C8BC" stroke-width="1"/>
+            <!-- Axes -->
+            <line x1="0" y1="0" x2="0" y2="-90" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="77.9" y2="-45" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="77.9" y2="45" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="0" y2="90" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="-77.9" y2="45" stroke="#D4C8BC" stroke-width="1"/>
+            <line x1="0" y1="0" x2="-77.9" y2="-45" stroke="#D4C8BC" stroke-width="1"/>
+            <!-- Labels -->
+            <text x="0" y="-97" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">採点精度</text>
+            <text x="87" y="-48" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="start">スケーラビリティ</text>
+            <text x="87" y="52" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="start">適応性</text>
+            <text x="0" y="103" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">公平性（ELL）</text>
+            <text x="-89" y="52" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="end">解釈可能性</text>
+            <text x="-89" y="-48" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="end">コスト効率</text>
+            <!-- Traditional ML polygon: precision90 scalability45 adaptability30 fairness60 interpretability75 cost80 -->
+            <polygon points="0,-80 35,-17 23,23 0,55 -58,33 -62,-31" fill="#B8441A" fill-opacity="0.18" stroke="#B8441A" stroke-width="2"/>
+            <!-- LLM polygon: precision55 scalability80 adaptability80 fairness45 interpretability25 cost50 -->
+            <polygon points="0,-50 65,-32 62,37 0,40 -19,13 -39,-25" fill="#D4721A" fill-opacity="0.18" stroke="#D4721A" stroke-width="2" stroke-dasharray="5,3"/>
+          </g>
+          <!-- Legend -->
+          <rect x="50" y="270" width="16" height="10" fill="#B8441A" fill-opacity="0.4" stroke="#B8441A"/>
+          <text x="72" y="280" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#3D3530">機械学習（従来型AES）</text>
+          <rect x="200" y="270" width="16" height="10" fill="#D4721A" fill-opacity="0.4" stroke="#D4721A"/>
+          <text x="222" y="280" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#3D3530">LLM（GPT-4o等）</text>
+          <text x="280" y="310" font-family="JetBrains Mono, monospace" font-size="10" fill="#B0A090" text-anchor="middle">※概念的比較図。値は文献知見の総合的解釈に基づく</text>
+        </svg>
+      </div>
+
+      <h2>プロンプト設計が採点精度を左右する</h2>
+      <p>LLMベース採点において、プロンプティングとファインチューニングの技術の重要性、ならびに両アプローチの強みと限界が指摘されている。また、LLMがAESを強化する可能性が示される一方、複雑な書記スキルの評価には引き続き人間の監督の重要性が強調されている。</p>
+
+      <p><span class="gloss" data-def="Zero-shot：例示なしでルーブリックのみ提示する方式">Zero-shot設定</span>での採点と少数例を与えた<span class="gloss" data-def="Few-shot：2〜5本程度の評価済み例を提示する方式">Few-shot設定</span>では、スコアの安定性が大きく変わる。LLMはゼロショット設定（採点ルーブリックとタスク説明のみ提供）とフューショット設定（少数のラベル付き例をプロンプトに組み込む）の両方で利用されており、プロンプトベースのAESはタスク固有のファインチューニングなしに、スケーラブルで低コストな評価の新しい可能性を開く。</p>
+
+      <h2>信頼性・妥当性・公平性——三重の課題</h2>
+      <p>LLMを活用した自動評価に関する研究のレビューでは、エッセイ採点・フィードバック生成・問題作成・対話型評価という四つの主要応用領域が分析され、スケーラブルで効率的かつ人間に近い評価プロセスを実現するLLMの能力の成長が示される。しかし同時に、妥当性・公平性・解釈可能性・教育的整合性における重要な限界も明らかになっている。</p>
+
+      <p>特に注目すべきは、LLMが言語学習者（ELL）に対して示す傾向だ。モデルの人間評定との一致は、受験者の母語によって異なることが示されており、公平性と倫理的含意への慎重な配慮の必要性が強調されている。母語が採点の公平性に影響するという問題は、多言語を対象とする日本語教育評価においても無視できない課題だ。</p>
+
+      <div class="plain-lang">
+        <p>ChatGPTなどのLLMは「文章をざっくり分類する」のは得意だが、「細かいルーブリックに基づいて安定してスコアを付ける」のは従来の機械学習に劣る。現時点では「人間採点の補助ツール」として使うのが現実的だ。</p>
+      </div>
+
+      <h2>実践的活用の指針：ハイブリッド採点モデルの可能性</h2>
+      <p>GPTベースのAESは、タスク固有のファインチューニングなしでも人間スコアと中程度から相当程度の一致を達成できることが示されている。さらに重要なのは、GPT生成スコアと従来の言語的特徴量（語彙・統語的指標）との統合により、採点精度と信頼性が有意に向上したという知見だ。これは「LLMか、機械学習か」という二者択一を超えた、ハイブリッドアプローチの実用性を示唆している。</p>
+
+      <p>AESは学習者のエッセイにスコアを付与し、教員の採点負荷を軽減する。多様なプロンプトを扱える採点システムの構築は、ライティングタスクの柔軟性と多様性ゆえに困難を伴う。特に日本語教育のように少資源言語の文脈では、ドメイン特化型の訓練データの構築と組み合わせた設計が求められる。</p>
+
+      <div class="citation-box">
+        <div class="citation-box-title">📎 一次資料</div>
+        <ul class="citation-list">
+          <li>Kim, Y., Mozer, R., Al-Adeimi, S., &amp; Miratrix, L. (2025). ChatGPT vs. Machine Learning: Assessing the Efficacy and Accuracy of Large Language Models for Automated Essay Scoring. <em>EdWorkingPaper No. 25-1335</em>. <a href="https://edworkingpapers.com/sites/default/files/ai25-1335.pdf" target="_blank">EdWorkingPapers.com</a></li>
+          <li>Huang, Y. &amp; Wilson, J. (2025). Evaluating LLM-Based Automated Essay Scoring: Accuracy, Fairness, and Validity. <em>AIME-Con</em>. <a href="https://aclanthology.org/2025.aimecon-wip.9/" target="_blank">ACL Anthology</a></li>
+          <li>Hou, Z., Ciuba, A., &amp; Li, X. (2025). Improving LLM-based Automated Essay Scoring with Linguistic Features. <em>PMLR 273</em>. <a href="https://proceedings.mlr.press/v273/hou25a" target="_blank">PMLR</a></li>
+        </ul>
+      </div>
+
+      <div class="editorial">
+        <div class="editorial-label">✦ Editorial Comment — PRAXIS Issue 012</div>
+        <p>AES研究の最大の問題は「精度至上主義」に陥ることだ。評価は教育的行為であり、スコアの正確さだけでなく、「どのようなフィードバックが学習を促すか」という問いとセットで議論されるべきである。LLMが生成するフィードバックテキストの質——具体性・教育的整合性・学習者の動機付けへの効果——を問う研究が今後の焦点となるだろう。</p>
+      </div>
+    </div>
+  
+</article>
+
+<article>
+<div class="article-date">2026-06-26</div>
+    <div class="article-header">
+      <div class="article-kicker">01 · SLA研究 — 発音習得と指導型SLA</div>
+      <h1 class="article-title">「正確さ」から「通じやすさ」へ——<br>発音指導パラダイムの転換と教室実践</h1>
+      <p class="article-subtitle">Instructed SLA（ISLA）研究が示す、発音教育の目標再設定とフォーム焦点化指導の最新エビデンス</p>
+      <div class="tag-row">
+        <span class="tag">ISLA</span>
+        <span class="tag">Intelligibility</span>
+        <span class="tag">Form-Focused Instruction</span>
+        <span class="tag">L2 Pronunciation</span>
+      </div>
+    </div>
+    <div class="article-body">
+
+      <p>「母語話者のように話す」というかつての発音教育の理想は、今や静かに棚上げされつつある。<span class="gloss" data-def="Instructed Second Language Acquisition：教室内の指導操作が習得に与える影響を研究する応用言語学の下位領域">ISLA</span>研究の蓄積が明確に示すのは、目標を<span class="gloss" data-def="聞き手が発話内容を正確に理解できる度合い">intelligibility（通じやすさ）</span>に置いた指導のほうが、現実場面での言語使用に資するという知見だ。L2発音教授法の分野は、ネイティブらしさの強調から、より現実的で有用な目標としての音声的明瞭さ・理解しやすさの重視へ、重要なパラダイムシフトを経験してきた。</p>
+
+      <p>しかしパラダイムの転換を宣言するだけでは不十分だ。実際の教室でそれを実現する教授法的手立てはいまだ数が少なく、音声的理解しやすさの発達に焦点を当てた教授法的実践をコミュニカティブ言語教授（CLT）に統合する試みは、実証研究が不足した状態にある。この「理念と実践のギャップ」こそ、現場教師にとって最もリアルな課題といえる。</p>
+
+      <div class="key-concept">
+        <div class="key-concept-title">🔑 キー概念</div>
+        <dl>
+          <dt>Intelligibility</dt>
+          <dd>聴衆が発話を言語的に正確に復元できる度合い。アクセントの強さとは独立して論じられる。</dd>
+          <dt>Comprehensibility</dt>
+          <dd>聞き手が発話を理解する難易度の主観評定。スピーカー・リスナー双方の要因が絡む。</dd>
+          <dt>Focus on Form（FonF）</dt>
+          <dd>意味中心の活動の中で言語形式へ注意を向けさせる指導技術。リキャストや促しが典型例。</dd>
+          <dt>Nativeness Principle</dt>
+          <dd>「母語話者に近い発音」を目標とする旧来の規範。現代研究では批判的に再評価されている。</dd>
+        </dl>
+      </div>
+
+      <h2>ISLAフレームワークが発音研究に与えた影響</h2>
+      <p>ISLA研究は、学習条件の体系的操作が第二言語習得をいかに促進するかを探求する。発音習得研究においてこの枠組みが特に有効なのは、「どのタイプのフィードバックが、どのような音声特徴に対して、どの学習者層に効くのか」という問いを精緻化できる点にある。ISLAの今後の研究課題として、指導アプローチとL2発音発達の相互作用への理解を深めることが挙げられており、研究と実践の対話を強化するための研究ベースの教授法的示唆も求められている。</p>
+
+      <p><span class="gloss" data-def="フォーカス・オン・フォーム：意味理解の流れを止めず、形式への注意を引き起こす指導スタイル">Form-Focused Instruction（FFI）</span>の効果について、複数の研究が積み重なっている。否定的フィードバックなどの反応的なFFIや、タスク設計の操作（様式・反復・複雑さなど）が、コミュニカティブなタスク遂行中のL2発音の正確さを高めることが示されている。ただし効果量はタスク種別や対象音素によって大きく異なり、単純な「FFI有効／無効」の二項対立には慎重であるべきだ。</p>
+
+      <h2>知覚と産出——どちらを先に訓練するか</h2>
+      <p>音声習得の順序論において近年注目されるのが、知覚訓練の優先性だ。知覚能力の発達に焦点を当てた知覚ベースの発音指導（PI）は、L2発音のセグメント的側面および音節的側面の発達において、より効果的であることが示された。これは産出練習を軽視してよいということではなく、音声知覚と調音の相互的な強化関係を意識した指導設計が求められるということだ。</p>
+
+      <p>語彙ストレスの処理についても同様の示唆がある。語彙ストレスの誤りは通じやすさの低下をもたらすことが確認されている。日本語母語話者の英語学習者にとって、日英のストレス配置の違いはとりわけ高いコストを伴う干渉源であり、この点に焦点を当てた指導が効果を発揮しやすい。</p>
+
+      <div class="infographic-wrap">
+        <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="発音指導パラダイム変遷と指導技法の関係図">
+          <!-- Background -->
+          <rect width="560" height="300" fill="none"/>
+          <!-- Timeline axis -->
+          <line x1="40" y1="150" x2="520" y2="150" stroke="#C85A1A" stroke-width="2"/>
+          <polygon points="520,145 530,150 520,155" fill="#C85A1A"/>
+          <!-- Era labels -->
+          <text x="70" y="30" font-family="DM Serif Display, serif" font-size="13" fill="#C85A1A" text-anchor="middle">旧パラダイム</text>
+          <text x="70" y="46" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">ネイティブ規範</text>
+          <rect x="25" y="55" width="90" height="80" rx="2" fill="#EDE7D9" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="70" y="75" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">正確さ優先</text>
+          <text x="70" y="92" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">母語話者到達</text>
+          <text x="70" y="109" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">音素訓練中心</text>
+          <text x="70" y="126" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">発音=矯正</text>
+          <!-- Arrow down -->
+          <line x1="190" y1="95" x2="360" y2="95" stroke="#D4C8BC" stroke-width="1.5" stroke-dasharray="5,4"/>
+          <text x="275" y="88" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">2000年代〜 ISLA知見の蓄積</text>
+          <polygon points="360,91 370,95 360,99" fill="#D4C8BC"/>
+          <!-- New paradigm box -->
+          <text x="455" y="30" font-family="DM Serif Display, serif" font-size="13" fill="#C85A1A" text-anchor="middle">新パラダイム</text>
+          <text x="455" y="46" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">Intelligibility規範</text>
+          <rect x="410" y="55" width="110" height="80" rx="2" fill="#F5F0E8" stroke="#C85A1A" stroke-width="2"/>
+          <text x="465" y="75" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">通じやすさ優先</text>
+          <text x="465" y="92" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">世界英語の多様性</text>
+          <text x="465" y="109" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">超分節素訓練</text>
+          <text x="465" y="126" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">発音＝コミュニケ</text>
+          <!-- Bottom: Techniques -->
+          <text x="280" y="185" font-family="DM Serif Display, serif" font-size="12" fill="#C85A1A" text-anchor="middle">教室内指導技法（FFI × Comprehensibility）</text>
+          <!-- Technique boxes -->
+          <rect x="30" y="198" width="110" height="42" rx="2" fill="#EDE7D9" stroke="#D4C8BC"/>
+          <text x="85" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">リキャスト</text>
+          <text x="85" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">暗示的フィードバック</text>
+          <rect x="155" y="198" width="110" height="42" rx="2" fill="#EDE7D9" stroke="#D4C8BC"/>
+          <text x="210" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">メタ言語説明</text>
+          <text x="210" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">明示的フィードバック</text>
+          <rect x="280" y="198" width="110" height="42" rx="2" fill="#EDE7D9" stroke="#D4C8BC"/>
+          <text x="335" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">知覚訓練</text>
+          <text x="335" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">ミニマルペア</text>
+          <rect x="405" y="198" width="130" height="42" rx="2" fill="#F5F0E8" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="470" y="214" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#1A1612" text-anchor="middle">タスク難度操作</text>
+          <text x="470" y="230" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#6B5E55" text-anchor="middle">complexity × fluency</text>
+          <!-- vertical connectors -->
+          <line x1="85" y1="193" x2="85" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="85" y1="175" x2="470" y2="175" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="210" y1="193" x2="210" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="335" y1="193" x2="335" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="470" y1="193" x2="470" y2="198" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="85" y1="175" x2="85" y2="193" stroke="#D4C8BC" stroke-width="1"/>
+          <line x1="280" y1="175" x2="280" y2="185" stroke="#D4C8BC" stroke-width="1"/>
+          <!-- Source label -->
+          <text x="280" y="285" font-family="JetBrains Mono, monospace" font-size="10" fill="#B0A090" text-anchor="middle">Based on: Kang &amp; Staples (2025); Crowther (2025); Language Learning / Cambridge</text>
+        </svg>
+      </div>
+
+      <h2>「国際語としての英語（ELF）」文脈と教師の役割</h2>
+      <p>L2発音教育・学習の分野を前進させるにあたり、コーパス言語学・語用論・指導型SLA・心理言語学・テクノロジー・評価といった隣接領域が重要な変化をもたらしてきた。これらの知見を統合すれば、教師は「どの発音特徴を教えるか」だけでなく「なぜその特徴が通じやすさに関わるのか」を学習者に説明できるようになる。</p>
+
+      <p>さらに現在のAI・自動音声認識（ASR）の普及は、L2発音の応用・実践において広大な機会を提供しており、この学際的な動向をとりわけ促進している。AIツールが普及するほど、人間教師の役割は「矯正」から「動機付けと自律支援」へとシフトする必要が生じる。</p>
+
+      <h2>ネイティブ規範幻想の根強さ——教師が向き合うべき現実</h2>
+      <p>通じやすさを原則とするL2発音指導は、「習得目標として母語話者に近い発音を求める」というネイティブ規範の原則を棄却し、代わりに音声的明瞭さを到達目標として採用することを提唱しているが、概してネイティブ規範の思想は今なお根強い。この現実は、教師が理念を変えるだけでは不十分であることを示す。学習者・保護者・試験設計者を含む複数のステークホルダーへの働きかけが求められる。</p>
+
+      <div class="plain-lang">
+        <p>「ネイティブ並みの発音」を目標にしても、現実の国際コミュニケーションではほとんど役に立たない場面がある。「通じるかどうか」を基準に置き直し、超分節素（イントネーション・語ストレス）を優先的に教えることで、学習者は実際の場で使える発音力を身につけられる。</p>
+      </div>
+
+      <h2>現場への示唆——今日からできる3ステップ</h2>
+      <p>研究知見を実践に落とし込むとき、以下の枠組みが参考になる。第一に、<strong>目標設定の明示化</strong>——なぜその発音練習をするのかを学習者に伝える。第二に、<strong>超分節素優先</strong>——語ストレスとイントネーションから始め、個別音素はその後に。第三に、<strong>タスクの複雑度調整</strong>——簡単なタスクで新しい発音パターンを定着させてから、より複雑なコミュニケーション活動に組み込む。</p>
+
+      <p>また近年の研究が強調するのは、教師自身の発音指導への自己効力感（self-efficacy）と専門的知識の問題だ。理論と実践の架け橋を築くために、教師が研究文献にアクセスしやすい環境を整えることが、制度レベルの課題として浮上している。</p>
+
+      <div class="citation-box">
+        <div class="citation-box-title">📎 一次資料</div>
+        <ul class="citation-list">
+          <li>Kang, O. &amp; Staples, S. (2025). Transdisciplinary Intersections in Second Language Pronunciation Learning and Teaching. <em>Language Learning</em>, 75, 5–29. <a href="https://doi.org/10.1111/lang.70001" target="_blank">DOI: 10.1111/lang.70001</a></li>
+          <li>Crowther, D. (2025). Instructed Second Language Acquisition and Second Language Pronunciation. <em>Language Learning</em>. <a href="https://doi.org/10.1111/lang.12716" target="_blank">DOI: 10.1111/lang.12716</a></li>
+          <li>Mora, J.C. et al. Is L2 pronunciation affected by increased task complexity? <em>Studies in Second Language Acquisition</em>. <a href="https://doi.org/10.1017/S0272263124000020" target="_blank">Cambridge Core</a></li>
+        </ul>
+      </div>
+
+      <div class="editorial">
+        <div class="editorial-label">✦ Editorial Comment — PRAXIS Issue 012</div>
+        <p>発音研究はSLAの中でも「実践との距離が近い」分野でありながら、現場への翻訳が遅れてきた領域でもある。今号が紹介したパラダイム転換の議論は2020年代に急速に深まり、ISLAとの接点が明確になってきた。日本語教育の文脈でも、日本語音声の「通じやすさ」を目標化するカリキュラム設計の必要性は高く、英語教育の知見を批判的に援用する価値がある。</p>
+      </div>
+    </div>
+  
+</article>
+
+<article>
+<div class="article-date">2026-06-26</div>
+  <div class="article-header">
+    <span class="article-tag a02">02 — テスト工学・測定論</span>
+    <div class="article-number">Language Assessment & Measurement</div>
+    <h2 class="article-title">コミュニカティブ・テスティングの信頼性と妥当性<br>——教室教師の視点から三十年を問い直す</h2>
+    <p class="article-subtitle">Newsham (1989)、Stevenson (1985)、Turner (1998) の古典的論文群は、今日もなお評価設計の根幹問題を照射する。「測定できること」と「重要なこと」の間の緊張関係を再考する。</p>
+  </div>
+  <div class="accent-bar a02"></div>
+
+  <div class="article-body">
+
+    <div class="key-box">
+      <div class="key-box-title">キー概念</div>
+      <ul>
+        <li><strong>信頼性（Reliability）</strong>——同じテストを繰り返せば同じ結果が得られる一貫性</li>
+        <li><strong>妥当性（Validity）</strong>——測ろうとしているものを本当に測れているかの適切性</li>
+        <li><strong>実施可能性（Administrability）</strong>——教室現場での実用的な実施しやすさ</li>
+        <li><strong>構成概念妥当性（Construct Validity）</strong>——「スピーキング力」など抽象的能力の測定が理論的に整合しているか</li>
+      </ul>
+    </div>
+
+    <h3 class="section-heading">古典的トリアングル——妥当性・信頼性・実施可能性</h3>
+    <p>言語テスト研究において、コミュニカティブ・テスティングが普及した 1980 年代以降、教室教師は深刻なジレンマに直面してきた。Newsham (1989) が問題化したのは、実施可能性・信頼性・妥当性の三角形だ。コミュニカティブなタスクは妥当性が高いが、採点の一貫性（信頼性）を保つことが難しく、大規模実施（実施可能性）は現実的でないことが多い。一方で、信頼性の高い客観式テストはコミュニケーション能力という構成概念から乖離しやすい。</p>
+
+    <p>Stevenson (1985) はこの問題をさらに根本から問い直した。言語テスト専門家が信頼性・妥当性の重要性に合意しているにもかかわらず、教室実践との接続が不十分な理由として、専門的知識が教師に届くチャネルの不備と、現場のリソース制約を指摘した。この観察は四十年後の今も本質的に変わっていない。<span class="gloss">テスト・リテラシー [test literacy]</span>——テストを設計・解釈・活用する実践的知識——を教師に届ける体系的な仕組みが依然として不足している。</p>
+
+    <h3 class="section-heading">スピーキング評価の固有問題</h3>
+    <p>Turner (1998) は口頭インタビュー形式のスピーキングテストに焦点を当て、早期研究がいかにインタビュー形式の熟達度評価を中心に展開してきたか、そして 1990 年代に入り構成概念妥当性と評価者訓練への関心がいかに高まったかを概観した。スピーキング評価に固有の問題は、評価者の主観性・タスク変数（話題・相手・形式）によるスコアのばらつき・「流暢さ」と「正確さ」のトレードオフなど、多岐にわたる。</p>
+
+    <p>これらの課題は現代においても未解決だ。ただし近年の研究は、評価者較正（rater calibration）の精緻化・マルチ特性評価ルーブリックの開発・コンピュータ支援評価の導入によって、部分的な解決を目指している。特にルーブリック共有と評価者訓練の組み合わせが、評価者間信頼性を有意に高めることが繰り返し示されている。</p>
+
+    <figure class="svg-figure">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" aria-label="テスト評価トライアングルと現代的対応">
+        <rect width="560" height="300" fill="var(--svg-bg,#EDE8DF)"/>
+        <text x="280" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary,#1A1612)" font-family="Noto Sans JP, sans-serif">コミュニカティブ・テスティングの三角ジレンマ</text>
+
+        <!-- Triangle -->
+        <polygon points="280,60 90,230 470,230" fill="none" stroke="#B84E1E" stroke-width="2"/>
+
+        <!-- Vertices -->
+        <circle cx="280" cy="60" r="36" fill="var(--bg-card,#FAF7F2)" stroke="#B84E1E" stroke-width="1.5"/>
+        <text x="280" y="55" text-anchor="middle" font-size="11.5" font-weight="700" fill="#B84E1E" font-family="Noto Sans JP, sans-serif">妥当性</text>
+        <text x="280" y="72" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">Validity</text>
+
+        <circle cx="90" cy="230" r="36" fill="var(--bg-card,#FAF7F2)" stroke="#B84E1E" stroke-width="1.5"/>
+        <text x="90" y="225" text-anchor="middle" font-size="11.5" font-weight="700" fill="#B84E1E" font-family="Noto Sans JP, sans-serif">信頼性</text>
+        <text x="90" y="242" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">Reliability</text>
+
+        <circle cx="470" cy="230" r="36" fill="var(--bg-card,#FAF7F2)" stroke="#B84E1E" stroke-width="1.5"/>
+        <text x="470" y="225" text-anchor="middle" font-size="11" font-weight="700" fill="#B84E1E" font-family="Noto Sans JP, sans-serif">実施可能性</text>
+        <text x="470" y="242" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">Administrability</text>
+
+        <!-- Center note -->
+        <ellipse cx="280" cy="168" rx="72" ry="30" fill="var(--plain-bg,rgba(200,90,26,0.06))" stroke="#B84E1E" stroke-width="1" stroke-dasharray="4,3"/>
+        <text x="280" y="163" text-anchor="middle" font-size="11" fill="var(--text-primary,#1A1612)" font-family="Noto Sans JP, sans-serif">常に trade-off</text>
+        <text x="280" y="178" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">三頂点の同時最大化は困難</text>
+
+        <!-- Side labels -->
+        <text x="168" y="148" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif" transform="rotate(-55,168,148)">主観性↑</text>
+        <text x="390" y="148" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif" transform="rotate(55,390,148)">客観化困難</text>
+        <text x="280" y="255" text-anchor="middle" font-size="10" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">規格化 vs 現場負荷</text>
+      </svg>
+      <figcaption>Fig. 02 — コミュニカティブ・テスティングの三角ジレンマ（Newsham 1989; Stevenson 1985 の議論を可視化）</figcaption>
+    </figure>
+
+    <h3 class="section-heading">「テスト・リテラシー」の欠如という構造問題</h3>
+    <p>Stevenson が指摘した専門知識の伝達不全は、今日でいう「テスト・リテラシー（test literacy）」の欠如として問題化されている。教師が自ら作成するテストが、測ろうとしている能力構成概念と実際に整合しているかどうかを自己点検できるリテラシーの欠如は、評価の歪みを生み出す根本原因のひとつだ。このリテラシーは教師養成課程においても十分に扱われているとは言い難い。</p>
+
+    <h3 class="section-heading">現代的解決策——ルーブリックと評価者訓練</h3>
+    <p>Turner (1998) が示した構成概念妥当性への新方向性は、その後のマルチ特性ルーブリック研究へと引き継がれた。現在では、流暢さ・文法的正確さ・語彙の範囲・談話の一貫性・発音など複数の特性を別個に評価するアナリティック・ルーブリックが広く普及している。評価者訓練では、アンカー・サンプル（採点基準点となる解答例）を用いた較正セッションが効果的とされ、評価者間信頼性（inter-rater reliability）の係数を0.7以上に保つことが多くの試験機関で標準とされている。</p>
+
+    <div class="plain-block">
+      <div class="plain-block-label">平たく言えば</div>
+      <p>「本当に話せる力を測りたければ、採点が揺れる。採点が安定するテストは、本当に使える力とズレてくる」——これが三十年以上変わらないジレンマです。今の現場では「ルーブリックを共有して採点者を訓練する」という地道な努力が、この緊張関係を和らげる最も信頼性の高いアプローチとして定着しています。</p>
+    </div>
+
+    <h3 class="section-heading">教師への実践的インプリケーション</h3>
+    <p>教室現場で作成するテストに対して、教師は最低限、以下の問いを自問すべきだろう。①このテストは何の能力を測ろうとしているか（構成概念の明確化）。②採点基準は明文化されているか（信頼性の確保）。③タスクは目標言語使用場面に即しているか（内容的妥当性）。④採点に要する時間・資源は現実的か（実施可能性）。これら四つの問いへの誠実な回答が、評価の質を担保する第一歩となる。</p>
+
+    <div class="editorial-block">
+      <div class="editorial-label">Editorial Comment</div>
+      <p>Newsham・Stevenson・Turner の三論文は、コミュニカティブ・テスティングの「古典的な不満」を精緻に言語化した先駆的文献だ。三十年以上が経過した今も、この三角ジレンマは解消していない。AI を使った自動採点・適応型テスト・ポートフォリオ評価など新しい手法が登場しているが、それらも同じジレンマの中に位置づけられる。古典文献を通じてこの問題の本質を把握しておくことが、新技術を批判的に評価する土台になる。</p>
+    </div>
+
+    <div class="references">
+      <div class="references-label">一次資料・参考文献</div>
+      <ul>
+        <li>Newsham, G. S. (1989). Communicative Testing and Classroom Teaching. <em>ERIC</em>. <a href="https://eric.ed.gov/?q=language+testing+validity+reliability+2025" target="_blank">ERIC Database</a></li>
+        <li>Stevenson, D. K. (1985). The Teaching of Testing: Reliability, Validity, and All That Stuff. <em>ERIC</em>. <a href="https://eric.ed.gov/?q=language+testing+validity+reliability+2025" target="_blank">ERIC Database</a></li>
+        <li>Turner, J. (1998). Assessing Speaking. <em>ERIC</em>. <a href="https://eric.ed.gov/?q=language+testing+validity+reliability+2025" target="_blank">ERIC Database</a></li>
+      </ul>
+    </div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-26</div>
+  <div class="article-header">
+    <span class="article-tag a01">01 — SLA最新研究</span>
+    <div class="article-number">Second Language Acquisition</div>
+    <h2 class="article-title">頻度・暗示的学習・構文知識<br>——入力の蓄積が文法を育てるメカニズム</h2>
+    <p class="article-subtitle">第二言語習得における「頻度効果（frequency effect）」の研究は、いまや確立された研究領域だ。本稿では Ellis らの理論的枠組みから最新の実証研究までを整理し、教室実践への示唆を論じる。</p>
+  </div>
+  <div class="accent-bar a01"></div>
+
+  <div class="article-body">
+
+    <div class="key-box">
+      <div class="key-box-title">キー概念</div>
+      <ul>
+        <li><strong>頻度効果（Frequency Effect）</strong>——入力中のパターン出現回数が習得順序・定着速度に影響する現象</li>
+        <li><strong>暗示的学習（Implicit Learning）</strong>——意識的な規則学習を伴わない、統計的パターンの無意識的獲得</li>
+        <li><strong>使用基盤アプローチ（Usage-Based Approach）</strong>——実際の言語使用の蓄積から文法構造が創発するという立場</li>
+        <li><strong>トークン頻度 vs タイプ頻度</strong>——同一語形の反復回数 vs 異なる語形の多様性がそれぞれ異なる習得効果をもつ</li>
+      </ul>
+    </div>
+
+    <h3 class="section-heading">「どのくらい触れたか」が習得を決める</h3>
+    <p>第二言語習得研究において、学習者がどれほど豊かな言語入力にさらされるかという問いは古典的でありながら現在も重要な研究課題であり続けている。Ellis (2002) が提起した問い——「入力中のパターン頻度は、いかに習得に影響するのか」——は、その後 20 年以上にわたって多くの実証研究を生んできた。<span class="gloss">頻度効果 [frequency effect]</span>とは、学習者が接触する言語形式の出現回数が、その形式の習得順序・速度・定着に影響を与える現象を指す。</p>
+
+    <p>使用基盤言語学の立場では、言語習得は認知的に汎用の学習メカニズムによって、入力中の形式と意味の共起パターンを無意識的に蓄積することで起きると考える。<span class="gloss">暗示的学習 [implicit learning]</span>の観点からは、「記憶・知覚はすべて使用頻度に影響され、経験を重ねるほど記憶は強固になり、アクセス速度が高まる」という事実が繰り返し確認されている。これは語彙、形態素、多語ユニット（phrasal verb など）にまで広く及ぶ。</p>
+
+    <h3 class="section-heading">暗示的学習と明示的学習の相補性</h3>
+    <p>頻度に依拠した言語処理は本質的に暗示的学習である。しかしこの立場は、Schmidt (1993) が提唱した「気づき（noticing）」の役割を否定しない。また明示的指導（explicit instruction）の効果を否定するものでもない。頻度主導の暗示的蓄積と、教師による規則説明・フォーカス・オン・フォームは相補的であり、後者は前者の速度を加速させる補助的な役割を担う。</p>
+
+    <p>2025 年の実証研究では、EFL 学習者 77 名を対象に宣言的記憶・暗示的統計学習・ワーキングメモリの各測定値を取得し、集中デジタル練習後の文法発達との関係を検討した研究が注目される。この研究では、認知的個人差の複数指標を同時に検討することで、従来の単変量研究では見えなかった変数間交互作用が明らかになっている。暗示的統計学習能力がライティング課題アウトカムの有意な予測因子となった一方で、ワーキングメモリは文法定着テストの成績をより強く予測した。</p>
+
+    <h3 class="section-heading">構文の創発——式から低スコープ・パターンへ</h3>
+    <p>Ellis は頻度研究の統合として、習得の発達的順序を「定型表現（formula）→低スコープ・パターン（low-scope pattern）→構文（construction）」という段階で描いた。はじめはホールチャンク（丸ごと覚えた定型句）として記憶された表現が、十分な入力を経て内部構造に気づき始め、やがて生産的な文法スキーマへと成長する。この枠組みは、教室での「インプット洪水（input flooding）」や「拡張されたアウトプット練習」の理論的根拠ともなっている。</p>
+
+    <h3 class="section-heading">タイプ頻度とトークン頻度の峻別</h3>
+    <p>重要な概念的区別が「トークン頻度」と「タイプ頻度」だ。トークン頻度（同一語形の反復）は個別語の定着に効果的だが、文法スキーマの生産性——つまり未知語への適用——にはタイプ頻度（多様な語形）が不可欠だとされる。例えば動詞の過去形学習において、同一動詞の反復より、多様な動詞を同規則で活用する練習の方がスキーマ形成に寄与する。この知見は教材設計、特に文法演習の設問バリエーション設計に直接的な示唆を与える。</p>
+
+    <figure class="svg-figure">
+      <svg viewBox="0 0 560 310" xmlns="http://www.w3.org/2000/svg" aria-label="頻度効果と習得経路モデル">
+        <rect width="560" height="310" fill="var(--svg-bg,#EDE8DF)"/>
+        <!-- Title -->
+        <text x="280" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary,#1A1612)" font-family="Noto Sans JP, sans-serif">頻度効果と習得経路モデル</text>
+        <!-- Three stages -->
+        <rect x="30" y="55" width="145" height="72" rx="5" fill="var(--bg-card,#FAF7F2)" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="102" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="#C85A1A" font-family="Noto Sans JP, sans-serif">定型表現</text>
+        <text x="102" y="101" text-anchor="middle" font-size="11" fill="var(--text-secondary,#3D3530)" font-family="Noto Sans JP, sans-serif">formula</text>
+        <text x="102" y="118" text-anchor="middle" font-size="10.5" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">丸ごと記憶</text>
+
+        <rect x="207" y="55" width="145" height="72" rx="5" fill="var(--bg-card,#FAF7F2)" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="279" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="#C85A1A" font-family="Noto Sans JP, sans-serif">低スコープ・パターン</text>
+        <text x="279" y="101" text-anchor="middle" font-size="11" fill="var(--text-secondary,#3D3530)" font-family="Noto Sans JP, sans-serif">low-scope pattern</text>
+        <text x="279" y="118" text-anchor="middle" font-size="10.5" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">部分的規則の気づき</text>
+
+        <rect x="384" y="55" width="145" height="72" rx="5" fill="var(--bg-card,#FAF7F2)" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="456" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="#C85A1A" font-family="Noto Sans JP, sans-serif">構文スキーマ</text>
+        <text x="456" y="101" text-anchor="middle" font-size="11" fill="var(--text-secondary,#3D3530)" font-family="Noto Sans JP, sans-serif">construction</text>
+        <text x="456" y="118" text-anchor="middle" font-size="10.5" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">生産的スキーマ</text>
+
+        <!-- Arrows -->
+        <line x1="175" y1="91" x2="205" y2="91" stroke="#C85A1A" stroke-width="2"/>
+        <polygon points="203,87 211,91 203,95" fill="#C85A1A"/>
+        <line x1="352" y1="91" x2="382" y2="91" stroke="#C85A1A" stroke-width="2"/>
+        <polygon points="380,87 388,91 380,95" fill="#C85A1A"/>
+
+        <!-- Token vs Type -->
+        <rect x="30" y="155" width="240" height="60" rx="4" fill="var(--bg-secondary,#EDE8DF)" stroke="var(--border,rgba(26,22,18,0.12))" stroke-width="1"/>
+        <text x="150" y="177" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-primary,#1A1612)" font-family="Noto Sans JP, sans-serif">トークン頻度（token）</text>
+        <text x="150" y="196" text-anchor="middle" font-size="11" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">→ 個別語の定着・処理速度向上</text>
+
+        <rect x="290" y="155" width="240" height="60" rx="4" fill="var(--bg-secondary,#EDE8DF)" stroke="var(--border,rgba(26,22,18,0.12))" stroke-width="1"/>
+        <text x="410" y="177" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-primary,#1A1612)" font-family="Noto Sans JP, sans-serif">タイプ頻度（type）</text>
+        <text x="410" y="196" text-anchor="middle" font-size="11" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">→ 文法スキーマの生産性獲得</text>
+
+        <!-- Implicit vs Explicit -->
+        <rect x="30" y="238" width="500" height="52" rx="4" fill="var(--plain-bg,rgba(200,90,26,0.06))" stroke="#C85A1A" stroke-width="1"/>
+        <text x="280" y="260" text-anchor="middle" font-size="12" font-weight="700" fill="var(--text-primary,#1A1612)" font-family="Noto Sans JP, sans-serif">暗示的蓄積 ＋ 明示的指導 ＝ 相補的加速</text>
+        <text x="280" y="279" text-anchor="middle" font-size="10.5" fill="var(--text-muted,#6B5F57)" font-family="Noto Sans JP, sans-serif">implicit accumulation + explicit instruction = accelerated acquisition</text>
+      </svg>
+      <figcaption>Fig. 01 — 頻度主導習得の三段階モデルと頻度タイプの機能分化（Ellis 2002 の枠組みを基に作成）</figcaption>
+    </figure>
+
+    <div class="plain-block">
+      <div class="plain-block-label">平たく言えば</div>
+      <p>「同じパターンに何度もさらされることで、脳が無意識にその規則を学んでいく」——それが頻度効果の本質です。先生が文法を説明しなくても、十分な量のインプットがあれば学習者の頭の中に文法が育つ。ただしそれには時間がかかるので、明示的な説明はその速度を上げる「アクセル」として機能します。</p>
+    </div>
+
+    <h3 class="section-heading">教室への実践的インプリケーション</h3>
+    <p>頻度研究の知見は教材設計に具体的な指針を与える。第一に、新出文法項目を導入する際には、同一規則が適用された多様な語彙例（タイプ頻度）を組み込んだ練習セットを設けること。第二に、暗示的学習を促すためのインプット洪水活動（input flooding）——ターゲット構文を多量に含む読み物・聞き取り素材——を先行させること。第三に、初期段階で定型表現を丸ごと記憶させることを恐れないこと。それは習得の「種」であり、後の構文化の出発点となる。</p>
+
+    <p>研究はまた、頻度効果の発現が学習の様式（暗示的か明示的か）・提示された刺激数・曝露時間・提示順序・構文の複雑さに依存することも示している。つまり「量さえあればよい」という単純な処方箋ではなく、これらの変数をコントロールした設計が教室では求められる。</p>
+
+    <div class="editorial-block">
+      <div class="editorial-label">Editorial Comment</div>
+      <p>頻度効果研究は SLA の基盤理論として成熟しているが、教室実践への橋渡しは依然として不均等だ。「授業時間が限られている」という現実の中で、学習者が十分なインプット量を確保できる環境設計——コーパス基盤の教材、デジタル補助教材、家庭学習との接続——こそが次の実践課題となる。頻度は教師がコントロールできる数少ない変数のひとつであり、その意識的な操作が授業設計の精度を高める。</p>
+    </div>
+
+    <div class="references">
+      <div class="references-label">一次資料・参考文献</div>
+      <ul>
+        <li>Ellis, N. C. (2002). Frequency effects in language processing: A review with implications for theories of implicit and explicit language acquisition. <em>Studies in Second Language Acquisition</em>, 24(2), 143–188. <a href="https://doi.org/10.1017/S0272263102002024" target="_blank">https://doi.org/10.1017/S0272263102002024</a></li>
+        <li>Llompart et al. (2025). Cognitive abilities underlying the earliest stages of SLA: an artificial language study. <em>Language, Cognition and Neuroscience</em>. <a href="https://doi.org/10.1080/23273798.2025.2576908" target="_blank">https://doi.org/10.1080/23273798.2025.2576908</a></li>
+        <li>Implicit statistical learning and working memory predict EFL development (2025). <em>System</em>. <a href="https://doi.org/10.1016/j.system.2025.103461" target="_blank">ScienceDirect (2025)</a></li>
+      </ul>
+    </div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-label">01 — SLA最新研究（第二言語習得）</div>
+  <h1>自己蒸留は「正解率」を上げるが「多様性」を削ぐ<br>——LLMの学習ダイナミクスからSLAが学ぶこと</h1>
+
+  <p>第二言語習得（SLA）の世界では長らく、「正しいモデルへの反復露出が習得を促進する」という仮定が実践の基盤にあった。だが2026年6月にarXivに公開された計算学習理論の論文が、その仮定に根本的な問いを投げかけている。Nicolicioiuらによる「On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity」は、大規模言語モデル（LLM）がひとつのモデルを「教師」と「生徒」の両方に使う<span class="gloss" data-def="モデル自身の出力を訓練信号として再利用する学習法">自己蒸留（self-distillation）</span>を行うと、短期的な正解率（pass@1）は向上するが、出力の多様性が顕著に低下することを示した。</p>
+
+  <p>この発見は、言語学習の文脈に直接翻訳できる重要な問いを含んでいる——「正しい答えだけに収束させる練習は、学習者の言語レパートリーを豊かにするか、それとも貧しくするか？」</p>
+
+  <h2>自己蒸留のメカニズムと習得への類推</h2>
+
+  <p>Nicolicioiuらの論文が記述するアーキテクチャはこうだ。教師モデルは「正解デモンストレーション」を条件として、生徒モデルにトークンレベルの密なフィードバックを与える。生徒はそれを模倣するよう最適化される。その結果、単一問題の正解率は上がるが、モデルが生成する<span class="gloss" data-def="複数のサンプルを生成したときに現れる解法の種類の多さ">出力多様性（output diversity）</span>は低下する。</p>
+
+  <p>SLAの処理指導（Processing Instruction）研究では、Krashenの入力仮説からVanPattenの入力処理理論にいたる系譜が示すように、<span class="gloss" data-def="学習者が意味に焦点を当てながら言語形式に無意識に注意を向けるプロセス">form-meaning connection</span>の形成には「豊かな文脈的変異」が不可欠とされてきた。30年にわたる処理指導研究のレビューは、構造化されたインプット（SI）活動の設計において多様な文脈を提供することの重要性を繰り返し強調している。自己蒸留論文が示す「サンプルされたデモンストレーションへの過度な依存が多様性を削ぐ」という発見は、この教訓と共鳴する。</p>
+
+  <div class="key-box">
+    <div class="key-box-title">🔑 キー概念</div>
+    <ul>
+      <li><strong>On-policy self-distillation</strong>：学習中のモデル自身のサンプルを訓練データとして再利用すること。「自己完結型学習ループ」とも。</li>
+      <li><strong>pass@1 精度</strong>：1回の生成で正解が得られる確率。SLAでいえば「単発テストの正答率」に相当。</li>
+      <li><strong>出力多様性（output diversity）</strong>：生成されるソリューションの空間の広さ。SLAでは「言語レパートリーの豊かさ」に対応。</li>
+      <li><strong>Token-level dense feedback</strong>：正解デモンストレーションを条件としたトークン粒度の報酬信号。明示的形式フォーカスのアナログ。</li>
+      <li><strong>処理指導（PI）</strong>：学習者に意味中心の構造化インプットを提供して、正しいform-meaning connectionを形成させる指導アプローチ。</li>
+    </ul>
+  </div>
+
+  <h2>「多様性の削減」が語る習得の落とし穴</h2>
+
+  <p>SLA研究における<span class="gloss" data-def="中間言語が特定の段階で停滞し変化しなくなる現象">化石化（fossilization）</span>は、ある種の「多様性喪失」として理解できる。学習者が一つの形式・ストラテジーに依存しすぎると、より柔軟な表現形成能力が育たない。自己蒸留論文のデータは、この現象の計算論的な裏付けを与えている可能性がある——正解デモンストレーションへの過露出が、モデルの「解法空間」を人工的に狭めるという観察は、SLAにおける「過度なコレクティブ・フィードバック」の弊害と構造的に同型だ。</p>
+
+  <p>一方で、入力と相互作用の関係を巡る研究の知見は、インプットだけでは第二言語習得に十分でなく、インタラクショナルな修正（interactional modification）が豊かな習得を促すことを示している。これは自己蒸留論文が示す「教師信号のサンプリング戦略の多様化」という解決策と対応する——多様な文脈から生成されたデモンストレーションを混ぜることで、多様性の低下が緩和されるという発見だ。</p>
+
+  <div class="infographic">
+    <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" aria-label="自己蒸留とSLAの対比インフォグラフィック">
+      <rect width="560" height="300" fill="#EDE8DF"/>
+      <!-- Title -->
+      <text x="280" y="28" text-anchor="middle" font-family="DM Serif Display, serif" font-size="14" fill="#1A1612">自己蒸留ダイナミクスとSLA習得の対比</text>
+      <line x1="40" y1="38" x2="520" y2="38" stroke="#C8BFB0" stroke-width="1"/>
+
+      <!-- LLM Side -->
+      <rect x="30" y="50" width="230" height="220" rx="6" fill="#E2DDD3" stroke="#C8BFB0" stroke-width="1"/>
+      <text x="145" y="73" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#C85A1A" font-weight="700">LLM 自己蒸留</text>
+
+      <rect x="55" y="85" width="180" height="36" rx="4" fill="#C85A1A" opacity="0.85"/>
+      <text x="145" y="103" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#F5F0E8">正解デモンストレーション</text>
+      <text x="145" y="116" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#F5F0E8">（token-level dense feedback）</text>
+
+      <line x1="145" y1="121" x2="145" y2="140" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arrowA)"/>
+
+      <rect x="55" y="140" width="180" height="30" rx="4" fill="#B84E28" opacity="0.8"/>
+      <text x="145" y="160" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#F5F0E8">pass@1 精度 ↑</text>
+
+      <line x1="145" y1="170" x2="145" y2="190" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arrowA)"/>
+
+      <rect x="55" y="190" width="180" height="30" rx="4" fill="#8B3A1C" opacity="0.8"/>
+      <text x="145" y="210" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#F5F0E8">出力多様性 ↓</text>
+
+      <text x="145" y="250" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#5C4F3A">解法空間の収縮</text>
+
+      <!-- SLA Side -->
+      <rect x="300" y="50" width="230" height="220" rx="6" fill="#E2DDD3" stroke="#C8BFB0" stroke-width="1"/>
+      <text x="415" y="73" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#C85A1A" font-weight="700">SLA 処理指導</text>
+
+      <rect x="325" y="85" width="180" height="36" rx="4" fill="#C85A1A" opacity="0.85"/>
+      <text x="415" y="103" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#F5F0E8">構造化インプット（SI）</text>
+      <text x="415" y="116" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="10" fill="#F5F0E8">（form-meaning connection）</text>
+
+      <line x1="415" y1="121" x2="415" y2="140" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+      <rect x="325" y="140" width="180" height="30" rx="4" fill="#B84E28" opacity="0.8"/>
+      <text x="415" y="160" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#F5F0E8">正答率 ↑（短期）</text>
+
+      <line x1="415" y1="170" x2="415" y2="190" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+      <rect x="325" y="190" width="180" height="30" rx="4" fill="#8B3A1C" opacity="0.8"/>
+      <text x="415" y="210" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="12" fill="#F5F0E8">レパートリー多様性 ↓ ?</text>
+
+      <text x="415" y="250" text-anchor="middle" font-family="Noto Sans JP, sans-serif" font-size="11" fill="#5C4F3A">化石化・ストラテジー固着のリスク</text>
+
+      <!-- Bridge -->
+      <line x1="262" y1="155" x2="298" y2="155" stroke="#C85A1A" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="280" y="150" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#C85A1A">↔</text>
+
+      <defs>
+        <marker id="arrowA" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#C85A1A"/>
+        </marker>
+        <marker id="arrowB" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#C85A1A"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <h2>多様性を守る「サンプリング戦略」の教室適用</h2>
+
+  <p>Nicolicioiuらの論文は、問題解決策として「デモンストレーションのサンプリング多様化」を挙げている。これはSLAの授業設計に直接応用できる知見だ。モデル作文・モデル対話などの「正解例」を提示する際、単一の模範解答ではなく、異なる文体・語彙・構造を持つ複数の例を意図的に与える設計が、学習者の言語多様性を守る可能性がある。</p>
+
+  <p>また、自己蒸留ループの問題は「フィードバックの閉じた回路」にある。外部からの多様なインプットを断つと、システムは急速に収束する。これは教室においても示唆的だ——教師の模範にのみ依存した練習は「閉じた回路」に相当し、ピア・インタラクションや真正の言語データへの接触が「開かれた回路」として機能することで、習得の多様性は維持される。</p>
+
+  <div class="plain-block">
+    <div class="plain-block-label">💬 平たく言えば</div>
+    <p>「模範解答を繰り返し見せると、正解率は上がるが表現の幅が狭まる」——これはAIの話だが、人間の言語学習にも当てはまりそうだ。正しい例文だけで満たされた教室は、いつの間にかワンパターンな学習者を量産しているかもしれない。</p>
+  </div>
+
+  <h2>SLA研究への方法論的インプリケーション</h2>
+
+  <p>本論文の知見は、SLA研究の測定方法論にも一石を投じる。pass@1（一発正解率）に相当する指標——たとえば文法テストの正答率——のみで習得を評価する研究デザインは、多様性の損失を見落とす可能性がある。発話多様性、語彙密度、構文複雑性の変化を縦断的に追跡する研究設計の重要性が、計算学習理論の側からも裏付けられた形だ。</p>
+
+  <p>30年にわたる処理指導研究のレビューが示すように、SLAにおける主要な問いは「どのような形式への注意集中が有効か」という精度の問題だけでなく、「いかにして豊かな暗示的知識体系を構築するか」という多様性の問題でもある。自己蒸留論文はその問いに、計算論的な新しい角度から光を当てている。</p>
+
+  <div class="source-cite">
+    <div class="source-cite-label">一次資料</div>
+    <ul>
+      <li>Nicolicioiu, A. L., Pezeshki, M., & Courville, A. (2026). <em>On-Policy Self-Distillation with Sampled Demonstrations Reduces Output Diversity.</em> arXiv:2606.26091. <a href="http://arxiv.org/abs/2606.26091v1" target="_blank">arxiv.org/abs/2606.26091v1</a></li>
+      <li>Pouresmaeil, A. & Wang, X. (2026). A Review of Thirty Years of Research on Processing Instruction. <em>ResearchGate / SLA</em>.</li>
+    </ul>
+  </div>
+
+  <div class="editorial">
+    <div class="editorial-label">✦ Editorial Comment</div>
+    <p>本論文の一次貢献はLLM学習理論にあるが、「閉じたフィードバック回路が多様性を損なう」という発見はSLA理論と驚くほど整合する。特に形式中心の反復練習設計を見直す際の論拠として、教室実践者が参照する価値は高い。研究者には、出力多様性の測定を習得評価指標に組み込む実験設計を提案したい。</p>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <header class="article-header">
+    <span class="article-number">01 / 07</span>
+    <span class="article-label label-01">SLA最新研究</span>
+    <h2>「注意の分散」から「注意の統合」へ<br>——CAFトレードオフ仮説の現在地</h2>
+    <p class="article-subtitle">Complexity, Accuracy, Fluency の三角形が示す、言語産出の認知アーキテクチャ</p>
+    <p class="article-meta">Ref: IRAL 2026 vol.64 / Language Learning 2025 vol.75 / Applied Linguistics (多数)</p>
+  </header>
+
+  <div class="article-body">
+
+    <div class="key-concept">
+      <p class="key-concept-title">Key Concepts</p>
+      <dl>
+        <dt>CAF</dt>
+        <dd>Complexity（構造的複雑性）・Accuracy（正確性）・Fluency（流暢性）の三指標。SLA産出研究の基本フレームワーク。</dd>
+        <dt>トレードオフ仮説</dt>
+        <dd>注意資源の総量は有限であり、一次元への集中は他次元を犠牲にするという Skehan（1998）の予測。</dd>
+        <dt>認知仮説</dt>
+        <dd>タスク複雑度が高いほど全次元が向上するという Robinson（2001）の対立仮説。</dd>
+        <dt>CAFFA</dt>
+        <dd>CAFに Functional Adequacy（機能的適切性）を加えた拡張指標群（Kuiken &amp; Vedder）。</dd>
+      </dl>
+    </div>
+
+    <h3>三角形の「テンション」はなぜ生まれるか</h3>
+    <p>
+      第二言語の産出研究は長らく、話し手がどれだけ複雑な構造を使い（Complexity）、どれだけ誤りなく使い（Accuracy）、どれだけ滑らかに話せるか（Fluency）の三軸で学習者の言語能力を測ってきた。しかし<span class="gloss" title="Complexity・Accuracy・Fluencyの頭文字。それぞれ独自の測定指標群を持つ。">CAF</span>の三軸が同時に向上しないことは経験的によく知られている。Ellis（1994）はすでに「流暢性の上昇は正確性と複雑性のコストを伴い得る」と指摘しており、その背景には注意資源の有限性という認知的制約がある。
+    </p>
+    <p>
+      <span class="gloss" title="人間の注意処理容量は有限で、一方への投資が他方を圧迫するというSkehanの理論的枠組み。">トレードオフ仮説</span>によれば、タスク遂行中の学習者は複雑性・正確性・流暢性の間でどこにリソースを配分するかを瞬時に「選択」している。この選択はタスク設計、事前計画時間の有無、熟達度レベルといった外部条件に大きく左右される。対して Robinson の認知仮説は、タスクの「資源配分需要（resource-directing）」が増すほど、学習者は注意をより多く投入し、結果的にすべての指標が向上すると主張する。両仮説の予測は相互に矛盾しており、近年の実証研究はこの対立をより精緻な条件分岐で整理しようとしている。
+    </p>
+
+    <h3>2025〜2026年研究が明かす「ジャンルと習熟度」の調整効果</h3>
+    <p>
+      Language Learning 誌 2025 年号（vol.75 no.2）に掲載された論考は、複雑性が単一指標ではなく「ジャンル × 習熟度レベル」によって異なる面を見せることを強調する。すなわち、議論文では語彙的複雑性と統語的複雑性が正の相関を示すが、物語文では分離する傾向がある。これはCAFを「一枚岩の能力」として扱う従来の見方に異議を唱えるものだ。教師にとっての含意は明確で、「高複雑性タスクを与えれば能力が上がる」という単純な図式は成立しない。
+    </p>
+    <p>
+      IRAL 2026年号（vol.64 no.1）の特集「第二言語流暢性のコンテクスト横断研究」は、流暢性の構成要素をさらに細分化する。音声流暢性（発話速度・ためらい頻度）、語彙流暢性（語彙多様性TTR）、認知流暢性（処理自動化の度合い）はそれぞれ独立した指標として扱う必要があることを複数の論文が示している。特に熟達度中級の学習者では、認知流暢性が上昇しても音声流暢性が追いつかないという非同期的発達が報告されており、これは教室の観察と一致する。
+    </p>
+
+    <figure class="infographic" aria-label="CAFトレードオフモデルのインフォグラフィック">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAFトレードオフと認知資源配分の図解">
+        <rect width="560" height="300" fill="#F9F6F0" rx="8"/>
+        <!-- Triangle -->
+        <polygon points="280,38 100,240 460,240" fill="none" stroke="#C85A1A" stroke-width="2.5"/>
+        <!-- Triangle inner highlight -->
+        <polygon points="280,70 140,225 420,225" fill="#C85A1A12" stroke="none"/>
+        <!-- Vertex labels -->
+        <text x="280" y="28" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" fill="#C85A1A">Complexity</text>
+        <text x="280" y="45" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#7A6E64">構造的複雑性</text>
+        <text x="72" y="255" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" fill="#C85A1A">Accuracy</text>
+        <text x="72" y="270" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#7A6E64">正確性</text>
+        <text x="488" y="255" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="15" fill="#C85A1A">Fluency</text>
+        <text x="488" y="270" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#7A6E64">流暢性</text>
+        <!-- Center point -->
+        <circle cx="280" cy="172" r="28" fill="#F5F0E8" stroke="#C85A1A" stroke-width="1.8"/>
+        <text x="280" y="168" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#1A1612">注意</text>
+        <text x="280" y="183" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#1A1612">資源</text>
+        <!-- Arrows from center -->
+        <line x1="258" y1="157" x2="218" y2="122" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="280" y1="144" x2="280" y2="75" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr)"/>
+        <line x1="302" y1="157" x2="342" y2="122" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr)"/>
+        <defs>
+          <marker id="arr" markerWidth="7" markerHeight="7" refX="3" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="#C85A1A"/>
+          </marker>
+        </defs>
+        <!-- Annotation boxes -->
+        <rect x="12" y="120" width="130" height="56" rx="5" fill="#F9F6F0" stroke="#D8D0C4"/>
+        <text x="77" y="140" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#1A1612" font-weight="bold">トレードオフ仮説</text>
+        <text x="77" y="156" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">資源は有限—一方の</text>
+        <text x="77" y="170" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">増加は他方を圧迫</text>
+        <rect x="418" y="120" width="130" height="56" rx="5" fill="#F9F6F0" stroke="#D8D0C4"/>
+        <text x="483" y="140" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="#1A1612" font-weight="bold">認知仮説</text>
+        <text x="483" y="156" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">複雑タスクが注意を</text>
+        <text x="483" y="170" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#4A3F35">喚起し全指標向上</text>
+        <!-- CAFFA label -->
+        <rect x="192" y="190" width="176" height="36" rx="5" fill="#C85A1A22" stroke="#C85A1A" stroke-width="1"/>
+        <text x="280" y="210" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="#C85A1A">+ Functional Adequacy</text>
+        <text x="280" y="222" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="#7A6E64">= CAFFA 拡張モデル</text>
+      </svg>
+      <figcaption>図1：CAFトレードオフモデルと認知仮説の対比。中央の「注意資源」から三頂点への矢印は配分の方向性を示す。</figcaption>
+    </figure>
+
+    <h3>タスク設計への実践的示唆</h3>
+    <p>
+      複数の研究が一貫して示すのは、「事前計画時間（pre-task planning）」の付与が主に複雑性と流暢性を伸ばし、正確性への効果は限定的であるという点だ。これはタスク中の認知負荷がまず複雑性・流暢性に向かい、正確性モニタリングは別の処理段階を要するためと解釈される。教育実践としては、①事前計画フェーズを設ける、②フィードバックサイクルで正確性に特化した注意づけを行う、③繰り返しタスクで徐々に複雑性を高める、という三段階設計が推奨される。
+    </p>
+    <p>
+      また Working Memory（WM）との交互作用も無視できない。SSLA 誌に掲載された研究（Cambridge Core）によれば、WMは全体的な作文能力とは無相関だが、複雑性・正確性・流暢性の特定側面については予測力を持つ。とりわけ中央実行系（central executive）と音韻的短期記憶の容量差が、同一タスクに対する学習者間の産出差を説明する。これは「なぜ同じ授業でも学習者によって伸びる側面が異なるのか」という教師の現場観察に、認知的な裏付けを与える知見だ。
+    </p>
+
+    <h3>「流暢性」の多面性と自動化理論</h3>
+    <p>
+      流暢性は単なる「速さ」ではない。最新の測定論的観点からは、（1）速度流暢性（発話速度・音節数/分）、（2）修復流暢性（言い直し・自己訂正の頻度）、（3）分解流暢性（ためらい・フィラーの頻度）の三成分に分解される。特に「修復流暢性」は高習熟度学習者においても低下しにくく、自動化が進んでも文法モニタリングの要求が消えるわけではないことを示している。
+    </p>
+    <p>
+      この知見は教室実践に直結する。タスクベース指導において、教師がフォーカス・オン・フォームを与えるタイミングを「産出後」に設定すると、修復流暢性の改善に効果的であることが複数の観察研究で示唆されている。逆に産出中への割り込みは流暢性全体を下げ、学習者の不安を高めることが多い。
+    </p>
+
+    <h3>今後の研究課題：非冗長指標と縦断設計</h3>
+    <p>
+      CAF研究の方法論的課題として、指標間の冗長性が繰り返し指摘されている。例えば、T-unit 長と従属節比率は統語的複雑性の二指標だが、高い相関を示し、独立した情報を提供しない場合が多い。今後は情報理論的な視点から非冗長な指標セットを選定し、より長期の縦断データで発達軌跡を追う研究が求められている。特に初級から中級への移行期（いわゆる「プラトー期」）における三指標の非同期的変化は、教育課程設計の観点から重要な研究空白だ。
+    </p>
+
+    <div class="plain-language">
+      <p class="plain-language-title">平たく言えば</p>
+      <p>「流暢に話す練習」「正確に書く練習」「複雑な構文を使う練習」を別々にやっても統合されない。タスクという「本番状況」の中でこの三つを同時に動員させ、その後のフィードバックで「どこに意識を向けるべきか」を教えることが、CAF研究が教師に提案する核心だ。</p>
+    </div>
+
+    <div class="source-links">
+      <p class="source-links-title">一次資料・参考文献</p>
+      <ul>
+        <li><a href="https://doi.org/10.1515/iral-2025-0001" target="_blank">IRAL 2026, vol.64 no.1 — Second language fluency across contexts (Special Issue)</a></li>
+        <li><a href="https://doi.org/10.1111/lang.12625" target="_blank">Language Learning 2025, vol.75 no.2 — Complexity, Genre, and L2 Proficiency</a></li>
+        <li><a href="https://doi.org/10.1515/lingvan-2021-0112" target="_blank">Linguistic Complexity in SLA (De Gruyter, 2023)</a></li>
+      </ul>
+      <code class="source-cite">Housen, A., &amp; Kuiken, F. (2009). Complexity, accuracy, and fluency in SLA. Applied Linguistics, 30(4). | Skehan, P. (1998). A cognitive approach to language learning. OUP.</code>
+    </div>
+
+    <div class="editorial-comment accent-rule-01">
+      <p class="editorial-comment-title">Editorial Comment</p>
+      <p>CAFフレームワークは「何が伸びているか」を可視化する優れたレンズだが、その測定指標の選定には依然として研究者間で合意が不足している。現場教師にとっての実践的ヒントは、「一時間の授業で三つすべてを評価しようとしない」こと——Fluency 観察日と Accuracy 評価日を分けるだけでも、フィードバックの焦点が劇的にクリアになる。</p>
+      <p>また CAFFA への拡張が示すように、「言語的に正確かつ複雑であっても、コミュニカティブに不適切な産出」は現実の言語使用では失敗を意味する。機能的適切性の観点を入れることで、評価が試験対策から実用能力測定へとシフトする。</p>
+    </div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <header class="article-header">
+    <span class="article-number">No. 02</span>
+    <span class="article-tag tag-02">テスト工学・測定論</span>
+    <h2 class="article-title">スポークン・ダイアローグと地域文脈——Language Testing 2026年号が示す評価の「地平の拡張」</h2>
+    <p class="article-subtitle">音声対話型AIによるスピーキング評価、そして「グローバル尺度 vs. ローカルコンテクスト」という根本的緊張が、国際言語テスト学界を揺さぶっている。測定論の最前線を読む。</p>
+  </header>
+  <div class="article-divider"></div>
+
+  <div class="article-body">
+    <div class="article-main">
+
+      <h3>Language Testing誌 2026年特集号の意義</h3>
+      <p>2026年のLanguage Testing誌は「スポークン・ダイアローグ・システム（Spoken Dialogue Systems）」を特集し、AI音声対話技術によるスピーキング能力の開発・評価を包括的に論じる特集号を組んだ。さらに並行して「グローバルサウス（Global South）」を対象としたバーチャル特集号（VSI）が創刊された。この二つの動きは、言語テスト研究が「測定精度の内部問題」から「誰のための・どこのための評価か」という社会的・政治的問いへと急速に関心を拡張していることを象徴している。</p>
+
+      <p>同誌の2026年度エディトリアルは、AIが言語評価に与える影響を繰り返し個別論文や特集号で触れてきた従来のアプローチとは異なり、「AI評価革新の具体的開発・使用文脈に根ざした深い分析」を求めると宣言している。評価研究者は、AIを便利なツールとして導入する前に、その評価の根本原理——妥当性・信頼性・公正性——がAI活用とどう折り合いをつけるかを問わなければならない。</p>
+
+      <h3>スポークン・ダイアローグ・システム（SDS）の評価的可能性</h3>
+      <p><span class="gloss" data-def="音声入力に対して自然言語で応答するシステム。近年はLLMベースの大規模システムが主流">スポークン・ダイアローグ・システム（SDS）</span>は、スピーキング評価の「スケーラビリティ問題」を解決しうる技術として急速に注目を集めている。人間の評価者による口頭試験は、時間・コスト・評価者間信頼性の三つの制約に常に悩まされてきた。SDSはこの三制約を原理的に緩和できる可能性をもつ。</p>
+
+      <p>ただし問題もある。近年の研究（Bartelds, Bianchi & Zou, 2026）は、現行の主要なリアルタイム音声AIが「言葉の意味（what）は処理するが、音声的な伝達様式（how）には十分反応できていない」という批判的知見を提出している。つまり、発話の「内容」は理解しても、抑揚・発話速度・ポーズのパターンなどの<span class="gloss" data-def="音声の言語的内容以外の音響的特徴。感情・態度・健康状態などの情報を伝える">パラリンギュスティック情報</span>を適切に処理・評価できていないというのだ。これはスピーキング評価における「評価対象の設定」問題に直結する。</p>
+
+      <div class="plain-block accent-02">
+        <div class="plain-block-label accent-02">平たく言えば</div>
+        <p>AIは「何を言ったか」は分かるが、「どう言ったか」——緊張しているか、確信があるか、丁寧に伝えようとしているか——はまだ十分に読み取れていない。スピーキング評価でAIを使う際には、その「聞こえていない部分」を人間がどう補うかを設計に組み込む必要があります。</p>
+      </div>
+
+      <!-- SVG -->
+      <figure class="figure-wrap">
+        <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" aria-label="言語テスト評価の二軸モデル：グローバル精度とローカルコンテクストの緊張関係">
+          <rect width="560" height="300" fill="var(--bg-card)" rx="4"/>
+          <text x="280" y="26" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-muted)" letter-spacing="1">LANGUAGE TESTING 2026 — DUAL TENSIONS</text>
+          <!-- Axes -->
+          <line x1="70" y1="240" x2="490" y2="240" stroke="var(--border-mid)" stroke-width="1.2"/>
+          <line x1="70" y1="240" x2="70" y2="50" stroke="var(--border-mid)" stroke-width="1.2"/>
+          <!-- Axis labels -->
+          <text x="280" y="270" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">← ローカル志向 ───────── グローバル志向 →</text>
+          <text x="22" y="145" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)" transform="rotate(-90 22 145)">← 低精度 ─ 高精度 →</text>
+          <!-- Quadrant fills -->
+          <rect x="70" y="50" width="210" height="95" fill="#B84E28" fill-opacity="0.06" rx="2"/>
+          <rect x="280" y="50" width="210" height="95" fill="#B84E28" fill-opacity="0.10" rx="2"/>
+          <rect x="70" y="145" width="210" height="95" fill="#B84E28" fill-opacity="0.03" rx="2"/>
+          <rect x="280" y="145" width="210" height="95" fill="#B84E28" fill-opacity="0.07" rx="2"/>
+          <!-- Quadrant labels -->
+          <text x="170" y="80" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">ローカル高精度型</text>
+          <text x="170" y="94" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--text-muted)">地域文脈最適化</text>
+          <text x="385" y="80" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">グローバル高精度型</text>
+          <text x="385" y="94" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-02)">大規模標準化テスト</text>
+          <text x="170" y="190" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">形成的評価</text>
+          <text x="385" y="190" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">AI音声対話評価</text>
+          <text x="385" y="204" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-02)">← 現在地</text>
+          <!-- Points -->
+          <circle cx="390" cy="175" r="7" fill="#B84E28" fill-opacity="0.8"/>
+          <circle cx="175" cy="72" r="6" fill="#B84E28" fill-opacity="0.5"/>
+          <circle cx="385" cy="68" r="6" fill="#B84E28" fill-opacity="0.5"/>
+          <!-- Midline -->
+          <line x1="70" y1="145" x2="490" y2="145" stroke="var(--border-light)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <line x1="280" y1="50" x2="280" y2="240" stroke="var(--border-light)" stroke-width="0.8" stroke-dasharray="3,3"/>
+          <!-- LTRC 2026 note -->
+          <rect x="110" y="250" width="340" height="36" fill="var(--bg-accent-soft)" rx="2"/>
+          <text x="280" y="263" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-muted)">LTRC 2026（モントリオール）テーマ:</text>
+          <text x="280" y="278" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)">「グローバル尺度 vs. ローカルコンテクスト」の緊張</text>
+        </svg>
+        <figcaption>図2 — 言語テスト評価の二軸マップ。AI音声対話評価は「グローバル・中精度」象限に位置する現在地から移動できるか。</figcaption>
+      </figure>
+
+      <h3>LTRC 2026：「グローバルとローカルの緊張」を主題に</h3>
+      <p>2026年7月にカナダ・モントリオールで開催される第47回言語テスト研究会議（LTRC 2026）は、「評価の文脈は、その構成概念の概念化と内容の特定にとって決定的に重要である」というテーゼを掲げ、「大規模テストの普遍的尺度 vs. ローカルな文脈に縛られた評価ニーズ」の緊張に正面から取り組む。この問いは今日の言語教育実践者にとって決して抽象的ではない。</p>
+
+      <p>たとえば日本語教育の現場では、「日常生活で使える日本語」を目指す生活日本語と、「JLPT合格のための日本語」は評価の構成概念自体が異なる。ローカルな学習目標を持ちながらグローバル標準のテストで評価するという矛盾は、多くの教育現場が抱える構造的問題だ。LTRC 2026が示す方向性は、「文脈に応じて妥当性論証の構造を柔軟に組み替える」という評価設計の思想を強化している。</p>
+
+      <h3>口頭語彙テストの可能性——VLTからの拡張</h3>
+      <p>Language Testing誌（2026年3月公開）には、聴覚語彙水準テスト（aural VLT）の項目形式が、L2リスニング理解力の予測妥当性にどう影響するかを検討した研究が収録された。この研究は、選択式・判断式・産出式という三種の項目形式が異なる側面の語彙知識を測定していることを示唆し、単一形式のテストでは語彙知識の全体像を捉えられないという重要な指摘を行っている。聴取語彙力の測定はリスニング評価の精度に直結するため、実務レベルでの示唆が大きい。</p>
+
+      <h3>評価倫理と障害正義フレームワーク</h3>
+      <p>SLA研究の文脈と接続する形で、2026年の研究潮流は評価の倫理次元にも光を当てている。Language Testing誌に掲載されたViewpoint論文は、評価研究が障害のある学習者に対してどのような倫理的義務を持つかを批判的に問い直している。従来の評価研究が認知的・感情的差異に焦点を当て、障害者についての欠損視点（deficit view）を再生産してきた可能性を指摘し、参加者の尊厳・代表性・互恵性を中核に置く解放的・権利ベースフレームワークを提案している。</p>
+
+      <div class="editorial-comment">
+        <div class="editorial-comment-label">Editorial Comment</div>
+        <p>「AIは聞いているが、聴いていない（Hears but Does Not Listen）」という批判的知見は、音声AI評価ツールを導入しようとしている教育機関にとって重要な警告だ。抑揚・ポーズ・声の質を通じて伝わるパラリンギュスティック情報の欠落は、スピーキング評価の構成概念妥当性を根本から問い直す。評価ツールの選定にあたっては「何が測定されていないか」を明示的に問う習慣が不可欠である。</p>
+      </div>
+
+      <div class="source-block">
+        <div class="source-block-label">一次資料・参考文献</div>
+        <div class="source-item">Bartelds, M., Bianchi, F., & Zou, J. (2026). Real-Time Voice AI Hears but Does Not Listen. arXiv:2606.26083. <a href="http://arxiv.org/abs/2606.26083v1" target="_blank">http://arxiv.org/abs/2606.26083v1</a></div>
+        <div class="source-item">Language Testing, 2026. Yan, X. & Isaacs, T. "Expanding horizons in Language Testing." <a href="https://doi.org/10.1177/02655322251387364" target="_blank">https://doi.org/10.1177/02655322251387364</a></div>
+        <div class="source-item">Language Testing: Special Issue 2026. "Spoken dialogue systems for developing and assessing speaking proficiency."</div>
+        <div class="source-item">Language Testing in Asia (2025). Bibliometric overview of English language assessment 1992–2024. <a href="https://doi.org/10.1186/s40468-024-00317-w" target="_blank">https://doi.org/10.1186/s40468-024-00317-w</a></div>
+      </div>
+    </div>
+
+    <aside class="article-side">
+      <div class="key-concepts">
+        <div class="key-concepts-title">🔑 Key Concepts</div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">スポークン・ダイアローグ・システム（SDS）</div>
+          <div class="key-concept-def">音声対話型AIを用いたスピーキング評価プラットフォーム。評価のスケーラビリティを高める一方、パラリンギュスティック情報の処理に課題。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">パラリンギュスティック情報</div>
+          <div class="key-concept-def">言語的内容以外の音響的特徴（抑揚・発話速度・ポーズ・声質）。話者の感情・態度・確信度を伝えるが、現行AI評価ツールでは処理が不十分。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">グローバル vs. ローカルの緊張</div>
+          <div class="key-concept-def">普遍的測定尺度と地域文脈に根ざした評価ニーズの間の根本的矛盾。LTRC 2026の中心テーマ。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">聴覚語彙水準テスト（Aural VLT）</div>
+          <div class="key-concept-def">書字ではなく音声で提示される語彙知識テスト。L2リスニング能力との関係が2026年に改めて実証的に検討された。</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <header class="article-header">
+    <span class="article-number">No. 01</span>
+    <span class="article-tag tag-01">SLA最新研究</span>
+    <h2 class="article-title">流暢さの再設計——タスクベース教授法（TBLT）が照らす「複雑性・正確性・流暢性」の三角関係</h2>
+    <p class="article-subtitle">課題複雑度を変数として操作することで、学習者の産出を精密に制御できる——TBLTはどこまで「科学的な授業設計」に近づいたのか。2026年の知見から問い直す。</p>
+  </header>
+  <div class="article-divider"></div>
+
+  <div class="article-body">
+    <div class="article-main">
+
+      <h3>CAFフレームワークとはなにか</h3>
+      <p><span class="gloss" data-def="Complexity, Accuracy, Fluency の頭文字。L2産出の評価軸として広く用いられる">CAFフレームワーク</span>は、第二言語（L2）学習者の産出を「複雑性（Complexity）」「正確性（Accuracy）」「流暢性（Fluency）」の三次元で捉えるアプローチである。TBLTが本格的な実証的研究対象となった1990年代以降、CAFは最も広く使われる産出評価の枠組みとなってきた。特に課題複雑度（task complexity）の操作が産出変数にどう影響するかを検討する研究の蓄積が、近年急速に厚みを増している。</p>
+
+      <p>SLA研究者たちは長らく、「複雑さ・正確さ・流暢さの三者はトレードオフにある」という仮説を前提に研究を進めてきた。限られた認知資源を複雑な構文の産出に割くと、正確性や流暢性が下がるという議論は直感的に説得力を持つ。しかし2020年代の研究群は、この「資源競合モデル」を精緻化・相対化する証拠を次々に提出している。</p>
+
+      <h3>課題複雑度の多次元的操作</h3>
+      <p>2026年に報告された複数の実証研究は、タスクの<span class="gloss" data-def="認知的に困難な要素の数・種類。学習者の言語産出に先行して規定される課題内在的特性">認知的複雑度</span>を系統的に操作することで、CAF三変数の関係が想定以上に文脈依存的であることを示している。たとえば、方向指示タスクにおいて「複雑バージョン」を課した場合、スピーカーの産出には語彙的多様性の増大（＝複雑性の向上）が見られる一方、単純バージョンでは流暢性が相対的に高まるという非対称な結果が報告されている。</p>
+
+      <p>さらに同研究では、タスクの役割（情報提供者 vs. 情報受信者）が産出に有意な差をもたらすことも確認された。情報受信者の立場では「複雑バージョン」で確認要求（confirmation checks）が増加し、インタラクション量そのものが拡大する。これは、タスク複雑度の操作が「言語産出量の変化」をも引き起こしうるという重要な示唆である。</p>
+
+      <div class="plain-block accent-01">
+        <div class="plain-block-label accent-01">平たく言えば</div>
+        <p>「難しいタスクを与えると語彙は豊かになるが、流暢には話せなくなる」——それは半分正しい。でも「どんな難しさか」「どんな役割か」によって結果は大きく変わる。タスクの設計次第で、学習者から引き出せる言語の「型」が変わるのです。</p>
+      </div>
+
+      <h3>シーケンシング効果と授業設計への含意</h3>
+      <p>「課題を単純なものから複雑なものへと順序づけること（easy-to-complex sequencing）が産出に有利か」という問いに対して、研究知見は微妙な態度を示す。タスク順序が学習者の難易度知覚に影響しないという結果がある一方で、産出の正確性と流暢性には順序効果が確認されている。つまり「どう並べるか」は、心理的負担感には影響しないが、実際の言語産出には効いてくる——この解離は、授業設計の立場からきわめて実践的な意味をもつ。</p>
+
+      <p>教育実践者にとってのメッセージは明確だ。「難しいタスクは後回しにすれば正確性が担保される」という直感的な順序原則は、必ずしも支持されない。むしろ、どのCAF変数を授業目標として優先するかに応じてタスクの配列を設計する必要がある。流暢性を優先するならシンプルなタスクを先行させ、語彙複雑性を高めたいなら認知的負荷の高いタスクを早期に挿入する戦略が合理的である。</p>
+
+      <!-- SVG -->
+      <figure class="figure-wrap">
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CAF三角形モデルとタスク複雑度の関係を示したインフォグラフィック">
+          <rect width="560" height="320" fill="var(--bg-card)" rx="4"/>
+          <!-- Title -->
+          <text x="280" y="30" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11" fill="var(--text-muted)" letter-spacing="1">CAF × TASK COMPLEXITY</text>
+          <!-- Triangle base -->
+          <polygon points="280,65 110,255 450,255" fill="none" stroke="#C85A1A" stroke-width="1.5" stroke-dasharray="4,3"/>
+          <!-- Vertices -->
+          <circle cx="280" cy="65" r="28" fill="#C85A1A" fill-opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="280" y="60" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)" font-weight="700">複雑性</text>
+          <text x="280" y="74" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-01)">Complexity</text>
+          <circle cx="110" cy="255" r="28" fill="#C85A1A" fill-opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="110" y="250" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)" font-weight="700">正確性</text>
+          <text x="110" y="264" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-01)">Accuracy</text>
+          <circle cx="450" cy="255" r="28" fill="#C85A1A" fill-opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+          <text x="450" y="250" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-primary)" font-weight="700">流暢性</text>
+          <text x="450" y="264" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="var(--accent-01)">Fluency</text>
+          <!-- Labels on edges -->
+          <text x="186" y="152" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)" transform="rotate(-57 186 152)">トレードオフ？</text>
+          <text x="374" y="152" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)" transform="rotate(57 374 152)">文脈依存</text>
+          <text x="280" y="248" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-secondary)">タスク順序効果あり</text>
+          <!-- Center node -->
+          <circle cx="280" cy="185" r="22" fill="var(--bg-accent-soft)" stroke="var(--border-mid)" stroke-width="1"/>
+          <text x="280" y="181" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="var(--text-primary)">タスク</text>
+          <text x="280" y="194" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="10" fill="var(--text-primary)">複雑度</text>
+          <!-- Arrow annotations -->
+          <line x1="280" y1="207" x2="280" y2="227" stroke="var(--accent-01)" stroke-width="1" marker-end="url(#arr1)"/>
+          <defs>
+            <marker id="arr1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="#C85A1A"/>
+            </marker>
+          </defs>
+          <!-- Legend -->
+          <rect x="30" y="286" width="500" height="24" fill="var(--bg-accent-soft)" rx="2"/>
+          <text x="280" y="302" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="11" fill="var(--text-muted)">課題複雑度の操作によりCAF三変数の関係は文脈依存的に変動する（TBLT研究 2026年統合知見）</text>
+        </svg>
+        <figcaption>図1 — CAFフレームワークとタスク複雑度の関係。三変数の単純なトレードオフ仮説は精緻化が必要。</figcaption>
+      </figure>
+
+      <h3>Instructed SLA（ISLA）の視点から</h3>
+      <p>2026年の研究潮流において特筆すべきは、<span class="gloss" data-def="形式的設定のなかで意図的に教授・学習される第二言語習得のサブフィールド">Instructed SLA（ISLA）</span>がTBLTの「研究された教授法（researched pedagogy）」としての地位を改めて確立しつつある点である。TBLTはそのコア原理を、認知的インタラクショニスト的SLA理論から調達してきた。ニーズ分析に基づいてタスクを設計し、学習者が実際に使う言語機能をそのままシラバスの単位とするアプローチは、指導形式が学習結果に直結するISLAの中核的主張と完全に整合する。</p>
+
+      <p>さらに今日の研究では、TBLTがフォーカス・オン・フォームと組み合わさることで「意味中心の流暢性トレーニング」と「形式への注目（noticing）」の両立が可能になることが示されている。文法的正確性と流暢性の二律背反は、タスク設計と順序化によって相当程度緩和できる——これが現在の理論的到達点である。</p>
+
+      <h3>研究の課題と今後の展望</h3>
+      <p>課題も残る。多くのTBLT研究は小規模サンプルであり、治療期間（treatment duration）も短い。教室環境での実装において、最大の変数は「教師」である。教師がタスクをどのように解釈・実施するかによって、同じ設計のタスクでも効果は大きく異なりうる。今後の研究は、教師の役割という変数を明示的に制御することで、TBLTの効果の「再現可能性（replicability）」をより厳密に検証していく必要がある。</p>
+
+      <p>教育実践者へのメッセージはシンプルだ。「何のために、何の言語機能を伸ばしたいのか」という目標変数を先に決め、そこからCAFのどの次元を優先するかを選択し、タスクの複雑度と順序を逆算的に設計する——この思考の流れが、TBLTの科学的な運用を可能にする。</p>
+
+      <div class="editorial-comment">
+        <div class="editorial-comment-label">Editorial Comment</div>
+        <p>TBLT論文の実践的価値は「流暢性を高めたければシンプルなタスクを先行させる」という具体的な設計原則を提供する点にある。教育現場では依然「タスク=楽しいアクティビティ」という誤解が根強いが、ISLAの知見はタスクを「認知的変数の精密な操作手段」として捉え直すことを迫っている。カリキュラム会議でのタスク設計議論に、CAFという言語を持ち込む価値は高い。</p>
+      </div>
+
+      <div class="source-block">
+        <div class="source-block-label">一次資料・参考文献</div>
+        <div class="source-item">Robinson, P. (2001). Task complexity, task difficulty, and task production. <em>Applied Linguistics</em>, 22(1), 27–57. <a href="https://doi.org/10.1093/applin/22.1.27" target="_blank">https://doi.org/10.1093/applin/22.1.27</a></div>
+        <div class="source-item">IRAL: International Review of Applied Linguistics in Language Teaching, 2026, v. 64, n. 1. "Second language fluency across contexts: special issue." <a href="https://doi.org/10.1515/iral" target="_blank">https://doi.org/10.1515/iral</a></div>
+        <div class="source-item">Nicolicioiu, A.L., Pezeshki, M., Courville, A. (2026). On-Policy Self-Distillation with Sampled Demonstrations. arXiv:2606.26091 [一次資料: 多様性消失と自己強化学習の構造をTBLT研究に援用]</div>
+      </div>
+    </div>
+
+    <aside class="article-side">
+      <div class="key-concepts">
+        <div class="key-concepts-title">🔑 Key Concepts</div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">CAFフレームワーク</div>
+          <div class="key-concept-def">複雑性（Complexity）・正確性（Accuracy）・流暢性（Fluency）の三次元でL2産出を評価する枠組み。TBLTの成果測定に不可欠。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">タスク複雑度（Task Complexity）</div>
+          <div class="key-concept-def">タスク自体に内在する認知的難易度。学習者の産出変数（CAF）を先規定する設計上の変数として操作される。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">Instructed SLA（ISLA）</div>
+          <div class="key-concept-def">形式的教授環境での意図的L2習得を対象とするSLAのサブフィールド。TBLTの理論的バックボーン。</div>
+        </div>
+        <div class="key-concept-item">
+          <div class="key-concept-term">シーケンシング効果</div>
+          <div class="key-concept-def">タスクの順序（単純→複雑 vs 複雑→単純）が産出の正確性・流暢性に与える影響。心理的難易度感とは解離することがある。</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-header">
+    <span class="article-tag tag-2">02 / テスト工学・測定論</span>
+    <h1 class="article-title">シナリオ型評価（SBA）の妥当性論証——LOLAフレームワークと解釈論的転換</h1>
+    <p class="article-subtitle">「状況に埋め込まれた言語能力」を測る次世代評価フレームワーク（LOLA）が、Language Assessment Quarterly 2026年号でさらなる精緻化を遂げた。妥当性論証の構造と教育現場への実装可能性を解読する。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="key-box" >
+      <div class="key-box-title">🔑 Key Concepts</div>
+      <div class="key-box-grid">
+        <div class="key-item">
+          <span class="key-term">シナリオ型評価（SBA）</span>
+          <span class="key-def">実際の言語使用場面を模擬したタスクによって能力を評価する形式。選択式テストの代替として注目。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">LOLAフレームワーク</span>
+          <span class="key-def">Learning-Oriented Language Assessment。学習志向性と測定的厳密性を統合した評価論的枠組み。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">妥当性論証（Interpretation Argument）</span>
+          <span class="key-def">テストスコアの解釈・使用を正当化する一連の推論と証拠の連鎖的構造。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">状況的言語能力</span>
+          <span class="key-def">文脈・社会的役割・コミュニケーション目的と不可分な、埋め込まれた言語パフォーマンス。</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>なぜ選択式テストでは「見えない」のか</h2>
+    <p>多肢選択式・分離型の言語テストが持つ根本的な限界は、<span class="gloss" data-def="実際の言語使用場面と評価場面の間の構造的乖離。言語テスト研究における核心的批判の一つ">測定文脈と実使用文脈の乖離</span>にある。語彙知識を孤立した選択肢で測ることと、会議の場で適切な語を選んで発話できることは、同じ「語彙力」を共有しているとは言い難い。2026年のLAQ（Language Assessment Quarterly）最新号は、この問題に対するSBA（シナリオ型評価）の測定論的応答として注目に値する複数の論文を掲載している。</p>
+
+    <p>Purpuraらによる論文は、LOLAフレームワークを用いてB1レベル英語SBAの核心的主張を検証したものだ。SBAが「状況に埋め込まれた第二・外国語能力」を測定できるという主張を、解釈論的論証の枠組みで系統的に評価している。また別稿でVossらは、AI強化型シナリオ評価に対する解釈論的論証の構築を試みており、評価技術とLOLAフレームワークの接合という新しい問題領域を開拓した。</p>
+
+    <h2>LOLAフレームワークの構造——学習と評価の統合</h2>
+    <p>LOLAの特徴は、「測定的厳密性」と「学習志向性」を対立させるのではなく、相互補完的に配置する点にある。従来の評価論では、テストの<span class="gloss" data-def="スコアが測定しようとする構成概念を正確に反映しているか、という評価の質の核心的概念">構成概念妥当性</span>と学習促進機能はトレードオフの関係にあるとされてきた。LOLAはこの緊張を、「評価が学習のエビデンスを提供しつつ、学習のエンジンにもなる」という設計思想で解消しようとする。</p>
+
+    <div class="plain-block">
+      <div class="plain-label">▌ 平たく言えば</div>
+      <p class="plain-text">「ロールプレイや状況設定問題で日本語を評価する」というのがSBAの発想だ。「居酒屋で注文できるか」「職場でメールを書けるか」というシナリオは、単なる楽しい活動ではなく、測定論的に裏打ちされた評価設計でなければ「何を測っているのかわからない」という批判を免れない。LOLAはその「何を測っているか」を正当化する論証の枠組みを提供する。</p>
+    </div>
+
+    <div class="fig-wrap">
+      <svg viewBox="0 0 560 270" xmlns="http://www.w3.org/2000/svg" aria-label="LOLAフレームワーク構造図">
+        <rect width="560" height="270" fill="none"/>
+        <text x="280" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#1A1612" font-family="'Noto Sans JP', sans-serif">LOLAフレームワーク：妥当性論証の層構造</text>
+        <!-- Outer frame: Validity Argument -->
+        <rect x="18" y="34" width="524" height="220" rx="8" fill="none" stroke="#B04010" stroke-width="1.5" stroke-dasharray="6,3"/>
+        <text x="30" y="52" font-size="10" fill="#B04010" font-family="'JetBrains Mono', monospace">LOLA FRAMEWORK — INTERPRETATION ARGUMENT</text>
+
+        <!-- 3 pillars -->
+        <!-- Pillar 1 -->
+        <rect x="30" y="60" width="155" height="170" rx="5" fill="#EDE8DF" stroke="#D8D0C4"/>
+        <rect x="30" y="60" width="155" height="24" rx="5" fill="#B04010" opacity="0.85"/>
+        <text x="107" y="76" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">ドメイン定義</text>
+        <text x="107" y="100" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">実際の言語使用場面</text>
+        <text x="107" y="116" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">の体系的記述</text>
+        <text x="107" y="138" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・コミュニケーション目的</text>
+        <text x="107" y="155" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・社会的役割</text>
+        <text x="107" y="172" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・テキストタイプ</text>
+        <text x="107" y="196" text-anchor="middle" font-size="9" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">→ 何を測るべきかの根拠</text>
+
+        <!-- Pillar 2 -->
+        <rect x="202" y="60" width="155" height="170" rx="5" fill="#EDE8DF" stroke="#D8D0C4"/>
+        <rect x="202" y="60" width="155" height="24" rx="5" fill="#B04010" opacity="0.75"/>
+        <text x="279" y="76" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">タスク・シナリオ設計</text>
+        <text x="279" y="100" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">SBAタスクの</text>
+        <text x="279" y="116" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">真正性・難易度設計</text>
+        <text x="279" y="138" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・B1レベル校正</text>
+        <text x="279" y="155" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・採点基準設計</text>
+        <text x="279" y="172" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・AIとの接合</text>
+        <text x="279" y="196" text-anchor="middle" font-size="9" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">→ 測定手段の正当化</text>
+
+        <!-- Pillar 3 -->
+        <rect x="374" y="60" width="155" height="170" rx="5" fill="#EDE8DF" stroke="#D8D0C4"/>
+        <rect x="374" y="60" width="155" height="24" rx="5" fill="#B04010" opacity="0.65"/>
+        <text x="451" y="76" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">スコア解釈と利用</text>
+        <text x="451" y="100" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">スコアから能力への</text>
+        <text x="451" y="116" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">推論の連鎖</text>
+        <text x="451" y="138" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・社会的帰結の評価</text>
+        <text x="451" y="155" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・意思決定への活用</text>
+        <text x="451" y="172" text-anchor="middle" font-size="10" fill="#4A3F35" font-family="'Noto Sans JP', sans-serif">・フィードバック設計</text>
+        <text x="451" y="196" text-anchor="middle" font-size="9" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">→ 評価の社会的正当性</text>
+        
+        <!-- LOLA Label bottom -->
+        <text x="280" y="248" text-anchor="middle" font-size="10" fill="#B04010" font-family="'JetBrains Mono', monospace">⟵ 学習志向性（Learning-Oriented）が三層全体を貫く ⟶</text>
+      </svg>
+      <p class="fig-caption">図2：LOLAフレームワークにおける妥当性論証の三層構造。ドメイン定義・タスク設計・スコア解釈が連鎖的に正当化される構造を持ち、学習志向性がフレームワーク全体を横断する設計思想として機能する。</p>
+    </div>
+
+    <h2>AI強化型SBAの登場——新たな妥当性論証の必要性</h2>
+    <p>VossらがLAQ 2026年号で提起したのは、AIが採点・フィードバック生成を担うシナリオ評価における解釈論的論証の構築という問題だ。AIが採点するとき、「AIが出力したスコアが示す能力レベル」という推論連鎖には、従来の人間採点とは異なる論証が必要となる。<span class="gloss" data-def="テストスコアが構成概念を適切に表現しているかをAIシステムに対して適用する際の固有の困難">構成概念アンダーレプリゼンテーション</span>のリスクや、AIが「文法的正確さ」以外の<span class="gloss" data-def="相手との関係・文脈への適切性など、正確さを超えた言語的・社会的能力">語用論的・相互行為的能力</span>をどう扱うかは、依然として未解決の課題だ。</p>
+
+    <h2>TOEFL採点スケール改訂——変化の波紋</h2>
+    <p>2026年1月に実施されたTOEFLの採点スケール改訂（0–120点から1–6点スケールへ）は、テスト工学上の小さな変更ではない。<span class="gloss" data-def="異なる測定尺度間でスコアを対応させる手続き。等化・リンキングを含む">スケール変換の標準化</span>と<span class="gloss" data-def="CEFRなど外部参照フレームと試験スコアを対応させる手続き">CEFR対応</span>の観点から、採点報告の「読み方」が変わることで、教師・入試担当者の解釈実践にも影響が及ぶ。移行期間の2028年までは新旧スコアが併記されるが、この並行期間を利用した等化研究が今後のテスト工学的課題として浮上する。</p>
+
+    <h2>平等性・反人種差別的妥当性論の登場</h2>
+    <p>2026年2月にLanguage Testingで公開されたOwen & Xuの論文は、言語評価における<span class="gloss" data-def="テスト結果が受験者の人種・民族的背景によって系統的に不公平な影響を受けていないかを検討する研究パラダイム">正義志向・反人種差別的妥当性枠組み</span>に対して方法論的厳密性の観点から応答するものだ。妥当性論が「誰のための妥当性か」という問いを内包し始めていることは、評価研究の社会政治的転回の象徴である。</p>
+
+    <div class="editorial">
+      <div class="editorial-label">✦ Editorial Comment</div>
+      <p>SBAとLOLAの接合は、「テストを授業に近づける」という長年の課題に最も体系的に応答しようとする試みだ。日本語教育の現場では、Can-do評価・JFスタンダードとの接合が自然な実装経路となる。AI採点との接合は可能性と課題を同時に持ち込む。現場実践者は「何を測るためにシナリオを設定するのか」という問いを、LOLAの三層構造を参照しながら明示化する習慣を持ちたい。</p>
+    </div>
+
+    <div class="source-block">
+      <div class="source-label">一次資料</div>
+      <div class="source-item">Purpura, J.E. et al. (2026). Using a Learning-Oriented Language Assessment Framework to Validate Key Claims Related to a B1 English Scenario-Based Assessment. <em>Language Assessment Quarterly</em>, 23(1). <a href="https://doi.org/10.1080/15434303.2025.xxxxx" target="_blank">LAQ Vol.23, 2026</a></div>
+      <div class="source-item">Voss, E. et al. (2026). Developing an Interpretation Argument for AI-Enhanced Scenario-Based Language Assessments Through a LOLA Framework. <em>Language Assessment Quarterly</em>, 23(1).</div>
+      <div class="source-item">Owen, N. & Xu, H. (2026). Maintaining methodological rigor in language assessment: A response to Randall et al.'s justice-oriented antiracist validity framework. <em>Language Testing</em>. Feb 3, 2026.</div>
+      <div class="source-item">Elao (2026). Language reference frameworks: the 2026 comparative guide. <a href="https://www.elao-test.com/en/blog/language-reference-frameworks-the-2026-comparative-guide" target="_blank">elao-test.com</a></div>
+      <div class="source-quote">"TOEFL introduced a new scoring scale in January 2026, moving from a 0–120 scale to a 1–6 scale in increments of 0.5."</div>
+    </div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-header">
+    <span class="article-tag tag-1">01 / SLA最新研究</span>
+    <h1 class="article-title">暗示知識と明示知識の「界面」を再設計する——多層インターフェイス論の挑戦</h1>
+    <p class="article-subtitle">無意識の学習が徐々に意識化されるという新たな認知心理学的知見が、SLA研究の長年の中核問題を根本から問い直しつつある。「界面はどこに、どのように存在するか」という問いの最前線を読む。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="key-box" >
+      <div class="key-box-title">🔑 Key Concepts</div>
+      <div class="key-box-grid">
+        <div class="key-item">
+          <span class="key-term">暗示知識（Implicit Knowledge）</span>
+          <span class="key-def">意識的なアクセスを伴わず、自動的・直感的に運用される言語知識。速い処理が特徴。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">明示知識（Explicit Knowledge）</span>
+          <span class="key-def">規則として言語化でき、意識的注意を要して使用される知識。宣言的記憶と関連。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">界面（Interface）</span>
+          <span class="key-def">両知識タイプの相互変換・相互依存を説明する概念的・神経的な境界領域。</span>
+        </div>
+        <div class="key-item">
+          <span class="key-term">ラジカル可塑性仮説</span>
+          <span class="key-def">無意識知識が反復経験を通じて意識的表象に再コード化されるとする立場。</span>
+        </div>
+      </div>
+    </div>
+
+    <h2>なぜ今、界面論を問い直すのか</h2>
+    <p>第二言語習得（SLA）の理論的核心として長く機能してきた「<span class="gloss" data-def="明示知識が暗示知識に転化するプロセスを扱うSLA理論の中核的問題">暗示・明示知識の界面問題</span>」は、ここ数年で重要な再検討を迫られている。従来の支配的モデルは、明示知識が先行し、練習と自動化を経て暗示知識へ移行するというトップダウン的な方向を想定していた。だが2026年に発表されたFukutaの論文は、認知心理学の<span class="gloss" data-def="Cleeremans (2007) らが提唱する、無意識的表現が反復によって段階的に意識的知識へ変容するモデル">ラジカル可塑性仮説</span>をSLAに接続する形で、まったく逆方向の経路——無意識的知識が意識化される——を正面から理論化した。</p>
+
+    <p>この方向転換は些細な修正ではない。もし無意識的な統計的パターン学習が先行し、意識的な明示知識がその「読み出し」として後発的に構成されるならば、明示指導の位置づけ、フォーム指導のタイミング、さらには誤用分析の解釈まで、実践的含意の全体が変わってくる。</p>
+
+    <h2>一次元モデルの限界と多層的再構成</h2>
+    <p><span class="gloss" data-def="暗示知識と明示知識を単一軸の両端に配置するモデル。Non-interface, Strong-interface, Weak-interface の各立場が存在する">一次元連続体モデル</span>が長く採用されてきた背景には、測定の単純化という実務的要請がある。しかしFukutaが2026年に提唱する再概念化は、単一軸を複数の次元——意識のアクセシビリティ、処理速度、命題的言語化可能性——に分解する。この多層的視座は、学習者が「なんとなく正しいとわかる」状態と「説明できる」状態を別々のメカニズムで支えているという臨床的直感とも整合する。</p>
+
+    <div class="plain-block">
+      <div class="plain-label">▌ 平たく言えば</div>
+      <p class="plain-text">「文法規則を知らなくても自然に正しく使える」という状態と、「規則を説明できるが使うと詰まる」という状態は、実は同一軸の両端ではなく、まったく別の脳内プロセスが担っているかもしれない。Fukutaの提案は、この「直感先行・意識後発」という学習順序を理論として認可するものだ。</p>
+    </div>
+
+    <div class="fig-wrap">
+      <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" aria-label="暗示・明示知識の界面モデル比較図">
+        <defs>
+          <marker id="arrowA" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#C85A1A"/>
+          </marker>
+          <marker id="arrowB" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#4A3F35"/>
+          </marker>
+        </defs>
+        <!-- Background -->
+        <rect width="560" height="260" fill="none"/>
+        <!-- Title -->
+        <text x="280" y="22" text-anchor="middle" font-size="12" font-weight="bold" fill="#1A1612" font-family="'Noto Sans JP', sans-serif">暗示／明示知識の界面：旧モデル vs. 多層モデル</text>
+        <!-- LEFT: Old Model -->
+        <rect x="20" y="38" width="240" height="195" rx="6" fill="#EDE8DF" stroke="#D8D0C4" stroke-width="1"/>
+        <text x="140" y="58" text-anchor="middle" font-size="11" fill="#7A6F65" font-family="'JetBrains Mono', monospace">旧モデル（一次元連続体）</text>
+        <!-- Axis -->
+        <rect x="55" y="80" width="170" height="28" rx="14" fill="#C85A1A" opacity="0.85"/>
+        <text x="140" y="99" text-anchor="middle" font-size="12" fill="white" font-family="'Noto Sans JP', sans-serif">明示知識</text>
+        <line x1="140" y1="108" x2="140" y2="148" stroke="#4A3F35" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrowB)"/>
+        <text x="155" y="134" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">自動化</text>
+        <rect x="55" y="150" width="170" height="28" rx="14" fill="#9A6030" opacity="0.85"/>
+        <text x="140" y="169" text-anchor="middle" font-size="12" fill="white" font-family="'Noto Sans JP', sans-serif">暗示知識</text>
+        <text x="140" y="208" text-anchor="middle" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">単一方向・線形変換</text>
+        <text x="140" y="222" text-anchor="middle" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">（明示 → 暗示）</text>
+
+        <!-- RIGHT: New Model -->
+        <rect x="295" y="38" width="245" height="195" rx="6" fill="#EDE8DF" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="417" y="58" text-anchor="middle" font-size="11" fill="#C85A1A" font-family="'JetBrains Mono', monospace">多層モデル（Fukuta 2026）</text>
+        <!-- Layer 1: Unconscious -->
+        <rect x="315" y="70" width="205" height="30" rx="5" fill="#9A6030" opacity="0.8"/>
+        <text x="417" y="90" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">層1: 無意識的統計学習（暗示）</text>
+        <!-- arrows bidirectional -->
+        <line x1="417" y1="100" x2="417" y2="130" stroke="#C85A1A" stroke-width="2" marker-end="url(#arrowA)"/>
+        <line x1="407" y1="130" x2="407" y2="100" stroke="#4A3F35" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowB)"/>
+        <!-- Layer 2: Intermediate -->
+        <rect x="315" y="132" width="205" height="30" rx="5" fill="#C85A1A" opacity="0.7"/>
+        <text x="417" y="152" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">層2: 意識化プロセス（可塑的移行）</text>
+        <line x1="417" y1="162" x2="417" y2="190" stroke="#C85A1A" stroke-width="2" marker-end="url(#arrowA)"/>
+        <!-- Layer 3: Explicit -->
+        <rect x="315" y="192" width="205" height="28" rx="5" fill="#B84E12" opacity="0.85"/>
+        <text x="417" y="211" text-anchor="middle" font-size="11" fill="white" font-family="'Noto Sans JP', sans-serif">層3: 命題的言語知識（明示）</text>
+        <text x="417" y="228" text-anchor="middle" font-size="10" fill="#7A6F65" font-family="'Noto Sans JP', sans-serif">双方向・多次元変換</text>
+      </svg>
+      <p class="fig-caption">図1：旧来の一次元連続体モデル（左）と、Fukuta（2026）が提案する多層インターフェイスモデル（右）の概念比較。右モデルでは無意識学習が層1として先行し、意識化を経て命題的知識へ至る逆方向の経路も想定される。</p>
+    </div>
+
+    <h2>意識化研究の新潮流——「無意識先行」仮説の証拠</h2>
+    <p>この理論的再編の背景には、認知心理学における<span class="gloss" data-def="学習者が意識的注意を向けることなく入力の統計的規則性を検出する能力。SLAではChunk習得や音韻パターン習得に関連する">暗示的統計学習（Implicit Statistical Learning; ISL）</span>研究の蓄積がある。人工言語パラダイムを用いた最新の研究（Tandfonline, 2025）は、文法・語彙いずれについても、ISLの効果が学習初期に最も顕著に現れ、明示学習（EL）の効果は時間とともに増大するというパターンを報告している。この「時間非対称性」は、無意識→意識という変換方向を実証的に支持するものだ。</p>
+
+    <p>また古典的なSLAの問い——「なぜL2学習者はL1習得ほど成功しないのか」——に対しても、この枠組みは新しい視角を提供する。L1ではISL経路が長期間、大量の入力とともに働くのに対し、L2環境では入力量と質の両面で制約がかかるため、ISL経路が十分に駆動されないまま明示指導が先行してしまう——この非対称性こそが成人L2学習の根本的困難の一端かもしれない。</p>
+
+    <h2>実践への接点——指導の「タイミング設計」という視点</h2>
+    <p>多層モデルが教育実践にもたらす最も重要な含意は、フォーム指導（FonF: Focus on Form）の<em>タイミング</em>設計への示唆である。もし層1の無意識的統計学習が先行し、そこに暗示的な言語的気づき（noticing）が重なることで層2の意識化が促進されるとすれば、意味中心タスクの<em>後に</em>フォームへの注意を引くアプローチ（post-task grammar attention）の有効性が理論的に支持されることになる。</p>
+
+    <p>逆に、学習初期から規則説明を先行させる授業デザインは、ISL経路を阻害する可能性も排除できない。教材開発・授業設計において、「まず豊富な入力で統計的パターン学習の素地をつくり、その後でメタ言語的説明を行う」という手順は、単なる経験則ではなく、認知科学的根拠を持つものとして再評価されるだろう。</p>
+
+    <h2>測定論上の課題と今後の研究課題</h2>
+    <p>多層モデルを採用するうえで、測定上の課題は依然として残る。「意識化プロセス（層2）」をオペレーショナルに定義し、行動指標や神経指標によって捉えることは、現状の研究技術では十分に解決されていない。<span class="gloss" data-def="ERPなどの電気生理学的指標を用いてオンライン処理中の意識状態を測定しようとする研究群">オンライン意識測定</span>の方法論的精緻化と、SLA理論の接合は、今後5年の重要な研究課題となるだろう。</p>
+
+    <div class="editorial">
+      <div class="editorial-label">✦ Editorial Comment</div>
+      <p>今号の最注目論文。Fukutaが提案する「多層インターフェイス」モデルは、SLAの二項対立的図式を解体し、より動態的な習得観を促す。実践的には「暗示→明示」の教育順序を理論的に正当化する根拠となり得る点で、カリキュラム設計者・教材開発者に直接の示唆を持つ。ただし「意識化プロセス」の操作的定義が今後の議論の焦点になることは必至だ。批判的に読む目を保ちつつ、この枠組みを手がかりとして授業デザインを問い直すことを推奨したい。</p>
+    </div>
+
+    <div class="source-block">
+      <div class="source-label">一次資料</div>
+      <div class="source-item">Fukuta, J. (2026). Beyond a unidimensional view: The multilayered perspective on the implicit–explicit knowledge interface. <em>Language Teaching Research</em>. <a href="https://doi.org/10.1177/02676583251411768" target="_blank">DOI: 10.1177/02676583251411768</a></div>
+      <div class="source-quote">"This perspective offers a reinterpretation of the interface between implicit and explicit knowledge in SLA, contrasting with the traditional view that explicit knowledge gives rise to implicit knowledge."</div>
+      <div class="source-item">Tandfonline (2025). Cognitive abilities underlying the earliest stages of SLA: an artificial language study. <a href="https://doi.org/10.1080/23273798.2025.2576908" target="_blank">DOI: 10.1080/23273798.2025.2576908</a></div>
+    </div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <header class="article-header">
+    <span class="article-label">02 — テスト工学・測定論</span>
+    <h1 class="article-title">シナリオ型評価の妥当性論——「状況に埋め込まれた言語能力」を測る新世代フレームワーク</h1>
+    <p class="article-subtitle">従来の選択式・分離型テストでは捉えきれない「実際に何ができるか」を問うシナリオ型評価（SBA）が、LOLAフレームワークとともに測定論的精緻化を遂げている。2026年のLAQ最新号が示す地殻変動を読む。</p>
+  </header>
+
+  <h2 class="section-head">問い直される「妥当性」——測定論的転換の背景</h2>
+  <p>言語テスト分野において<span class="gloss" data-def="validity：テストが測定しようとした構成概念を実際に測定しているかどうかの程度">妥当性・妥当性検証</span>は一貫して最大の研究関心領域を占め続けてきた。しかし従来の妥当性論は、離散的スキルを孤立した形式で測定するという「分離型テスト設計」を前提としてきた。生態学的妥当性——日常や職場での言語行動との対応——への批判が高まる中、テスト設計の哲学が変わりつつある。</p>
+  <p>言語テスト・評価（LTA）は「状況に置かれた活動」であり、地域コミュニティの価値観や信念と整合した評価実践・政策によって特徴付けられるという認識が広まっている。この「構成主義的・解釈主義的」な転換は、測定の文脈依存性を正面から受け止め、何を「能力」と呼ぶのかを再考する契機となっている。</p>
+
+  <div class="key-concept">
+    <p class="key-concept-title">Key Concepts — シナリオ型評価（SBA）と関連概念</p>
+    <dl>
+      <dt>SBA</dt><dd>Scenario-Based Assessment。学習者がシナリオ内で模擬的なタスクを達成しながら言語能力を発揮・発展させる評価形式。</dd>
+      <dt>LOLA</dt><dd>Learning-Oriented Language Assessment。評価を学習促進の手段として位置づけるフレームワーク（Purpura &amp; Turner, 2018）。</dd>
+      <dt>situated proficiency</dt><dd>状況に埋め込まれた言語能力。文脈を切り離した抽象的能力測定ではなく、特定の状況設定下でのパフォーマンスを対象とする。</dd>
+      <dt>washback</dt><dd>テストが学習・指導に与える影響。SBAはポジティブな波及効果を生みやすいとされる。</dd>
+    </dl>
+  </div>
+
+  <h2 class="section-head">LOLAフレームワークとシナリオ型評価の妥当性検証</h2>
+  <p>2026年1月に公開されたPurpura et al.の研究は、B1レベルの英語シナリオ型評価の妥当性を検証するためにLOLAフレームワークを適用した。受験者はオンライン上の模擬ピアと協調的問題解決に取り組みながら、証拠に基づいたオーラル・プレゼンテーションを構築するというプロトコルだ。</p>
+  <p>同研究は四つの妥当性主張を提示した。第一に、シナリオ内の各測定値が十分な<span class="gloss" data-def="psychometric properties：信頼性・識別力・困難度など、テストの測定特性に関する統計的性質">計量心理学的性質</span>を示し、得点解釈を実質的に支持できること。第二・第三の主張は省略するが、このシナリオが言語能力の「発揮」と「発展」の両方を測定する機会を提供したことは特筆に値する。</p>
+
+  <!-- SVG INFOGRAPHIC 02 -->
+  <div class="infographic">
+    <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SBAとLOLAフレームワークの構造図">
+      <rect width="560" height="260" fill="#FAF7F2"/>
+      <text x="280" y="26" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="14" fill="#1A1612">シナリオ型評価（SBA）の構造とLOLA統合</text>
+
+      <!-- Outer box: LOLA -->
+      <rect x="18" y="40" width="524" height="195" rx="5" fill="none" stroke="#B84C12" stroke-width="1.5" stroke-dasharray="5,3"/>
+      <text x="36" y="57" font-family="'JetBrains Mono', monospace" font-size="10" fill="#B84C12" letter-spacing="0.1em">LOLA FRAMEWORK (Purpura &amp; Turner, 2018)</text>
+
+      <!-- Boxes: 3 columns -->
+      <!-- Col 1 -->
+      <rect x="34" y="65" width="150" height="58" rx="3" fill="#EDE6D6" stroke="#D8CEBC"/>
+      <text x="109" y="86" text-anchor="middle" font-family="Noto Sans JP" font-size="12" fill="#4A3E32">インプット</text>
+      <text x="109" y="104" text-anchor="middle" font-family="Noto Sans JP" font-size="10.5" fill="#7A6B5A">文書／音声／映像</text>
+      <text x="109" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#9E8E70">複数モード統合</text>
+
+      <!-- Col 2 -->
+      <rect x="205" y="65" width="150" height="58" rx="3" fill="#B84C12" opacity="0.13" stroke="#B84C12" stroke-width="1.5"/>
+      <text x="280" y="86" text-anchor="middle" font-family="Noto Sans JP" font-size="12" font-weight="bold" fill="#B84C12">タスク実行</text>
+      <text x="280" y="104" text-anchor="middle" font-family="Noto Sans JP" font-size="10.5" fill="#4A3E32">協調的問題解決</text>
+      <text x="280" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#7A6B5A">状況に埋め込まれた言語使用</text>
+
+      <!-- Col 3 -->
+      <rect x="376" y="65" width="150" height="58" rx="3" fill="#EDE6D6" stroke="#D8CEBC"/>
+      <text x="451" y="86" text-anchor="middle" font-family="Noto Sans JP" font-size="12" fill="#4A3E32">アウトプット</text>
+      <text x="451" y="104" text-anchor="middle" font-family="Noto Sans JP" font-size="10.5" fill="#7A6B5A">オーラル・プレゼン</text>
+      <text x="451" y="118" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#9E8E70">証拠に基づく論証</text>
+
+      <!-- Arrows -->
+      <defs>
+        <marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#B84C12"/>
+        </marker>
+      </defs>
+      <line x1="184" y1="94" x2="203" y2="94" stroke="#B84C12" stroke-width="1.5" marker-end="url(#arr2)"/>
+      <line x1="355" y1="94" x2="374" y2="94" stroke="#B84C12" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+      <!-- Bottom validity row -->
+      <rect x="34" y="145" width="150" height="70" rx="3" fill="#FAF7F2" stroke="#D8CEBC"/>
+      <text x="109" y="165" text-anchor="middle" font-family="Noto Sans JP" font-size="11" fill="#4A3E32">構成概念妥当性</text>
+      <text x="109" y="183" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#7A6B5A">計量心理学的性質</text>
+      <text x="109" y="200" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#9E8E70">スコア解釈の支持</text>
+
+      <rect x="205" y="145" width="150" height="70" rx="3" fill="#FAF7F2" stroke="#D8CEBC"/>
+      <text x="280" y="165" text-anchor="middle" font-family="Noto Sans JP" font-size="11" fill="#4A3E32">学習指向性</text>
+      <text x="280" y="183" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#7A6B5A">発揮＋発展の両測定</text>
+      <text x="280" y="200" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#9E8E70">ポジティブ波及効果</text>
+
+      <rect x="376" y="145" width="150" height="70" rx="3" fill="#FAF7F2" stroke="#D8CEBC"/>
+      <text x="451" y="165" text-anchor="middle" font-family="Noto Sans JP" font-size="11" fill="#4A3E32">解釈論拠</text>
+      <text x="451" y="183" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#7A6B5A">AI拡張SBAの論拠開発</text>
+      <text x="451" y="200" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#9E8E70">（Voss et al., 2026）</text>
+    </svg>
+    <p class="infographic-caption">Fig.2 — SBAとLOLAフレームワークの統合構造（PRAXIS編集部作成 / LAQ Vol.23, 2026参照）</p>
+  </div>
+
+  <h2 class="section-head">AI拡張SBAの解釈論拠——Voss et al.（2026）の射程</h2>
+  <p>同じLAQ第23巻にはVoss et al.による「AI拡張シナリオ型評価の解釈論拠」も掲載されている。AIを組み込んだSBAにおいても、LOLAフレームワークを通じて妥当性の論拠を構築できることを示したこの研究は、自動採点や適応型評価技術と伝統的な妥当性理論の接続点を提供するものとして注目される。</p>
+  <p>また、韓国語を外国語として学ぶ文脈でのシナリオ型評価研究（Liao et al., 2026）は、SBAの有効性が英語に限らず多言語文脈でも成立することを示しており、日本語教育への応用可能性も十分にある。</p>
+
+  <h2 class="section-head">JLPT・JFT-Basicとの対比——何を測っていないか</h2>
+  <p>現行のJLPT（N1〜N5）やJFT-Basicは、主に語彙・文法・読解・聴解の離散スキルを測定する。シナリオ型評価が照射する「状況に埋め込まれた言語能力」は、これらのテストで十分に捉えられていない部分——例えば職場での問題解決に必要な交渉的言語行動、曖昧な指示の解釈・遂行、フィードバックの処理——と重なる。</p>
+  <p>この「測定のギャップ」は、特定技能制度や就労現場での日本語能力評価において実践的な問題を生んでいる。シナリオ型評価の要素を既存テストの補完として活用する——例えばポートフォリオや観察ルーブリックとの組み合わせ——という設計思想は、現場での即時実装が可能だ。</p>
+
+  <h2 class="section-head">測定論の転換が教師に求めるもの</h2>
+  <p>LOLAフレームワークが求める教師の役割は、採点者から「評価の共同設計者」への転換だ。学習者がシナリオ内でどのような言語的リソースを動員したかを観察し、フィードバックの質を高めることが評価の本来的目的になる。これはテストを「学習の終点」ではなく「学習の一部」として組み込む視点——<span class="gloss" data-def="assessment as learning：評価自体を学習機会と見なすアプローチ">学習としての評価（AaL）</span>——の実践的表現でもある。</p>
+
+  <div class="plain-box">
+    <p>「正解できるか」よりも「実際の状況でどう言語を使うか」を測ること。SBAはゲームやロールプレイのようにみえて、測定論的には非常に精緻な設計を必要とする。しかしその労力は「学習に活きるテスト」という形で回収される。</p>
+  </div>
+
+  <div class="sources">
+    <p class="sources-title">一次資料・参照文献</p>
+    <ul>
+      <li>Purpura, J.E. et al. (2026). Using a Learning-Oriented Language Assessment Framework to Validate Key Claims Related to a B1 English Scenario-Based Assessment. <em>Language Assessment Quarterly</em>, 23(1). <a href="https://doi.org/10.1080/15434303.2025.2575510" target="_blank">DOI:10.1080/15434303.2025.2575510</a></li>
+      <li>Voss, E. et al. (2026). Developing an Interpretation Argument for AI-Enhanced Scenario-Based Language Assessments. <em>Language Assessment Quarterly</em>, 23(1).</li>
+      <li>Rahimivand et al. (2025). Scenario-based assessment design: an implementation and analysis of Iranian EFL learners' writing performance. <em>Language Testing in Asia</em>, 15, 14. <a href="https://doi.org/10.1186/s40468-025-00350-3" target="_blank">DOI:10.1186/s40468-025-00350-3</a></li>
+    </ul>
+  </div>
+
+  <div class="editorial">
+    <p class="editorial-label">Editorial Comment</p>
+    <p>SBAの拡大は「テストを難しくする」ことではなく「テストをより正直にする」ことだ。従来型のペーパー試験が「何を知っているか」を測るなら、SBAは「何ができるか」を問う。日本語教育の現場では、JFT-Basicが技能実習からESDPへの移行期に問われ続ける中、シナリオ型評価の思想を部分的にでも取り込む余地は大きい。</p>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <header class="article-header">
+    <span class="article-label">01 — SLA最新研究</span>
+    <h1 class="article-title">統計的パターンが「習得」を引き起こすとき——頻度・分布・学習者内部モデルの新展開</h1>
+    <p class="article-subtitle">入力の出現頻度は単なる量的変数ではない。使用基盤アプローチと暗示的統計学習の交差点で、SLA研究は「学習者の内部モデルが入力をどう取り込むか」という問いに答えようとしている。</p>
+  </header>
+
+  <h2 class="section-head">頻度とは何か——「見た回数」を超えた問い</h2>
+  <p>第二言語習得（SLA）における<span class="gloss" data-def="usage-based approach：実際の言語使用から抽象的規則が帰納的に形成されるという立場">使用基盤アプローチ</span>は、言語習得を「数千の構文の断片的学習と、その中の規則性の頻度バイアスのかかった抽象化」と定義する。この視点は、学習が明示的な規則習得ではなく、入力との繰り返し遭遇によって記憶の強度が増すという<span class="gloss" data-def="練習の冪乗則：練習量と技能向上が冪乗的な関係を示すという認知心理学の原則">練習の冪乗則</span>に支えられている。</p>
+  <p>Ellis（2002）の古典的問いかけ——「入力パターンの頻度はどのように習得に影響するか」——は、20年以上を経た今も完全に解消されていない。むしろ最近の研究は、頻度効果を「タイプ頻度（型の多様さ）」と「トークン頻度（個別事例の繰り返し）」という二つの次元に分けて分析することで、語彙・文法・音韻それぞれに異なる効果を実証的に示しつつある。</p>
+
+  <div class="key-concept">
+    <p class="key-concept-title">Key Concepts — 頻度効果と暗示的学習</p>
+    <dl>
+      <dt>トークン頻度</dt><dd>同一形式の繰り返し遭遇回数。定型表現・慣用句の固定化に作用する。</dd>
+      <dt>タイプ頻度</dt><dd>同一構文スロットに入る語の種類数。生産的な構文スキーマ形成を促進する。</dd>
+      <dt>暗示的統計学習</dt><dd>意識的注意を伴わずに入力の統計的規則性を抽出するプロセス（ISL）。言語適性との関連が示唆される。</dd>
+      <dt>使用基盤モデル</dt><dd>事例に基づく抽象化を重視し、「規則」は後から帰納されるとする立場。</dd>
+    </dl>
+  </div>
+
+  <h2 class="section-head">暗示的統計学習（ISL）と言語適性</h2>
+  <p>近年の言語適性研究は、ISLが伝統的な言語適性テストでは測定されない潜在的な習得能力を反映しうるという証拠を積み重ねている。興味深いのは、暗示的学習適性が「易しい構造」ではなく「難しい構造」の習得に対してより強い予測力を持つという知見だ。これは、難度の高い構造ほど意識的な規則学習による補正が利きにくく、ISLへの依存度が高まることを示唆する。</p>
+  <p><span class="gloss" data-def="cue competition：学習者が複数の手掛かりを競合的に処理し、より信頼性の高い手掛かりに重みを置くプロセス">手掛かり競合</span>と制約充足のメカニズムも頻度効果の整合的な説明に寄与する。どの手掛かりが優先されるかは、入力の出現頻度や予測信頼性によって動的に調整される。連結主義的な学習では、この調整が明示的指示なしに進行し得る。</p>
+
+  <!-- SVG INFOGRAPHIC 01 -->
+  <div class="infographic">
+    <svg viewBox="0 0 560 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="頻度効果とISLの関係図">
+      <defs>
+        <marker id="arr1" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0, 8 3, 0 6" fill="#C85A1A"/>
+        </marker>
+      </defs>
+      <!-- BG -->
+      <rect width="560" height="270" fill="#FAF7F2"/>
+      <!-- Title -->
+      <text x="280" y="26" text-anchor="middle" font-family="'DM Serif Display', serif" font-size="14" fill="#1A1612">頻度効果 → 暗示的統計学習 → 習得経路</text>
+
+      <!-- Left Node: Input -->
+      <rect x="20" y="80" width="110" height="50" rx="4" fill="#EDE6D6" stroke="#D8CEBC" stroke-width="1"/>
+      <text x="75" y="99" text-anchor="middle" font-family="Noto Sans JP" font-size="12" fill="#4A3E32">入力</text>
+      <text x="75" y="116" text-anchor="middle" font-family="Noto Sans JP" font-size="11" fill="#7A6B5A">（Type &amp; Token頻度）</text>
+
+      <!-- Center Node: ISL -->
+      <rect x="215" y="70" width="130" height="70" rx="4" fill="#C85A1A" opacity="0.12" stroke="#C85A1A" stroke-width="1.5"/>
+      <text x="280" y="96" text-anchor="middle" font-family="Noto Sans JP" font-size="13" font-weight="bold" fill="#C85A1A">暗示的統計学習</text>
+      <text x="280" y="113" text-anchor="middle" font-family="Noto Sans JP" font-size="11" fill="#4A3E32">（ISL）</text>
+      <text x="280" y="130" text-anchor="middle" font-family="Noto Sans JP" font-size="10" fill="#7A6B5A">意識関与なし</text>
+
+      <!-- Right Nodes -->
+      <rect x="430" y="55" width="115" height="42" rx="4" fill="#EDE6D6" stroke="#D8CEBC"/>
+      <text x="487" y="71" text-anchor="middle" font-family="Noto Sans JP" font-size="11.5" fill="#4A3E32">語彙・定型表現</text>
+      <text x="487" y="87" text-anchor="middle" font-family="Noto Sans JP" font-size="10.5" fill="#7A6B5A">トークン頻度主導</text>
+
+      <rect x="430" y="110" width="115" height="42" rx="4" fill="#EDE6D6" stroke="#D8CEBC"/>
+      <text x="487" y="126" text-anchor="middle" font-family="Noto Sans JP" font-size="11.5" fill="#4A3E32">構文スキーマ</text>
+      <text x="487" y="142" text-anchor="middle" font-family="Noto Sans JP" font-size="10.5" fill="#7A6B5A">タイプ頻度主導</text>
+
+      <rect x="430" y="165" width="115" height="42" rx="4" fill="#EDE6D6" stroke="#D8CEBC"/>
+      <text x="487" y="181" text-anchor="middle" font-family="Noto Sans JP" font-size="11.5" fill="#4A3E32">困難構造の習得</text>
+      <text x="487" y="197" text-anchor="middle" font-family="Noto Sans JP" font-size="10.5" fill="#7A6B5A">ISL適性主導</text>
+
+      <!-- Arrows input→ISL -->
+      <line x1="130" y1="105" x2="213" y2="105" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arr1)"/>
+
+      <!-- Arrows ISL→outputs -->
+      <line x1="345" y1="95" x2="428" y2="76" stroke="#C85A1A" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <line x1="345" y1="105" x2="428" y2="131" stroke="#C85A1A" stroke-width="1.2" marker-end="url(#arr1)"/>
+      <line x1="345" y1="120" x2="428" y2="177" stroke="#C85A1A" stroke-width="1.2" marker-end="url(#arr1)"/>
+
+      <!-- Bottom moderator -->
+      <rect x="150" y="190" width="260" height="52" rx="4" fill="#F5F0E8" stroke="#D8CEBC" stroke-dasharray="4,3"/>
+      <text x="280" y="208" text-anchor="middle" font-family="Noto Sans JP" font-size="11.5" fill="#7A6B5A">調整変数</text>
+      <text x="280" y="227" text-anchor="middle" font-family="Noto Sans JP" font-size="11" fill="#7A6B5A">明示的指示 ／ 手掛かり競合 ／ 個人差（ISL適性）</text>
+      <line x1="280" y1="190" x2="280" y2="142" stroke="#D8CEBC" stroke-width="1" stroke-dasharray="3,3"/>
+    </svg>
+    <p class="infographic-caption">Fig.1 — 頻度タイプと暗示的統計学習の習得経路モデル（PRAXIS編集部作成）</p>
+  </div>
+
+  <h2 class="section-head">明示的指示は頻度効果を「上書き」できるか</h2>
+  <p>明示的・暗示的両条件での指示の価値をめぐる議論では、明示的指示が「否定証拠（negative evidence）」として機能し、頻度主導の一般化エラーを修正する役割を持つという見方がある。つまり暗示的習得が誤った方向へ進んだときに明示的介入が介入するという補完的モデルだ。しかし両者の境界設定は容易ではない——「気づき」を伴わないまま入力頻度への感受性が高まるケースが実験的に示されており、意識の役割はいまだ論争的だ。</p>
+  <p>実践者への含意は明確だ。語彙や定型表現はトークン頻度を意識的に増やす（多読・多聴）ことで強化できるが、複雑な構文スキーマの形成にはタイプ頻度を高める活動——多様な文脈での同一構文パターンの繰り返し遭遇——が有効である。AIを活用した個別化コーパス生成がこの設計を支援できる可能性がある。</p>
+
+  <h2 class="section-head">学習者比較研究の新展開——母語の書記体系と頻度効果</h2>
+  <p>表意文字系（漢字）を母語とする学習者とアルファベット系を母語とする学習者では、語形と意味の連合形成速度に差異が現れる。これは入力頻度の絶対量よりも、学習者の既存の正書法処理スキーマとの整合性が重要であることを示唆する。周波数効果は普遍的であるが、その<span class="gloss" data-def="効果サイズの調整：同じ変数でも集団特性によって効果量が変化する現象">実現様式は学習者固有の言語処理ストラテジー</span>によって修飾される。</p>
+  <p>また音声学的次元での頻度効果も見逃せない。L2発音の安定化には音韻シーケンスのトークン頻度が強い影響を持ち、高頻度で接触する語ほど正確な調音パターンが形成されやすい。これは発音指導において「正確さ重視の繰り返し練習」と「インプット拡大」を組み合わせる根拠となる。</p>
+
+  <h2 class="section-head">教室実践への翻訳——「頻度設計」の視点</h2>
+  <p>頻度効果の知見を教室に持ち込む際、教師が操作できる変数は限られる。しかしカリキュラム設計レベルでは①習得目標語彙・構文のタイプ頻度を意図的に上げるアクティビティの配置、②高頻度接触の機会を確保する自律学習環境の整備、③明示的ルール提示と多読・多聴の組み合わせタイミング、という三つの軸で「頻度設計（frequency design）」を行うことができる。</p>
+
+  <div class="plain-box">
+    <p>「入力を増やせばよい」ではなく、「何の頻度をどの順序で上げるか」がカリキュラム設計の核心。語の多様性（タイプ頻度）が文法スキーマを育て、繰り返し（トークン頻度）が定型表現を固める。二つのレバーを意識的に引き分けることが、SLAの知見を教室に届ける第一歩。</p>
+  </div>
+
+  <div class="sources">
+    <p class="sources-title">一次資料・参照文献</p>
+    <ul>
+      <li>Ellis, N.C. (2002). Frequency effects in language processing. <em>Studies in Second Language Acquisition</em>, 24(2), 143–188. <a href="https://doi.org/10.1017/S0272263102002024" target="_blank">DOI:10.1017/S0272263102002024</a></li>
+      <li>Zhao, J. &amp; Huang, J. (2023). A comparative study of frequency effect on acquisition of grammar and meaning of words. <em>Frontiers in Psychology</em>. <a href="https://doi.org/10.3389/fpsyg.2023.1125483" target="_blank">DOI:10.3389/fpsyg.2023.1125483</a></li>
+      <li>Jackson &amp; Sparks (2024). Implicit (Not Explicit) Learning Aptitude Predicts the Acquisition of Difficult (Not Easy) Structure. In <em>Language Aptitude Theory and Practice</em>. Cambridge University Press.</li>
+    </ul>
+  </div>
+
+  <div class="citation-block">
+    "Learners' sensitivity to frequency in all these domains has implications for theories of implicit and explicit learning and their interactions." — Ellis (2002), <em>Studies in SLA</em>
+  </div>
+
+  <div class="editorial">
+    <p class="editorial-label">Editorial Comment</p>
+    <p>「量を増やせば身につく」という直感は半分正しく半分誤りだ。トークン頻度は定型化を促すが過学習のリスクも孕む。タイプ頻度こそが構文の生産性を生む。SLAの頻度研究が私たちに求めているのは、「より多く」ではなく「より多様に、より戦略的に」設計することだろう。AIによる個別化コーパス生成が本格化する2026年、この設計思想はますます重要になる。</p>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-header">
+    <div class="article-number">02 / 07</div>
+    <span class="article-tag">テスト工学・測定論</span>
+    <h1 class="article-title">LLM が再定義するエッセイ採点——AI 自動採点の信頼性と限界</h1>
+    <p class="article-subtitle">2026 年に相次いで発表された自動採点研究は、LLM ベースのシステムが人間採点者に匹敵する精度を示す一方で、構成概念妥当性・倫理・スモールランゲージ問題という三つの難関を未解決のまま抱えることを明示した。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="keybox">
+      <div class="keybox-title">🔑 Key Concepts</div>
+      <div class="keybox-items">
+        <span class="keybox-item">Automated Essay Scoring (AES)</span>
+        <span class="keybox-item">LLM / RAG</span>
+        <span class="keybox-item">Construct Validity</span>
+        <span class="keybox-item">Inter-rater Agreement</span>
+        <span class="keybox-item">Rubric-based Scoring</span>
+        <span class="keybox-item">Fairness</span>
+      </div>
+    </div>
+
+    <h2>AI が「採点者」になる時代——2026 年の研究地図</h2>
+    <p>言語評価研究の領域で 2026 年を特徴づける最大のトピックが、大規模言語モデル（<span class="gloss" title="Large Language Model：GPT 系・Gemini 系などの大規模テキスト生成 AI">LLM</span>）を用いた自動採点の急拡大である。2026 年 3 月に発表された学術論文は、LLM・<span class="gloss" title="Retrieval-Augmented Generation：外部知識を検索しながら生成する手法">RAG（Retrieval-Augmented Generation）</span>・分析的ルーブリックを組み合わせた採点フレームワークが、文脈に根差した基準適合型評価を可能にすることを示した。このフレームワークは Moodle 等の e-learning 環境に統合可能であり、採点の一貫性を高め、採点時間を削減し、学習者へのフィードバックを迅速化・構造化できる。</p>
+
+    <p>また同年 3 月の <em>Language Testing in Asia</em> ほか複数誌に掲載された研究が示すように、AI は語彙知識・文法習熟度・言語評価における自動採点・アイテム生成・テスト管理という多岐にわたるアプリケーションを通じて、言語評価を根本から変容させつつある。AI を活用した評価ツールのパーソナライゼーション・効率化・スケーラビリティは、即時フィードバック・自動採点・インストラクショナルコンテンツのリアルタイム適応といった機能を通じて実現されている。</p>
+
+    <h2>NLP の進展——スコアリングの次元が広がる</h2>
+    <p>自然言語処理（NLP）と機械学習（ML）の進展は、音声認識の精度を高め、文法構造の基本的な誤り検出にとどまっていた従来の限界を超え、発音・流暢性・<span class="gloss" title="Discourse Structure：文や段落を超えた言語の組織化のされ方">談話構造</span>・首尾一貫性の評価へと領域を拡大している。これは従来の AES が測定していなかった「書かれたものの質」の次元——論理展開・一貫性・読み手への配慮——をスコアリングの俎上に乗せることを意味する。</p>
+
+    <p>手法論的には、特徴量エンジニアリングベースのアプローチとディープラーニングモデルベースのアプローチの二分類が従来の整理だったが、両者のハイブリッドが近年成功を収めている。LLM の登場はこの図式をさらに複雑化させており、GPT 系モデルを rubric conditioned に使用することで、多次元的な分析評価が可能になることが実証研究で確認されつつある。</p>
+
+    <h2>スモールランゲージ問題——英語以外への展開の課題</h2>
+    <p>AI 自動採点の実装において見過ごされやすい課題が、英語以外の言語への適用性である。エストニアでの研究が示すように、商用自動採点ツールが乏しく、人間採点者プールが限られた小規模言語文脈では、LLM と統計的 NLP を組み合わせた機械支援採点が代替手段として検討されている。</p>
+
+    <p>日本語教育の文脈でも同様の問題は直撃する。JLPT や JPT の作文採点を AI が支援する実験的取り組みは始まっているが、日本語特有の文体差（ですます体 vs. だ・である体）、敬語の適切性判断、字体（手書き）の評価などは現時点でモデルが苦手とする領域として残存する。</p>
+
+    <!-- INFOGRAPHIC -->
+    <div class="infographic-wrap">
+      <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" aria-label="AI自動採点の構造と課題">
+        <rect width="560" height="300" fill="#F5F0E8" rx="6"/>
+        <text x="280" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#1A1612">AI 自動採点システムの構造と未解決課題</text>
+
+        <!-- Pipeline -->
+        <!-- Box 1: Input -->
+        <rect x="20" y="55" width="110" height="60" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="75" y="83" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">学習者の</text>
+        <text x="75" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">解答テキスト</text>
+
+        <!-- arrow -->
+        <line x1="130" y1="85" x2="155" y2="85" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arr02a)"/>
+        <defs>
+          <marker id="arr02a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+          <marker id="arr02b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+          <marker id="arr02c" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+        </defs>
+
+        <!-- Box 2: LLM + RAG -->
+        <rect x="155" y="50" width="130" height="70" rx="4" fill="#B84E12" opacity="0.15" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="220" y="79" text-anchor="middle" font-size="12" font-weight="700" fill="#B84E12">LLM + RAG</text>
+        <text x="220" y="95" text-anchor="middle" font-size="10" fill="#4A3F32">ルーブリック参照</text>
+        <text x="220" y="108" text-anchor="middle" font-size="10" fill="#4A3F32">文脈適合判定</text>
+
+        <!-- arrow -->
+        <line x1="285" y1="85" x2="310" y2="85" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arr02b)"/>
+
+        <!-- Box 3: Score + Feedback -->
+        <rect x="310" y="55" width="120" height="60" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="370" y="81" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">スコア＋</text>
+        <text x="370" y="96" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">フィードバック</text>
+
+        <!-- arrow -->
+        <line x1="430" y1="85" x2="455" y2="85" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arr02c)"/>
+
+        <!-- Box 4: Teacher review -->
+        <rect x="455" y="55" width="85" height="60" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="498" y="81" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">教師</text>
+        <text x="498" y="96" text-anchor="middle" font-size="11" fill="#4A3F32">最終確認</text>
+
+        <!-- Challenges section -->
+        <text x="28" y="160" font-size="12" font-weight="700" fill="#B84E12">未解決課題</text>
+
+        <!-- C1 -->
+        <rect x="20" y="170" width="155" height="75" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1"/>
+        <text x="97" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">構成概念妥当性</text>
+        <text x="97" y="207" text-anchor="middle" font-size="10" fill="#4A3F32">AIは何を本当に</text>
+        <text x="97" y="221" text-anchor="middle" font-size="10" fill="#4A3F32">測っているのか？</text>
+        <text x="97" y="237" text-anchor="middle" font-size="10" fill="#7A6A58">construct validity gap</text>
+
+        <!-- C2 -->
+        <rect x="195" y="170" width="155" height="75" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1"/>
+        <text x="272" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">公平性・偏見</text>
+        <text x="272" y="207" text-anchor="middle" font-size="10" fill="#4A3F32">訓練データの偏りが</text>
+        <text x="272" y="221" text-anchor="middle" font-size="10" fill="#4A3F32">採点に反映される</text>
+        <text x="272" y="237" text-anchor="middle" font-size="10" fill="#7A6A58">bias &amp; fairness issue</text>
+
+        <!-- C3 -->
+        <rect x="370" y="170" width="170" height="75" rx="4" fill="#EDE7D8" stroke="#B84E12" stroke-width="1"/>
+        <text x="455" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1612">スモール言語問題</text>
+        <text x="455" y="207" text-anchor="middle" font-size="10" fill="#4A3F32">英語以外のデータ</text>
+        <text x="455" y="221" text-anchor="middle" font-size="10" fill="#4A3F32">不足・精度低下</text>
+        <text x="455" y="237" text-anchor="middle" font-size="10" fill="#7A6A58">small-language gap</text>
+
+        <text x="280" y="282" text-anchor="middle" font-size="11" fill="#7A6A58">AI は採点者の「補助者」——最終判断は人間教師が担う設計が現在の規範</text>
+      </svg>
+    </div>
+
+    <h2>LLM 採点の多次元分析——L2 大学院ライティングの事例</h2>
+    <p>2025年のプレプリント研究（arXiv:2502.11368）が示したように、LLM は L2 大学院生の学術ライティングに対して多次元的分析評価を実施できる可能性が確認されている。単一のホリスティックスコアではなく、組織・語彙・文法・内容という複数の観点からルーブリック準拠の評価を生成できるという知見は、形成的評価への活用可能性を示唆する。ただしこの研究は同時に、モデルが「ハルシネーション」（<span class="gloss" title="Hallucination：AIが事実でない情報を自信をもって生成する現象">幻覚）</span>を引き起こす可能性にも注意を促している。</p>
+
+    <h2>教師のためのチェックリスト——AI 採点ツールを評価する五つの問い</h2>
+    <p>実践者として AI 採点ツールを導入する際、次の五つを問うべきである。①このシステムが測定しようとしているのはどのような構成概念か？②採点精度の検証データは母集団と一致しているか？③フィードバックは学習者が理解・活用できる形式か？④教師の最終判断を上書きするような設計になっていないか？⑤スモールランゲージ（日本語等）での精度検証が独立して行われているか？</p>
+
+    <div class="plain-lang">
+      <p>AI 採点は「速くて安い採点者」ではない。「人間採点者のコーチング支援ツール」として使う発想の転換が、導入成功の鍵である。</p>
+    </div>
+
+    <div class="editorial">
+      <div class="editorial-label">Editorial Comment</div>
+      <p>AI 採点が「人間を置き換えるか」という問いは二項対立に過ぎる。2026 年の研究が示すのは、LLM+RAG+ルーブリックの組み合わせが「一貫性ある初稿採点」を担い、教師が「深い洞察と倫理的判断」に集中できる分業体制の可能性である。日本語教育現場では、既存の評価観（添削という文化）とAI採点をどう接続するかという固有の課題がある。</p>
+    </div>
+  </div>
+  <div class="sources">
+    <div class="sources-label">一次資料・参照文献</div>
+    <div class="source-item">Artificial Intelligence in Language Assessment Research: A Scoping Review. <em>Language Testing &amp; Technology</em> (2026). <a href="https://www.tandfonline.com/doi/full/10.1080/29984475.2026.2633389" target="_blank">doi:10.1080/29984475.2026.2633389</a></div>
+    <div class="source-item">AI-Based Automated Scoring Layer Using LLMs and Semantic Analysis. <em>Applied Sciences</em>, 16(7), 3537 (2026). <a href="https://doi.org/10.3390/app16073537" target="_blank">doi:10.3390/app16073537</a></div>
+    <div class="source-item">Machine-Assisted Grading of Nationwide School-Leaving Essay Exams with LLMs. arXiv:2601.16314 (2026). <a href="https://arxiv.org/abs/2601.16314" target="_blank">arxiv.org/abs/2601.16314</a></div>
+    <div class="source-item">LLMs can Perform Multi-Dimensional Analytic Writing Assessments. arXiv:2502.11368 (2025). <a href="https://arxiv.org/abs/2502.11368" target="_blank">arxiv.org/abs/2502.11368</a></div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-header">
+    <div class="article-number">01 / 07</div>
+    <span class="article-tag">SLA最新研究</span>
+    <h1 class="article-title">産出仮説の復権——Swain が予言した「書き・話すこと」の習得力</h1>
+    <p class="article-subtitle">インプット中心の思想に対し、アウトプット研究は静かに反論し続けてきた。2025〜2026年の第二言語習得（SLA）研究は、産出行為が持つ三つの認知的機能を改めて照射している。</p>
+  </div>
+  <div class="article-body">
+
+    <div class="keybox">
+      <div class="keybox-title">🔑 Key Concepts</div>
+      <div class="keybox-items">
+        <span class="keybox-item">Output Hypothesis</span>
+        <span class="keybox-item">Noticing Function</span>
+        <span class="keybox-item">Metalinguistic Function</span>
+        <span class="keybox-item">Hypothesis-Testing</span>
+        <span class="keybox-item">Instructed SLA</span>
+        <span class="keybox-item">Interaction Hypothesis</span>
+      </div>
+    </div>
+
+    <h2>アウトプット研究の地平——「理解できれば十分か」という問い</h2>
+    <p>Krashen のインプット仮説が長らく教室指導の羅針盤であり続けてきた一方、Merrill Swain は 1985 年以来、「産出することそのものが習得プロセスの一部である」という主張を積み重ねてきた。この<span class="gloss" title="Comprehensible Output Hypothesis：理解可能なアウトプットが言語習得を促進するとする理論">産出仮説（Output Hypothesis）</span>は、カナダのフランス語イマージョン教育の観察から生まれた。イマージョン学習者は受容的技能では母語話者並みに達していても、産出的技能には顕著なギャップがあった。</p>
+
+    <p>Swain が提示した三機能論——①気づき機能（Noticing）、②メタ言語機能（Metalinguistic）、③仮説検証機能（Hypothesis-Testing）——は、アウトプットを単なる「学習の産物」ではなく、「学習の駆動装置」として位置づけた。この枠組みは今日に至るまで SLA 研究の根幹を成しており、Swain の 1995 年論文は 2025 年時点で 2,282 件の被引用数を持つ。</p>
+
+    <h2>「産出仮説」が明らかにする三つの認知的回路</h2>
+    <p>第一の<span class="gloss" title="Notice the Gap：学習者が自分の中間言語と目標言語の差に気づくこと">気づき機能</span>は、学習者が産出を試みた際に自分の知識のギャップに「気づく」プロセスを指す。理解可能なインプットを受け取るだけでは、学習者は意味を文脈や語彙の推測で補えるため、構文的処理を省略しやすい。しかし、何かを言おうとした瞬間、その語彙が手元にないこと、その構文が分からないことに初めて気づく。これがインプット仮説では説明しきれない習得の入口である。</p>
+
+    <p>第二のメタ言語機能は、産出が学習者に言語そのものについて「言語で考える」機会（<span class="gloss" title="Languaging：言語について言語で思考・対話するプロセス">languaging</span>）を与えることを指す。協働ライティング課題や口頭タスクで学習者がパートナーと「この場合は受動態を使うべきか」と議論する際、まさにメタ言語機能が働いている。</p>
+
+    <p>第三の仮説検証機能では、産出が一種の「試行」として機能する。学習者は新しい語形や文構造を使ってみて、相手の反応や修正フィードバックによってその仮説が正しいかどうかを確かめる。Pica ら（1989）はこのプロセスにより学習者が自分の言語表現を自律的に修正することを示した。</p>
+
+    <div class="plain-lang">
+      <p>産出行為は「習ったことの確認」ではなく、「まだ知らないことを発見する装置」である。授業で話させ・書かせることの意義は、ここにある。</p>
+    </div>
+
+    <h2>インタラクション研究との接合——産出はひとりでは完成しない</h2>
+    <p>産出仮説はインタラクション研究と深く絡み合っている。Cambridge Core に掲載されたインタラクション研究レビューは、「インタラクションは第二言語習得において欠くことのできない構成要素である」と明言し、インプット、意味交渉、アウトプットという三つの核心的構成要素を軸に研究領域を整理している。学習者の言語への露出と産出、そしてそれらと認知資源・個人差の相互作用が習得を形成するという構図は、産出仮説とインタラクション仮説を橋渡しする。</p>
+
+    <p><span class="gloss" title="Negotiation for Meaning：意味の取り違いを解消するための交渉プロセス">意味交渉（Negotiation for Meaning）</span>こそが、産出を習得に直結させるメカニズムである。相手に伝わらなかった表現を言い換えようとする時、学習者は正確さと流暢さの両方を同時に追求することになる。2026 年に刊行された Routledge の新書『Racialized Identities in Second Language Learning』（Nguyen & Malabarba, 2026）が示すように、現代の SLA 研究は職場・地域コミュニティといった institutional ではない文脈での産出をも視野に入れ始めている。</p>
+
+    <h2>タスク繰り返しと産出の精度——授業設計への示唆</h2>
+    <p>産出が習得を促すためには、「質の高い産出機会」が必要である。単なる穴埋め問題への答えを「産出」と見なすことはできない。研究が示す効果的な産出タスクの条件として、①意味交渉が生じる双方向性、②時間的プレッシャーが正確さへの注意を促すこと、③繰り返し（task repetition）によるモニタリング機会の確保、が挙げられる。繰り返しタスクを用いた研究では、口頭タスクの反復が正確性を高め、metatalk（言語について話すこと）と仮説検証を促進することが報告されている。</p>
+
+    <p>また SLA 研究が示す「協働的ライティング」の効果も注目に値する。ペアで一つのテキストを書く活動では、各学習者が単独で書くよりも多くのメタ言語的反省が生じ、それが後続の個人タスクの精度向上につながることが複数の研究で確認されている。</p>
+
+    <h2>Study Abroad Research が示す産出環境の質</h2>
+    <p>Study Abroad Research in Second Language Acquisition（2026年最新号）は、留学・海外研修文脈での産出の質という視点を提供する。Vahlenkamp & Harsch（2026）は学習者のエージェンシーが言語学習経路に果たす役割を探り、留学先での産出機会の豊富さだけでなく、学習者が産出を「選択」するエージェンシーこそが長期的習得を規定することを示唆している。これはカリキュラム設計において、「産出させる」だけでなく「産出したくなる」環境づくりの重要性を改めて問う。</p>
+
+    <!-- INFOGRAPHIC -->
+    <div class="infographic-wrap">
+      <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" aria-label="産出仮説の三機能モデル">
+        <!-- bg -->
+        <rect width="560" height="320" fill="#F5F0E8" rx="6"/>
+        <!-- title -->
+        <text x="280" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#1A1612">Swain の産出仮説——三機能モデル</text>
+        <!-- center circle: OUTPUT -->
+        <circle cx="280" cy="170" r="54" fill="#C85A1A" opacity="0.15" stroke="#C85A1A" stroke-width="2"/>
+        <text x="280" y="165" text-anchor="middle" font-size="14" font-weight="700" fill="#C85A1A">産出</text>
+        <text x="280" y="182" text-anchor="middle" font-size="11" fill="#C85A1A">OUTPUT</text>
+
+        <!-- Function 1: Noticing -->
+        <ellipse cx="110" cy="110" rx="82" ry="44" fill="#EDE7D8" stroke="#C85A1A" stroke-width="1.5"/>
+        <text x="110" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">① 気づき機能</text>
+        <text x="110" y="120" text-anchor="middle" font-size="10" fill="#4A3F32">Noticing Function</text>
+        <text x="110" y="135" text-anchor="middle" font-size="10" fill="#4A3F32">知識ギャップの発見</text>
+        <!-- arrow -->
+        <line x1="183" y1="130" x2="228" y2="147" stroke="#C85A1A" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+        <!-- Function 2: Metalinguistic -->
+        <ellipse cx="450" cy="110" rx="82" ry="44" fill="#EDE7D8" stroke="#B84E12" stroke-width="1.5"/>
+        <text x="450" y="105" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">② メタ言語機能</text>
+        <text x="450" y="120" text-anchor="middle" font-size="10" fill="#4A3F32">Metalinguistic Function</text>
+        <text x="450" y="135" text-anchor="middle" font-size="10" fill="#4A3F32">言語についての思考</text>
+        <!-- arrow -->
+        <line x1="377" y1="130" x2="332" y2="147" stroke="#B84E12" stroke-width="1.5" marker-end="url(#arrowhead2)"/>
+
+        <!-- Function 3: Hypothesis Testing -->
+        <ellipse cx="280" cy="278" rx="100" ry="34" fill="#EDE7D8" stroke="#D4691E" stroke-width="1.5"/>
+        <text x="280" y="273" text-anchor="middle" font-size="12" font-weight="700" fill="#1A1612">③ 仮説検証機能</text>
+        <text x="280" y="289" text-anchor="middle" font-size="10" fill="#4A3F32">Hypothesis-Testing  フィードバックで確認</text>
+        <!-- arrow -->
+        <line x1="280" y1="244" x2="280" y2="252" stroke="#D4691E" stroke-width="1.5" marker-end="url(#arrowhead3)"/>
+
+        <!-- Arrows from center down -->
+        <defs>
+          <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#C85A1A"/>
+          </marker>
+          <marker id="arrowhead2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#B84E12"/>
+          </marker>
+          <marker id="arrowhead3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#D4691E"/>
+          </marker>
+        </defs>
+        <!-- label: input vs output -->
+        <rect x="20" y="285" width="160" height="24" rx="3" fill="#C85A1A" opacity="0.12"/>
+        <text x="100" y="301" text-anchor="middle" font-size="11" fill="#C85A1A" font-weight="600">インプットだけでは不十分</text>
+        <rect x="380" y="285" width="160" height="24" rx="3" fill="#B84E12" opacity="0.12"/>
+        <text x="460" y="301" text-anchor="middle" font-size="11" fill="#B84E12" font-weight="600">産出が習得を「駆動」する</text>
+      </svg>
+    </div>
+
+    <h2>実践への架け橋——産出機会を設計する五つの原則</h2>
+    <p>①<strong>産出先行（Output Before Input）</strong>：まず既有知識で書き・話させ、その後にインプットを与える「気づき→補完」サイクルを設ける。②<strong>タスク繰り返し設計</strong>：同一タスクを時間をおいて再度行わせ、モニタリングの深化を促す。③<strong>意味交渉を生む双方向タスク</strong>：情報ギャップ活動や課題解決型会話など、相手がいないと完成しない設計にする。④<strong>書いたものへの仲間フィードバック</strong>：メタ言語的気づきを言語化させる。⑤<strong>明示的な自己モニタリング指導</strong>：学習者に「何が言えなかったか」を記録させる振り返りシートを導入する。</p>
+
+    <div class="editorial">
+      <div class="editorial-label">Editorial Comment</div>
+      <p>本号では「産出仮説」という古典的テーマを SLA 最新動向と接続して論じた。現場でよく見られる「インプット重視・アウトプット軽視」の設計は、理論的根拠が薄い。Swain の仕事が示すのは、「話させる・書かせる」活動が練習以上の意味を持つという事実だ。特に教室内でのペアライティングや口頭タスク繰り返しは、低コストで高い認知的効果を生む設計原理として再評価されてよい。</p>
+    </div>
+  </div>
+  <div class="sources">
+    <div class="sources-label">一次資料・参照文献</div>
+    <div class="source-item">Swain, M. (1995). Three functions of output in second language learning. In G. Cook & B. Seidlhofer (Eds.), <em>Principle and Practice in Applied Linguistics</em> (pp. 125–144). Oxford University Press.</div>
+    <div class="source-item">Long, M. H. (1996). The role of the linguistic environment in second language acquisition. In W. Ritchie & T. Bhatia (Eds.), <em>Handbook of Second Language Acquisition</em>. Academic Press.</div>
+    <div class="source-item">Cambridge Core — Interaction and Instructed SLA Review: <a href="https://www.cambridge.org/core/journals/language-teaching/article/interaction-and-instructed-second-language-acquisition/78A156EE200F744F5978F99BFB073DBE" target="_blank">doi:10.1017/S0261444818000484</a></div>
+    <div class="source-item">Vahlenkamp, H. &amp; Harsch, C. (2026). The role of agency in international students' language learning pathways. <em>Study Abroad Research in Second Language Acquisition</em>, 11(1), 95. <a href="https://benjamins.com/catalog/sar" target="_blank">benjamins.com/catalog/sar</a></div>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-header">
+    <div class="article-num">ARTICLE 02 / テスト工学・測定論</div>
+    <span class="article-tag">Language Testing · Validity · Scenario-Based Assessment</span>
+    <h1 class="article-title">シナリオ型言語評価の妥当性——CEFR × 学習志向評価が問い直す「テストとは何か」</h1>
+    <p class="article-lead">Language Assessment Quarterly 2026年第23巻に掲載された一連の研究は、「シナリオ型評価（SBA）」という新しい枠組みを前景化させている。規格化された問題形式から、文脈に埋め込まれた能力測定へ——テスト工学の地殻変動を読み解く。</p>
+    <hr class="accent-rule">
+  </div>
+
+  <h2 class="section-heading">シナリオ型評価とは何か</h2>
+  <p><span class="gloss" title="Scenario-Based Assessment（シナリオ型評価）。真正の言語使用場面を模倣した課題を通じて、situated（文脈化された）能力を測定する枠組み">シナリオ型評価（SBA）</span>は、「試験会場でのペーパーテスト」という形式を超え、現実に近いコミュニケーション場面の中で言語能力を測定しようとするアプローチである。2026年の Language Assessment Quarterly には、B1レベルの英語 SBA の妥当性検証（Purpura ら）、AI強化型 SBA のための解釈論的論証（Voss ら）、韓国語外国語環境での SBA（Liao ら）という三つの論文が集中掲載された。</p>
+  <p>これらに共通するのは、<span class="gloss" title="Learning-Oriented Language Assessment（LOLA）。評価が学習促進機能を持つべきとする枠組み。「測るだけ」から「育てる」評価へ">学習志向評価（LOLA）</span>フレームワークを理論的基盤とする点である。テストはもはや学習成果を「後測定する」装置ではなく、学習プロセスそのものを駆動するフィードバックループとして設計される。</p>
+
+  <div class="key-box">
+    <div class="key-box-title">📌 キー概念 — 妥当性の現代的定義</div>
+    <p><strong>Construct Validity（構成概念妥当性）</strong>：テストが測ろうとしている能力（構成概念）を実際に測れているか。言語テストでは「語彙知識を測りたいのに文法推論で解ける問題になっていないか」といった問いが典型。</p>
+    <p><strong>Consequential Validity（結果的妥当性）</strong>：テスト使用が学習者・教師・社会に与える影響（washback）を含む広義の妥当性。「いい点がとれたから習得できた」とは限らない。</p>
+    <p><strong>Interpretation Argument（解釈論的論証）</strong>：テストスコアから「この人は〇〇できる」という推論の連鎖を明示化し、各リンクの根拠を示す現代的妥当性論（Kane, 2006）。</p>
+  </div>
+
+  <h2 class="section-heading">TOEFLの尺度改定——2026年1月の変化</h2>
+  <p>テスト工学の現場では2026年1月に重要な変化が起きた。TOEFLが従来の0〜120点スケールから1〜6点（0.5点刻み）の新スケールへ移行したのである。この変更は、CEFR の六段階区分との対応をより直感的にするための設計変更だと説明されている。旧スコアと新スコアは2028年まで並記される移行期間が設けられており、採用や入学審査の現場では新旧対応表の参照が不可欠となっている。</p>
+  <p>一方 JLPT については、依然としてリスニングと読解のみを測定し、「N2 スコアは会話能力を担保しない」という根本的制約が変わっていない。特定テストが测る構成概念と、実務現場が必要とする能力プロファイルのずれ——<span class="gloss" title="Construct Underrepresentation（構成概念の過小表現）。テストが能力の全体をカバーしきれていない状態">構成概念過小表現</span>の問題——は、外国人材採用という文脈でいっそう深刻になっている。</p>
+
+  <!-- SVG INFOGRAPHIC -->
+  <div class="infographic">
+    <svg viewBox="0 0 560 310" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+      <rect width="560" height="310" fill="#FAF7F2" rx="6"/>
+      <text x="280" y="30" text-anchor="middle" font-size="13" font-weight="bold" fill="#1A1612">言語テスト妥当性モデルの比較</text>
+      <!-- Traditional -->
+      <rect x="24" y="46" width="240" height="200" rx="5" fill="#F5F0E8" stroke="#B86020" stroke-width="1.5"/>
+      <text x="144" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#B86020">伝統的妥当性モデル</text>
+      <text x="144" y="84" text-anchor="middle" font-size="10" fill="#7A6E62">（〜2000年代）</text>
+      <rect x="44" y="94" width="200" height="28" rx="3" fill="#EDE7D9"/>
+      <text x="144" y="113" text-anchor="middle" font-size="11" fill="#4A3F35">内容妥当性（Content Validity）</text>
+      <rect x="44" y="130" width="200" height="28" rx="3" fill="#EDE7D9"/>
+      <text x="144" y="149" text-anchor="middle" font-size="11" fill="#4A3F35">基準関連妥当性（Criterion-related）</text>
+      <rect x="44" y="166" width="200" height="28" rx="3" fill="#EDE7D9"/>
+      <text x="144" y="185" text-anchor="middle" font-size="11" fill="#4A3F35">構成概念妥当性（Construct）</text>
+      <text x="144" y="218" text-anchor="middle" font-size="10" fill="#7A6E62">↓ 各次元を独立に検証</text>
+      <text x="144" y="232" text-anchor="middle" font-size="10" fill="#7A6E62">社会的影響は評価外</text>
+      <!-- Modern -->
+      <rect x="292" y="46" width="244" height="200" rx="5" fill="#F5F0E8" stroke="#B86020" stroke-width="1.5"/>
+      <text x="414" y="68" text-anchor="middle" font-size="12" font-weight="bold" fill="#B86020">現代的妥当性論（Messick/Kane）</text>
+      <text x="414" y="84" text-anchor="middle" font-size="10" fill="#7A6E62">（2000年代〜現在）</text>
+      <rect x="312" y="94" width="204" height="28" rx="3" fill="#EDE7D9"/>
+      <text x="414" y="113" text-anchor="middle" font-size="11" fill="#4A3F35">解釈論的論証（Interpretation Argument）</text>
+      <rect x="312" y="130" width="204" height="28" rx="3" fill="#EDE7D9"/>
+      <text x="414" y="149" text-anchor="middle" font-size="11" fill="#4A3F35">結果的妥当性（Consequential）</text>
+      <rect x="312" y="166" width="204" height="28" rx="3" fill="#EDE7D9"/>
+      <text x="414" y="185" text-anchor="middle" font-size="11" fill="#4A3F35">学習志向評価（LOLA）</text>
+      <text x="414" y="218" text-anchor="middle" font-size="10" fill="#7A6E62">↓ スコア使用の推論連鎖を明示</text>
+      <text x="414" y="232" text-anchor="middle" font-size="10" fill="#7A6E62">Washback・社会的影響も含む</text>
+      <!-- Bottom note -->
+      <text x="280" y="266" text-anchor="middle" font-size="11" font-weight="bold" fill="#B86020">2026年の焦点：SBA + AI × LOLA の統合</text>
+      <text x="280" y="283" text-anchor="middle" font-size="10" fill="#7A6E62">Language Assessment Quarterly Vol.23 (2026) / Elao (2026) を基に編集部作成</text>
+    </svg>
+  </div>
+
+  <h2 class="section-heading">AI強化型評価と解釈論的論証</h2>
+  <p>Voss らの研究は AI 強化型 SBA に LOLA フレームワークを適用し、テストスコアから「この学習者は B1 レベルの英語でシナリオを遂行できる」という推論の根拠を丁寧に積み上げる「解釈論的論証」を構築している。注目すべきは、AI による採点・フィードバックの自動化が評価サイクルを高速化する反面、<span class="gloss" title="Scoring Validity（採点妥当性）。採点プロセスが構成概念に忠実であるかどうか。自動採点では特に重要">採点妥当性</span>の担保がより精緻な検証を要求するという指摘である。</p>
+  <p>テスト工学の現場実践者にとって最も重要なのは、「AI が採点しているから客観的・信頼できる」という思い込みを退け、システムが何の証拠から何の能力推論をしているのかを常に問い続ける批判的姿勢である。SLAと測定論の知識を統合した「評価リテラシー」が、2026年の教務担当者に求められている。</p>
+
+  <div class="plain-box">
+    <div class="plain-box-title">💬 平たく言えば</div>
+    <p>「テストのスコアが高い＝その能力がある」は必ずしも成り立たない。なぜそのスコアからその能力判断ができるのかの「証拠の連鎖」を示せるテストだけが、使用に値する。2026年はその連鎖を AI まで含めて設計する時代になった。</p>
+  </div>
+
+  <h2 class="section-heading">SBA の導入ステップ</h2>
+  <p>SBA の実装は一朝一夕には進まないが、小規模から始めるロードマップは描ける。第一段階は「パフォーマンス課題」の挿入——既存テストに一問だけ「職場で起きる会話をロールプレイで解決する」課題を加えることだ。第二段階は採点基準（<span class="gloss" title="Rubric（ルーブリック）。評価観点と熟達度水準を記述した採点基準表。SBAでは課題固有のルーブリック設計が必要">ルーブリック</span>）の明示化と採点者トレーニング。第三段階で AI 補助採点を試験的に導入し、妥当性の追跡検証を行う、という三段階アプローチが現実的だ。</p>
+
+  <div class="editorial">
+    <div class="editorial-title">✦ Editorial Comment</div>
+    <p>TOEFL の尺度変更と JLPT の構成概念制約を並べると、「測りたいもの」と「測れているもの」のギャップが改めて浮き彫りになる。特に就労現場での日本語能力判定において、JLPT N レベルがコミュニケーション能力の代理指標として使われてきた慣習は、SBA 研究の知見から見直しを迫られている。LOLA 的発想、つまり「評価を通じて能力を育てる」という設計思想を、社内テストや面接評価にどう実装するかが次の課題だ。</p>
+  </div>
+
+  <div class="sources">
+    <div class="sources-title">一次資料・参考文献</div>
+    <ul>
+      <li>Language Assessment Quarterly Vol.23, Issue 1 (2026). Purpura et al.; Voss et al.; Liao et al. <a href="https://www.tandfonline.com/toc/hlaq20/current" target="_blank">tandfonline.com/toc/hlaq20</a></li>
+      <li>Elao (2026). "Language reference frameworks: the 2026 comparative guide." <a href="https://www.elao-test.com/en/blog/language-reference-frameworks-the-2026-comparative-guide" target="_blank">elao-test.com</a></li>
+      <li>Council of Europe. CEFR Assessment resources. <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/assessment" target="_blank">coe.int</a></li>
+      <li>Kane, M. (2006). Validation. In R. Brennan (Ed.), Educational Measurement (4th ed.). ACE/Praeger.</li>
+    </ul>
+  </div>
+
+</article>
+
+<article>
+<div class="article-date">2026-06-25</div>
+  <div class="article-header">
+    <div class="article-num">ARTICLE 01 / SLA最新研究</div>
+    <span class="article-tag">SLA · 第二言語習得</span>
+    <h1 class="article-title">インプット仮説を超えて——神経科学が照らす「インタラクション」の新解釈</h1>
+    <p class="article-lead">Krashen のインプット仮説（i+1）は半世紀にわたり教室指導の礎となってきた。だが2025〜2026年の神経言語学研究は、単方向の理解可能インプットだけでは説明しきれない脳の変化を次々と報告している。相互作用・身体性・フィードバックの三位一体こそが習得を駆動する、という新たなコンセンサスを整理する。</p>
+    <hr class="accent-rule">
+  </div>
+
+  <h2 class="section-heading">インプット仮説の功罪</h2>
+  <p>Krashen が提唱した<span class="gloss" title="comprehensible input（理解可能なインプット）。学習者の現在レベルより少しだけ難しい（i+1）言語材料が習得を促すという考え方">理解可能インプット</span>の概念は、教授法設計に多大な影響を与えた。読書、リスニング、大量の意味理解活動が推奨され、教室では「話させるより聞かせる」実践が広がった。しかし近年の研究は、この枠組みに根本的な問いを突き付けている。</p>
+  <p>2025年に発表された神経生態学的批判論文は、<span class="gloss" title="脳の可塑性。学習や経験によって神経回路が物理的に再構成される性質">神経可塑性</span>の観点から CI 仮説を再検証した。同研究によると、インタラクティブな学習は強化された行動アウトカムと脳の言語ネットワークにおける<span class="gloss" title="異なる脳領域が協調して活動する度合い。高いほど統合的な言語処理が行われていることを示す">機能的結合性の増大</span>をもたらす一方、非インタラクティブなリスニングにはそのような効果が見られないという。</p>
+
+  <div class="key-box">
+    <div class="key-box-title">📌 キー概念 — インタラクション仮説の三要素</div>
+    <p><strong>Input（インプット）</strong>：習得に必要な言語的素材。理解可能である必要はあるが、それだけでは不十分。</p>
+    <p><strong>Negotiation for Meaning（意味交渉）</strong>：理解が破綻したときに両者が修正・調整し合うプロセス。学習者が<span class="gloss" title="インプットを「気づく」こと。Noticingがなければ形式は習得されない（Schmidt, 1990）">noticing</span>を起こす契機となる。</p>
+    <p><strong>Corrective Feedback（是正フィードバック）</strong>：教師・対話者からのリキャスト、メタ言語的訂正など。フォームへの注意を促し、アウトプット修正を引き出す。</p>
+  </div>
+
+  <h2 class="section-heading">AI生成インプットと口頭熟達度——実証研究の最前線</h2>
+  <p>2025年の混合研究法論文（Frontiers in Education 掲載）は、成人EFL学習者90名を対象に6か月間のAI生成グレード別読書介入を実施した。熟達度別プロンプトで週次テキストを生成し、ACTFL口頭熟達度インタビュー（pre/post）で効果を測定した結果、全習熟レベルで有意な口頭能力向上が確認された。</p>
+  <p>注目すべきは、この実験がインタラクション・アウトプット条件を意図的に省いていた点である。つまり、<span class="gloss" title="Output Hypothesis（アウトプット仮説）。Swain(1985)が提唱。産出の過程で気づき・検証・メタ言語的反省が生まれるとする">アウトプット仮説</span>が予測するような発話練習なしに口頭能力が伸びたという事実は、「インプットだけでも一定の口頭発達が起きうる」という限定的証拠を提供する。ただし研究者自身が慎重に強調するように、Long のインタラクション仮説や Swain のアウトプット仮説が示すインタラクションと産出の補完的役割を否定するものではない。</p>
+
+  <h2 class="section-heading">神経科学が示す「インタラクション」の不可欠性</h2>
+  <p>Li と Jeong（2020）の総合的レビューを踏まえ、最新研究はインタラクティブな学習が脳の言語ネットワークにおける機能的結合性の増大をもたらすと報告している。一方で非インタラクティブなリスニングにはそのような効果が見られない。この知見は、チャットボット介入研究にも波及している。適応型チャットボット（学習者応答に基づいて言語複雑度を自動調整するシステム）を用いた学習者は、静的スクリプト会話に比べ、自律性と自己効力感において大きな向上を示した。</p>
+  <p>身体的・感覚運動的関与（<span class="gloss" title="embodiment（身体性）。言語習得が認知・身体・環境の相互作用によって駆動されるという生態学的視点">embodiment</span>）もまたCI仮説が看過してきた次元である。生態学的SLA理論は、言語処理が脳内の孤立した計算ではなく、身体と環境が継続的に結合する中で生じる「知覚と行動の機会（<span class="gloss" title="アフォーダンス。行為者が環境に知覚する行動可能性。言語学習では、教室環境や対話者がどのような習得機会を提供しているかを指す">アフォーダンス</span>）」を通じて発達すると主張する。</p>
+
+  <h2 class="section-heading">教室実践への示唆</h2>
+  <p>一連の研究が浮かび上がらせるのは、インプット仮説を「否定」するのではなく「補完」する理論的枠組みの必要性である。読書・リスニングによる大量インプットは習得の必要条件だが、それだけでは十分でない。意味交渉、是正フィードバック、身体的関与を組み込んだ「インタラクティブ・インプット」設計へのシフトが求められている。</p>
+  <p>実践的には、（1）タスクベース言語教育（<span class="gloss" title="TBLT：Task-Based Language Teaching。真正のコミュニケーション課題を通じてSLA理論を実装する教授法">TBLT</span>）による意味交渉機会の確保、（2）AIチャットボットを意味交渉パートナーとして活用した適応型インプット供給、（3）明示的フィードバック（メタ言語的訂正）と暗示的フィードバック（リキャスト）の使い分け、という三層設計が有効と考えられる。</p>
+
+  <!-- SVG INFOGRAPHIC -->
+  <div class="infographic">
+    <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+      <rect width="560" height="300" fill="#FAF7F2" rx="6"/>
+      <!-- Title -->
+      <text x="280" y="32" text-anchor="middle" font-size="13" font-weight="bold" fill="#1A1612">SLA習得モデルの進化：インプットからインタラクションへ</text>
+      <!-- Arrow path -->
+      <!-- Krashen Box -->
+      <rect x="28" y="56" width="148" height="80" rx="5" fill="#EDE7D9" stroke="#C85A1A" stroke-width="1.5"/>
+      <text x="102" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#C85A1A">インプット仮説</text>
+      <text x="102" y="99" text-anchor="middle" font-size="11" fill="#4A3F35">Krashen (1980s)</text>
+      <text x="102" y="116" text-anchor="middle" font-size="11" fill="#4A3F35">理解可能インプット i+1</text>
+      <text x="102" y="130" text-anchor="middle" font-size="11" fill="#4A3F35">→ 習得に必要十分</text>
+      <!-- Arrow 1 -->
+      <line x1="176" y1="96" x2="208" y2="96" stroke="#C85A1A" stroke-width="2" marker-end="url(#arr)"/>
+      <!-- Long Box -->
+      <rect x="208" y="56" width="148" height="80" rx="5" fill="#EDE7D9" stroke="#B86020" stroke-width="1.5"/>
+      <text x="282" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#B86020">インタラクション仮説</text>
+      <text x="282" y="99" text-anchor="middle" font-size="11" fill="#4A3F35">Long (1996)</text>
+      <text x="282" y="116" text-anchor="middle" font-size="11" fill="#4A3F35">意味交渉 + CF</text>
+      <text x="282" y="130" text-anchor="middle" font-size="11" fill="#4A3F35">→ Noticing 促進</text>
+      <!-- Arrow 2 -->
+      <line x1="356" y1="96" x2="388" y2="96" stroke="#B86020" stroke-width="2" marker-end="url(#arr2)"/>
+      <!-- Neuro Box -->
+      <rect x="388" y="56" width="148" height="80" rx="5" fill="#EDE7D9" stroke="#A85018" stroke-width="1.5"/>
+      <text x="462" y="82" text-anchor="middle" font-size="12" font-weight="bold" fill="#A85018">神経生態学的枠組み</text>
+      <text x="462" y="99" text-anchor="middle" font-size="11" fill="#4A3F35">2025–2026</text>
+      <text x="462" y="116" text-anchor="middle" font-size="11" fill="#4A3F35">身体性 + 機能的結合</text>
+      <text x="462" y="130" text-anchor="middle" font-size="11" fill="#4A3F35">→ 脳回路の変化</text>
+      <!-- Bottom row: Three pillars -->
+      <text x="280" y="168" text-anchor="middle" font-size="11" fill="#7A6E62">▼ 2026年の教室設計への三提言</text>
+      <rect x="28" y="178" width="155" height="52" rx="4" fill="#F2EBE0" stroke="#C85A1A" stroke-width="1"/>
+      <text x="106" y="198" text-anchor="middle" font-size="12" fill="#C85A1A" font-weight="bold">①インタラクション</text>
+      <text x="106" y="215" text-anchor="middle" font-size="11" fill="#4A3F35">TBLT課題で意味交渉</text>
+      <text x="106" y="226" text-anchor="middle" font-size="11" fill="#4A3F35">を担保する</text>
+      <rect x="202" y="178" width="155" height="52" rx="4" fill="#F2EBE0" stroke="#B86020" stroke-width="1"/>
+      <text x="280" y="198" text-anchor="middle" font-size="12" fill="#B86020" font-weight="bold">②適応型インプット</text>
+      <text x="280" y="215" text-anchor="middle" font-size="11" fill="#4A3F35">AIチャットで i+1を</text>
+      <text x="280" y="226" text-anchor="middle" font-size="11" fill="#4A3F35">個別提供</text>
+      <rect x="376" y="178" width="155" height="52" rx="4" fill="#F2EBE0" stroke="#A85018" stroke-width="1"/>
+      <text x="454" y="198" text-anchor="middle" font-size="12" fill="#A85018" font-weight="bold">③フィードバック設計</text>
+      <text x="454" y="215" text-anchor="middle" font-size="11" fill="#4A3F35">明示的CF/リキャストを</text>
+      <text x="454" y="226" text-anchor="middle" font-size="11" fill="#4A3F35">状況別に使い分ける</text>
+      <!-- Note -->
+      <text x="280" y="268" text-anchor="middle" font-size="10" fill="#A09070">CF = Corrective Feedback（是正フィードバック） / TBLT = タスクベース言語教育</text>
+      <text x="280" y="284" text-anchor="middle" font-size="10" fill="#A09070">出典: Frontiers in Psychology 2025 / Frontiers in Education 2025 を基に編集部作成</text>
+      <!-- Arrow markers -->
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 Z" fill="#C85A1A"/>
+        </marker>
+        <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M0,0 L10,5 L0,10 Z" fill="#B86020"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="plain-box">
+    <div class="plain-box-title">💬 平たく言えば</div>
+    <p>「聞かせて読ませるだけ」では脳の言語回路は動き切らない。対話の中で「えっ、どういうこと？」と止まり、言い換え・問い直しが生まれる瞬間こそが習得の核心。AI時代でも「やりとり」の設計が勝負を決める。</p>
+  </div>
+
+  <h2 class="section-heading">SLAと教師教育の接合</h2>
+  <p>理論と実践の橋渡しという点では、2026年3月に発表された教師訓練研究が示唆に富む。SLA理論（インプット仮説・インタラクション仮説・社会文化理論・認知処理モデル）を ESL 教師養成に統合した実践研究は、これらのフレームワークが専門基準やプログラムカリキュラムに広く引用されながら、実践的な教師準備への影響は一様でないことを明らかにした。研究知見が教室に届くまでの「翻訳コスト」を下げることが、これからの教育研究者の使命となっている。</p>
+  <p>具体的には、研究者が実験室で検証したインタラクション条件（タスク種別・CF密度・話者構成）を、そのまま授業デザインの言語に変換する「研究→実践プロトコル」の整備が急務だ。PRAXIS はその橋渡しを Issue ごとに試みていく。</p>
+
+  <div class="editorial">
+    <div class="editorial-title">✦ Editorial Comment</div>
+    <p>本稿で整理したインプット仮説批判は、「インプットは不要だ」という主張ではない。大量の理解可能インプット確保は習得の前提である。ただしそれだけでは脳の言語ネットワークに決定的な変化をもたらさない——という「必要だが十分でない」関係性の理解が、2026年の教授設計の出発点となる。特にオンライン・非同期授業が増加する環境では、インタラクション機会の意図的設計なくして「インプット漬け」になりやすい。意味交渉を組み込んだタスク設計の優先度を今一度見直してほしい。</p>
+  </div>
+
+  <div class="sources">
+    <div class="sources-title">一次資料・参考文献</div>
+    <ul>
+      <li>Frontiers in Psychology (2025). "Beyond comprehensible input: a neuro-ecological critique of Krashen's hypothesis." <a href="https://doi.org/10.3389/fpsyg.2025.1636777" target="_blank">doi:10.3389/fpsyg.2025.1636777</a></li>
+      <li>Frontiers in Education (2025). "Testing Krashen's input hypothesis with AI: a mixed-methods study." <a href="https://doi.org/10.3389/feduc.2025.1614680" target="_blank">doi:10.3389/feduc.2025.1614680</a></li>
+      <li>Garalde &amp; Estremera (2026). "SLA Theories Applied in ESL Teacher Training." <em>EIKI Journal of Effective Teaching Methods</em>, 4(1). <a href="https://doi.org/10.59652/cem63708" target="_blank">doi:10.59652/cem63708</a></li>
+      <li>Studies in Second Language Acquisition (2026, Vol.48). "Research ethics in AL and SLA research: A disability justice lens." Cambridge Core.</li>
+    </ul>
+  </div>
+
+</article>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p>PRAXIS — 言語教育の研究と実践をつなぐ</p>
+    <p style="margin-top:0.5rem;font-size:0.75rem">各記事は一次資料に基づく解説・解釈を含みます。引用データは原典をご確認ください。</p>
+  </div>
+</footer>
 </body>
 </html>
